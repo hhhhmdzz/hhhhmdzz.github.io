@@ -1,0 +1,1936 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="第2章-放大单元与基本组成电路, Hexo">
+    <meta name="description" content="第2章-放大单元与基本组成电路[toc]
+2.1 放大的概念放大的本质是能量放大&amp;amp;能量转换
+耦合电路：增加电容
+
+2.2 放大电路的直流工作平台
+放大电路中直流电源的作用：
+提供放大功率
+保证放大期间具有正向受控作用
+
+
+
+放大电路">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+    <title>第2章-放大单元与基本组成电路 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/img/loading.gif" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>主页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>评论</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/img/loading.gif" data-original="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			主页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			评论
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hhhhmdzz/hhhhmdzz.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hhhhmdzz/hhhhmdzz.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">第2章-放大单元与基本组成电路</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%A8%A1%E7%94%B5/">
+                                <span class="chip bg-color">模电</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%A8%A1%E7%94%B5%E7%AC%94%E8%AE%B0/" class="post-category">
+                                模电笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2022-06-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2022-06-29
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="第2章-放大单元与基本组成电路"><a href="#第2章-放大单元与基本组成电路" class="headerlink" title="第2章-放大单元与基本组成电路"></a>第2章-放大单元与基本组成电路</h1><p>[toc]</p>
+<h2 id="2-1-放大的概念"><a href="#2-1-放大的概念" class="headerlink" title="2.1 放大的概念"></a>2.1 放大的概念</h2><p>放大的本质是能量放大&amp;能量转换</p>
+<p>耦合电路：增加电容</p>
+<hr>
+<h2 id="2-2-放大电路的直流工作平台"><a href="#2-2-放大电路的直流工作平台" class="headerlink" title="2.2 放大电路的直流工作平台"></a>2.2 放大电路的直流工作平台</h2><ul>
+<li>放大电路中直流电源的作用：<ol>
+<li>提供放大功率</li>
+<li>保证放大期间具有正向受控作用</li>
+</ol>
+</li>
+</ul>
+<p>放大电路的放大是建立在直流工作平台基础上的信号放大。</p>
+<hr>
+<h2 id="2-3-直流通路和交流通路"><a href="#2-3-直流通路和交流通路" class="headerlink" title="2.3 直流通路和交流通路"></a>2.3 直流通路和交流通路</h2><ul>
+<li><p>直流通路：</p>
+<ul>
+<li>交流信号置零</li>
+<li>电容开路</li>
+<li>电感短路</li>
+</ul>
+</li>
+<li><p>交流通路：</p>
+<ul>
+<li>直流信号置零</li>
+<li>电容短路</li>
+<li>电感开路</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-4-静态工作点的稳定"><a href="#2-4-静态工作点的稳定" class="headerlink" title="2.4 静态工作点的稳定"></a>2.4 静态工作点的稳定</h2><p><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.4 三极管共发射极放大电路1.jpg" width=800px><br><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.4 三极管共发射极放大电路2-计算.jpg" width=800px><br><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.4 三极管共发射极放大电路3-静态工作点的稳定.jpg" width=800px></p>
+<hr>
+<h2 id="2-5-放大电路的性能指标"><a href="#2-5-放大电路的性能指标" class="headerlink" title="2.5 放大电路的性能指标"></a>2.5 放大电路的性能指标</h2><ul>
+<li>性能指标<ul>
+<li>增益（放大倍数）：输出与输入之比<ol>
+<li>电压增益 ${\large A_u = \frac{\dot{U_o}}{\dot{U_i}}}$</li>
+<li>电流增益 ${\large A_i = \frac{\dot{I_o}}{\dot{I_i}}}$</li>
+<li>互阻增益 ${\large A_r = \frac{\dot{U_o}}{\dot{I_i}}}$</li>
+<li>互导增益 ${\large A_g = \frac{\dot{I_o}}{\dot{U_i}}}$</li>
+</ol>
+</li>
+<li>输入阻抗：${\large Z_i = \frac{\dot{U_i}}{\dot{I_i}}}$</li>
+<li>输出阻抗：${\large Z_o = \frac{\dot{U_o}}{\dot{I_o}}|_{R_L = \infin ~,~ \dot{U}_S = 0}}$</li>
+</ul>
+</li>
+</ul>
+<p><strong>放大倍数、$R_i$、$R_o$</strong>、通频带、非线性失真、最大不失真输出电压、最大输出功率与频率</p>
+<hr>
+<h2 id="2-6-晶体管的H参数等效模型"><a href="#2-6-晶体管的H参数等效模型" class="headerlink" title="2.6 晶体管的H参数等效模型"></a>2.6 晶体管的H参数等效模型</h2><p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.6 晶体管的H参数等效模型1-微变等效模型.jpg" width=800px></p>
+<ul>
+<li>三极管的三种组态的微变等效模型</li>
+</ul>
+<p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.6 晶体管的H参数等效模型2-三种组态的微变等效模型.jpg" width=800px></p>
+<hr>
+<h2 id="2-7-共发射极放大电路的动态分析"><a href="#2-7-共发射极放大电路的动态分析" class="headerlink" title="2.7 共发射极放大电路的动态分析"></a>2.7 共发射极放大电路的动态分析</h2><!-- - 增益
+
+  - 无 $R_E$：$A_u = - \frac{R_L'\beta I_b}{r_{be}I_b} = - \frac{R_L'\beta}{r_{be}}$ 增加放大增益
+  - 有 $R_E$：$A_u = - \frac{R_L'\beta I_b}{r_{be}I_b + I_eR_E} = - \frac{R_L'\beta}{r_{be} + (1 + \beta)R_E}$ 稳定放大增益 -->
+<details><summary><b>一个具体的例子</b>：增益、输入阻抗、输出阻抗</summary>
+<img src='./img/2. 放大单元与基本组成电路/2.7 共发射极放大电路的动态分析1.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.7 共发射极放大电路的动态分析2.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.7 共发射极放大电路的动态分析3.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.7 共发射极放大电路的动态分析4.jpg' width=800px>
+</details>
+
+
+<hr>
+<h2 id="2-8-增益稳定的共发射极放大电路动态电路分析"><a href="#2-8-增益稳定的共发射极放大电路动态电路分析" class="headerlink" title="2.8 增益稳定的共发射极放大电路动态电路分析"></a>2.8 增益稳定的共发射极放大电路动态电路分析</h2><p><strong>(发射极)旁路电容</strong>能提高放大增益：当无这电容时候，共发射放大电路由于发射极有电阻，这个电阻现成<strong>负反馈</strong>，使得放大电路的<strong>增益降低</strong>；当并联了旁路电容后，交流等效短路这个电阻，那么极大的<strong>减少负反馈量</strong>，这样可以<strong>提高</strong>本级的放大量，即增益。</p>
+<details><summary><b>一个具体的例子</b>：增益、输入阻抗、输出阻抗</summary>
+<img src='./img/2. 放大单元与基本组成电路/2.8 增益稳定的共发射极放大电路动态电路分析1.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.8 增益稳定的共发射极放大电路动态电路分析2.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.8 增益稳定的共发射极放大电路动态电路分析3.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.8 增益稳定的共发射极放大电路动态电路分析4.jpg' width=800px>
+</details>
+
+
+<hr>
+<h2 id="2-9-共集电极放大电路"><a href="#2-9-共集电极放大电路" class="headerlink" title="2.9 共集电极放大电路"></a>2.9 共集电极放大电路</h2><details><summary><b>一个具体的例子</b>：增益、输入阻抗、输出阻抗</summary>
+<img src='./img/2. 放大单元与基本组成电路/2.9 共集电极放大电路1.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.9 共集电极放大电路2.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.9 共集电极放大电路3.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.9 共集电极放大电路4.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.9 共集电极放大电路5.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.9 共集电极放大电路6.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.9 共集电极放大电路7.jpg' width=800px>
+</details>
+
+
+<hr>
+<h2 id="2-10-共基极放大电路"><a href="#2-10-共基极放大电路" class="headerlink" title="2.10 共基极放大电路"></a>2.10 共基极放大电路</h2><details><summary><b>一个具体的例子</b>：增益、输入阻抗、输出阻抗</summary>
+<img src='./img/2. 放大单元与基本组成电路/2.10 共基极放大电路1.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.10 共基极放大电路2.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.10 共基极放大电路3.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.10 共基极放大电路4.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.10 共基极放大电路5.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.10 共基极放大电路6.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.10 共基极放大电路7.jpg' width=800px>
+</details>
+
+
+<hr>
+<h2 id="2-11-晶体管基本放大电路三种接法的比较"><a href="#2-11-晶体管基本放大电路三种接法的比较" class="headerlink" title="2.11 晶体管基本放大电路三种接法的比较"></a>2.11 晶体管基本放大电路三种接法的比较</h2><p><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.11 晶体管基本放大电路三种接法的比较.jpg" width=800px></p>
+<ul>
+<li><font color='red'>三种基本放大单元电路性能</font>
+
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">电压增益 $A_u$</th>
+<th style="text-align:center">电流增益 $A_i$</th>
+<th style="text-align:center">输入电阻 $R_i$</th>
+<th style="text-align:center">输出电阻 $R_o$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">共发射极 CE</td>
+<td style="text-align:center">$- \frac{\beta R_L}{r_{be}}$</td>
+<td style="text-align:center">$\beta$</td>
+<td style="text-align:center">$r_{be}$</td>
+<td style="text-align:center">$\infin$</td>
+</tr>
+<tr>
+<td style="text-align:center">共基极 CB</td>
+<td style="text-align:center">$\frac{\beta R_L}{r_{be}}$</td>
+<td style="text-align:center">$-1$</td>
+<td style="text-align:center">$\frac{r_{be}}{1 + \beta}$</td>
+<td style="text-align:center">$\infin$</td>
+</tr>
+<tr>
+<td style="text-align:center">共集电极 CC</td>
+<td style="text-align:center">$- \frac{(1 + \beta) R_L}{r_{be} + (1 + \beta) R_L}$</td>
+<td style="text-align:center">$- (1 + \beta)$</td>
+<td style="text-align:center">$r_{be} + (1 + \beta)R_L$</td>
+<td style="text-align:center">$\frac{r_{be} + R_S}{1 + \beta}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>接口电路</strong>：共集电极放大电路</p>
+<hr>
+<h2 id="派生电路"><a href="#派生电路" class="headerlink" title="派生电路"></a>派生电路</h2><ul>
+<li>复合管</li>
+</ul>
+<p>小功率管子($\beta$ 大)在前级，大功率管子($\beta$ 小)的后级。</p>
+<p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/复合管方向.png"></p>
+<ul>
+<li><p>共射-共集放大电路</p>
+</li>
+<li><p>共集-共集放大电路</p>
+</li>
+</ul>
+<h2 id="晶体管恒流源"><a href="#晶体管恒流源" class="headerlink" title="晶体管恒流源"></a>晶体管恒流源</h2><ul>
+<li><p><strong>1. 镜像恒流源</strong></p>
+</li>
+<li><p><strong>2. 非对称恒流源</strong></p>
+</li>
+</ul>
+<hr>
+<h2 id="2-12-共源极放大电路"><a href="#2-12-共源极放大电路" class="headerlink" title="2.12 共源极放大电路"></a>2.12 共源极放大电路</h2><details><summary><b>一个具体的例子</b>：增益、输入阻抗、输出阻抗</summary>
+<img src='./img/2. 放大单元与基本组成电路/2.12 共源极放大电路1.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.12 共源极放大电路2.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.12 共源极放大电路3.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.12 共源极放大电路4.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.12 共源极放大电路5.jpg' width=800px>
+<img src='./img/2. 放大单元与基本组成电路/2.12 共源极放大电路6.jpg' width=800px>
+</details>
+
+
+<hr>
+<h2 id="2-13-多级放大电路"><a href="#2-13-多级放大电路" class="headerlink" title="2.13 多级放大电路"></a>2.13 多级放大电路</h2><ul>
+<li><p>电路中各级基本放大电路的连接方式</p>
+<ul>
+<li>多级放大电路常采用两种耦合方式：<ul>
+<li>间接耦合（隔直流）<ul>
+<li>阻容耦合——通过电容连接</li>
+<li>变压器耦合——通过变压器连接</li>
+</ul>
+</li>
+<li>直接耦合——不通过任何器件连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>各个的优缺点</p>
+<ul>
+<li>阻容耦合<ul>
+<li>优点：各级静态工作点相互独立，互不影响</li>
+<li>缺点：①低频特性差，不利于传递缓慢变化的信号②电容体积大，不易集成</li>
+</ul>
+</li>
+<li>变压器耦合<ul>
+<li>优点：①各级静态工作点<strong>相互独立</strong>，互不影响②在传递交流信号的同时实现<strong>阻抗变换</strong></li>
+<li>缺点：①低频特性差，不利于传递缓慢变化的信号②变压器笨重，无法集成</li>
+</ul>
+</li>
+<li>直接耦合<ul>
+<li>优点：①利用集成②低频特性好</li>
+<li>缺点：①前后静态工作点相互影响②零点漂移</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>零点漂移（可以参考：<a target="_blank" rel="noopener" href="http://www.jdzj.com/diangong/article/2018-2-3/96884-1.htm">直接耦合多级放大电路的零点漂移</a>）</p>
+<ul>
+<li>当输入信号电压为零时，输出电压发生缓慢无规则变化的现象</li>
+<li>产生的原因：<strong>①温度变化（主要）</strong>②直流电源波动③元件老化……</li>
+<li>解决方法：<strong>差分放大电路</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-14-多级放大电路性能指标分析"><a href="#2-14-多级放大电路性能指标分析" class="headerlink" title="2.14 多级放大电路性能指标分析"></a>2.14 多级放大电路性能指标分析</h2><p>总电压增益等于各级电压增益之积</p>
+<p>多级放大电路的<strong>输入阻抗</strong> = 第一级（输入级）的输入阻抗<font color='grey'>（但是这不意味着与后级无关）</font></p>
+<p>前级的<strong>负载阻抗</strong>可以看作后级的<strong>输入阻抗</strong>。</p>
+<p>前级的<strong>输出阻抗</strong>可以看作后级的<strong>信号源内阻抗</strong>。</p>
+<p>多级放大电路的<strong>输出阻抗</strong> = 最后一级（输出级）的输出阻抗<font color='grey'>（但是这不意味着与前级无关）</font></p>
+<p><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.14 多级放大电路性能指标分析：多级放大电路的输入输出阻抗.jpg" width=800px></p>
+<hr>
+<h2 id="2-15-对称结构单元放大电路之差分放大电路工作原理"><a href="#2-15-对称结构单元放大电路之差分放大电路工作原理" class="headerlink" title="2.15 对称结构单元放大电路之差分放大电路工作原理"></a>2.15 对称结构单元放大电路之差分放大电路工作原理</h2><ul>
+<li>温度漂移解决方案<ul>
+<li>直流负反馈</li>
+<li>温度补偿</li>
+<li>寻找电路对称结构——差分放大电路</li>
+</ul>
+</li>
+</ul>
+<p>差分放大电路：静态工作点 + 小信号的放大电路</p>
+<p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.15 对称结构单元放大电路之差分放大电路工作原理1.jpg" width=800px><br><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.15 对称结构单元放大电路之差分放大电路工作原理2.jpg" width=800px></p>
+<p>$R_L$ 两端电压相等，可视为开路。</p>
+<hr>
+<h2 id="2-16-对称结构单元放大电路之差分放大电路的信号选择性"><a href="#2-16-对称结构单元放大电路之差分放大电路的信号选择性" class="headerlink" title="2.16 对称结构单元放大电路之差分放大电路的信号选择性"></a>2.16 对称结构单元放大电路之差分放大电路的信号选择性</h2><p>差分放大电路对信号有<strong>选择性</strong></p>
+<p>${\large i_o = \frac{R_C}{2R_C + R_L}(i_{c2} - i_{c1})}\\<br>{\large u_o = \frac{R_LR_C}{2R_C + R_L}(i_{c2} - i_{c1})}$</p>
+<p>$输入信号 = 共模信号 \pm 差模信号$</p>
+<p>差分放大电路<strong>抑制共模信号，放大差模信号</strong></p>
+<p><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.16 对称结构单元放大电路之差分放大电路的信号选择性1.jpg" width=800px><br><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.16 对称结构单元放大电路之差分放大电路的信号选择性2.jpg" width=800px><br><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.16 对称结构单元放大电路之差分放大电路的信号选择性3.jpg" width=800px></p>
+<hr>
+<h2 id="2-17-对称结构单元放大电路之差分放大电路指标分析"><a href="#2-17-对称结构单元放大电路之差分放大电路指标分析" class="headerlink" title="2.17 对称结构单元放大电路之差分放大电路指标分析"></a>2.17 对称结构单元放大电路之差分放大电路指标分析</h2><details><summary><b>一个具体的例子</b>：增益、输入阻抗、输出阻抗</summary>
+
+
+- 电路分析
+  <img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.17 对称结构单元放大电路之差分放大电路指标分析1.jpg" width=800px>
+  <img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.17 对称结构单元放大电路之差分放大电路指标分析2.jpg" width=800px>
+  <img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.17 对称结构单元放大电路之差分放大电路指标分析3.jpg" width=800px>
+
+- 双端输出
+  共模信号
+  <img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.17 对称结构单元放大电路之差分放大电路指标分析4.jpg" width=800px>
+  差模信号
+  <img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.17 对称结构单元放大电路之差分放大电路指标分析5.jpg" width=800px>
+  差模信号的电压增益、输入电阻和输出电阻
+  <img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.17 对称结构单元放大电路之差分放大电路指标分析6.jpg" width=800px>
+
+- 单端输出
+  共模信号
+  <img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.17 对称结构单元放大电路之差分放大电路指标分析7.jpg" width=800px>
+  差模信号的电压增益、输入电阻和输出电阻
+  <img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.17 对称结构单元放大电路之差分放大电路指标分析8.jpg" width=800px>
+
+- 共模信号和差模信号的微变等效电路及电压增益
+  <img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.17 对称结构单元放大电路之差分放大电路指标分析9.jpg" width=800px>
+
+</details>
+
+<p>差分放大器可以抑制共模信号的原因：</p>
+<pre><code>1. 电路结构对称
+2. 共模抑制电阻 $R_&#123;EE&#125;$
+</code></pre><p>共模抑制比：${\large K_{CMR} = |\frac{A_{ud}}{A_{uc}}|}$，<strong>共模抑制比越大性能越好</strong>。</p>
+<hr>
+<h2 id="2-18-对称结构单元放大电路之功率放大电路工作原理"><a href="#2-18-对称结构单元放大电路之功率放大电路工作原理" class="headerlink" title="2.18 对称结构单元放大电路之功率放大电路工作原理"></a>2.18 对称结构单元放大电路之功率放大电路工作原理</h2><p>功放：通常作为多级放大电路的<strong>输出级</strong>，主要功能：为了推动负载工作，如：使扬声器发声，继电器动作，仪表指针偏转等</p>
+<ul>
+<li><p>功放<strong>设计需求</strong></p>
+<ul>
+<li>（1）在不失真前提下尽可能的输出较大功率</li>
+<li>（2）具有较高的效率（前面学习的<strong>小信号放大电路效率较低</strong>）</li>
+</ul>
+</li>
+<li><p>小信号放大电路效率较低的原因<br>在放大静态工作状态时会<strong>消耗功率</strong>，导致效率较低（<strong>甲类工作状态</strong>）；在截止静态工作状态时，虽然不会消耗功率而且输入交流信号的动态范围提升，但是产生了<strong>严重的失真</strong>，晶体管只在半个周期内处于导通状态（<strong>乙类工作状态</strong>）。</p>
+</li>
+</ul>
+<p>传统功放常采用变压器耦合方式（无法集成，影响低频性能）</p>
+<p><strong>OTL</strong>(Output Transformerless，无输出变压器)<strong>互补对称功放</strong></p>
+<ul>
+<li>晶体管的两类工作状态</li>
+</ul>
+<p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.18 对称结构单元放大电路之功率放大电路工作原理1.jpg" width=800px></p>
+<ul>
+<li>静态工作点电压</li>
+</ul>
+<p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.18 对称结构单元放大电路之功率放大电路工作原理2.jpg" width=800px></p>
+<ul>
+<li>两晶体管在一个周期内轮流交替导通，每个晶体管在半个周期内工作，处于<strong>乙类工作状态</strong>，均为共集电极放大电路</li>
+</ul>
+<p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.18 对称结构单元放大电路之功率放大电路工作原理3.jpg" width=800px></p>
+<hr>
+<h2 id="2-19-对称结构单元放大电路之OCL功率放大电路"><a href="#2-19-对称结构单元放大电路之OCL功率放大电路" class="headerlink" title="2.19 对称结构单元放大电路之OCL功率放大电路"></a>2.19 对称结构单元放大电路之OCL功率放大电路</h2><p><strong>OTL</strong> 电路虽然省去了输出变压器，但是输出还存在大容量电容，该电容无法<strong>集成</strong>，并且还影响低频性能。</p>
+<font color='red'>电容 $C_2$ 在电路中的作用：①保证三极管 $T_2$ 导通 ②为信号放大提供能量</font>
+
+<p>无法直接去掉电容，解决办法：添加一个负电源代替该电容的功能——电路采用正负双电源供电，得到——<strong>OCL</strong>(Ouput Capacitorless，无输出电容)<strong>乙类互补对称功放</strong></p>
+<p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.19 对称结构单元放大电路之OCL功率放大电路.jpg" width=800px></p>
+<hr>
+<h2 id="2-20-对称结构单元放大电路之功率放大电路的交越失真"><a href="#2-20-对称结构单元放大电路之功率放大电路的交越失真" class="headerlink" title="2.20 对称结构单元放大电路之功率放大电路的交越失真"></a>2.20 对称结构单元放大电路之功率放大电路的交越失真</h2><p>三极管加上一个正向电压，该电压一定要大于<strong>开启电压</strong>，三极管才开始导通。当信号在零附近时，两个三极管都处于截止状态，这样，信号在过零点附近就会产生失真——交越失真。</p>
+<ul>
+<li><strong>交越失真</strong></li>
+</ul>
+<p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.20 对称结构单元放大电路之功率放大电路的交越失真1.jpg" width=800px></p>
+<ul>
+<li>对OCL乙类互补对称功放做出<strong>改进</strong></li>
+</ul>
+<p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.20 对称结构单元放大电路之功率放大电路的交越失真2.jpg" width=800px></p>
+<p><strong>OCL甲乙类互补对称功率放大电路</strong>（工作状态介于甲类和乙类之间，更接近于乙类）</p>
+<hr>
+<h2 id="2-21-对称结构单元放大电路之功率放大电路指标分析"><a href="#2-21-对称结构单元放大电路之功率放大电路指标分析" class="headerlink" title="2.21 对称结构单元放大电路之功率放大电路指标分析"></a>2.21 对称结构单元放大电路之功率放大电路指标分析</h2><p><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.21 对称结构单元放大电路之功率放大电路指标分析1.jpg" width=800px><br><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.21 对称结构单元放大电路之功率放大电路指标分析2.jpg" width=800px><br><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.21 对称结构单元放大电路之功率放大电路指标分析3.jpg" width=800px><br><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.21 对称结构单元放大电路之功率放大电路指标分析4.jpg" width=800px><br><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.21 对称结构单元放大电路之功率放大电路指标分析5.jpg" width=800px></p>
+<hr>
+<h2 id="2-22-对称结构单元放大电路之OTL功率放大电路指标分析"><a href="#2-22-对称结构单元放大电路之OTL功率放大电路指标分析" class="headerlink" title="2.22 对称结构单元放大电路之OTL功率放大电路指标分析"></a>2.22 对称结构单元放大电路之OTL功率放大电路指标分析</h2><p>OTL电路中的电容作用——做电源</p>
+<p>因为OTL电路中 $V_B = \frac{Vcc}{2}$，所以可以看作是 OCL点路中的 $Vcc$ 换成 $\frac{Vcc}{2}$，效果一样。</p>
+<p><img src="/img/loading.gif" data-original="第2章-放大单元与基本组成电路/2.22 对称结构单元放大电路之OTL功率放大电路指标分析1.jpg" width=800px><br><img src="/img/loading.gif" data-original="./img/2. 放大单元与基本组成电路/2.22 对称结构单元放大电路之OTL功率放大电路指标分析2.jpg" width=800px></p>
+<hr>
+<hr>
+<p>射极输出器（射极跟随器）是三极管<strong>共集电极</strong>组成的放大器。因为输出在射极电阻 RE 两端,故名射极输出器。</p>
+<p>共栅极放大电路称为电流接续器；<br>共漏极放大电路称为电压跟随器</p>
+<p>源电压增益：${\large A_{vs} = \frac{v_o}{v_s} = \frac{v_i}{v_s} \cdot \frac{v_o}{v_i} = \frac{R_i}{R_i + R_s}A_v}$</p>
+<p>旁路电容：提高增益</p>
+<p>长尾电阻 -&gt; 理想电流源：提高共模抑制比（使得单端输出具有双端输出的共模抑制比）</p>
+<p>模电：第一级输入R大，中间级放大倍数大，最后一级输出R小</p>
+<p>差分放大器双端输出抑制效果最好</p>
+<p>如何理解对称：直流时，包含B、E的回路对称</p>
+<p>长尾电阻：REE —》电流源 IEE：提高共模抑制比</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hhhhmdzz</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hhhhmdzz.github.io/2022/06/29/%E7%AC%AC2%E7%AB%A0-%E6%94%BE%E5%A4%A7%E5%8D%95%E5%85%83%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90%E7%94%B5%E8%B7%AF/">https://hhhhmdzz.github.io/2022/06/29/%E7%AC%AC2%E7%AB%A0-%E6%94%BE%E5%A4%A7%E5%8D%95%E5%85%83%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90%E7%94%B5%E8%B7%AF/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">hhhhmdzz</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%A8%A1%E7%94%B5/">
+                                    <span class="chip bg-color">模电</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/img/loading.gif" data-original="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/img/loading.gif" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .mvaline-card {
+        margin: 1.5rem auto;
+    }
+
+    .mvaline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+</style>
+
+<div class="card mvaline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="mvcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/minivaline/MiniValine.js"></script>
+<script>
+    new MiniValine(Object.assign({"enable":true,"serverURL":"https://minivaline.your-domain.top"}, {
+	  el: '#mvcomments',
+    }));
+</script>
+
+    
+
+    
+        <style>
+    .waline-card {
+        margin: 1.5rem auto;
+    }
+    .waline-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #waline p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+    #waline blockquote p {
+        text-indent: 0.2rem;
+    }
+    #waline a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+    #waline img {
+        max-width: 100%;
+        cursor: pointer;
+    }
+    #waline ol li {
+        list-style-type: decimal;
+    }
+    #waline ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+    #waline ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+    #waline ul li {
+        list-style-type: disc;
+    }
+    #waline ul ul li {
+        list-style-type: circle;
+    }
+    #waline table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+    #waline table, th, td {
+        border: 0;
+    }
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+    #waline table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+    #waline table td {
+        min-width: 80px;
+    }
+    #waline h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+    #waline h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+    #waline h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+    #waline h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+    #waline h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+    #waline h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+    #waline p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    #waline hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+    #waline blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+    #waline pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+    #waline code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+    #waline pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+    #waline pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+    #waline code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+    #waline [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+    #waline b,
+    strong {
+        font-weight: bold;
+    }
+    #waline dfn {
+        font-style: italic;
+    }
+    #waline small {
+        font-size: 85%;
+    }
+    #waline cite {
+        font-style: normal;
+    }
+    #waline mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+    #waline table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+    #waline table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+    #waline table td {
+        min-width: 80px;
+    }
+    #waline [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+  </style>
+  
+  <div class="card waline-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="waline" class="card-content" style="display: grid">
+    </div>
+  </div>
+  
+
+  <!-- <script src="//cdn.jsdelivr.net/npm/@waline/client"></script> -->
+  <script src="/libs/waline/Waline.min.js"></script>
+  <script>
+    new Waline({
+        el: '#waline',
+        serverURL: 'https://waline.your-domain.com',
+        avatar: 'mm'    
+    });
+  </script> 
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2022/06/29/%E7%AC%AC3%E7%AB%A0-%E6%94%BE%E5%A4%A7%E5%99%A8%E9%A2%91%E7%8E%87%E7%89%B9%E6%80%A7%E5%9F%BA%E7%A1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/img/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="第3章-放大器频率特性基础">
+                        
+                        <span class="card-title">第3章-放大器频率特性基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%A8%A1%E7%94%B5%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    模电笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%A8%A1%E7%94%B5/">
+                        <span class="chip bg-color">模电</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/06/29/%E7%AC%AC1%E7%AB%A0-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%9F%BA%E7%A1%80%E5%85%83%E4%BB%B6%E4%BA%8E%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%94%B5%E8%B7%AF/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/img/loading.gif" data-original="/medias/featureimages/18.jpg" class="responsive-img" alt="第1章-半导体基础元件于非线性电路">
+                        
+                        <span class="card-title">第1章-半导体基础元件于非线性电路</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%A8%A1%E7%94%B5%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    模电笔记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%A8%A1%E7%94%B5/">
+                        <span class="chip bg-color">模电</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: Hexo<br />'
+            + 'Author: hhhhmdzz<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者  所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+
+<!-- 文章代码块添加 -->
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFunction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('3'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">hhhhmdzz</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;Total visits:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;Total visitors:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hhhhmdzz" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1453584196@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1453584196" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1453584196" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+</html>
