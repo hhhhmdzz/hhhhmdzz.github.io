@@ -1,16 +1,13 @@
 <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh_CN">
 
 
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="install, Hexo">
     <meta name="description" content="install[toc]
-检查uname -a  // 查看内核版本
-ls -l /sys/class/misc/device-mapper  // 查看存储驱动
-换源略
-安装sudo apt-get update  // 更新源
-sudo">
+检查uname -a  &amp;#x2F;&amp;#x2F; 查看内核版本
+ls -l &amp;#x2F;sys&amp;#x2F;class&amp;#x2F;misc&amp;#x2F;device-mapper  &amp;#x2F;&amp;#x2F; 查看存储驱">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -46,7 +43,8 @@ sudo">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -467,14 +465,14 @@ sudo">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2022-06-29
+                    2022-06-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    142
+                    168
                 </div>
                 
 
@@ -505,14 +503,14 @@ sudo">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>[toc]</p>
-<h2 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">uname</span> -a  // 查看内核版本
-<span class="token function">ls</span> -l /sys/class/misc/device-mapper  // 查看存储驱动<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">uname -a  &#x2F;&#x2F; 查看内核版本
+ls -l &#x2F;sys&#x2F;class&#x2F;misc&#x2F;device-mapper  &#x2F;&#x2F; 查看存储驱动<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>略</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> update  // 更新源
-<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y docker.io  // 安装
-<span class="token function">docker</span> version  // 查看版本，检查是否安装成功<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start <span class="token function">docker</span>  // 启动
-systemctl <span class="token builtin class-name">enable</span> <span class="token function">docker</span>  // 设置开机启动<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">sudo apt-get update  &#x2F;&#x2F; 更新源
+sudo apt-get install -y docker.io  &#x2F;&#x2F; 安装
+docker version  &#x2F;&#x2F; 查看版本，检查是否安装成功<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl start docker  &#x2F;&#x2F; 启动
+systemctl enable docker  &#x2F;&#x2F; 设置开机启动<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <details><summary>try</summary>
 
 a fig
@@ -533,17 +531,17 @@ $f(x) = a x + b$
 
 $$\begin{align} x &= a +b+c+d\\ &= e +f\\ &= g \end{align}$$
 
-<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> TD
-A<span class="token text string">[Hard]</span> <span class="token arrow operator">--></span><span class="token label property">|Text|</span> B<span class="token text string">(Round)</span>
-B <span class="token arrow operator">--></span> C<span class="token text string">&#123;Decision&#125;</span>
-C <span class="token arrow operator">--></span><span class="token label property">|One|</span> D<span class="token text string">[Result 1]</span>
-C <span class="token arrow operator">--></span><span class="token label property">|Two|</span> E<span class="token text string">[Result 2]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">graph TD
+A[Hard] --&gt;|Text| B(Round)
+B --&gt; C&#123;Decision&#125;
+C --&gt;|One| D[Result 1]
+C --&gt;|Two| E[Result 2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </details>
 
-<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">whereis</span> <span class="token function">curl</span>  // 查看是否安装 <span class="token function">curl</span>
-<span class="token function">apt</span> <span class="token function">install</span> <span class="token function">curl</span>  // 安装 <span class="token function">curl</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="hello-world"><a href="#hello-world" class="headerlink" title="hello-world"></a>hello-world</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run hello-world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">whereis curl  &#x2F;&#x2F; 查看是否安装 curl
+apt install curl  &#x2F;&#x2F; 安装 curl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="hello-world"><a href="#hello-world" class="headerlink" title="hello-world"></a>hello-world</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run hello-world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -1037,7 +1035,7 @@ C <span class="token arrow operator">--></span><span class="token label property
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            TCP/IP通信基础 eNSP基础
                         
                     </div>
                     <div class="publish-info">
@@ -1370,7 +1368,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">60.5k</span>
+                        class="white-color">62.6k</span>
             
             
             

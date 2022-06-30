@@ -1,17 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh_CN">
 
 
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="ICT战队-第1次笔记, Hexo">
-    <meta name="description" content="ICT战队-第1次笔记[toc]
-IP通信基础数据流方向：单工、半双工、全双工
-总线型网络带宽共享
-
-网络拓扑图：路由器、PC端、(忽略这个)网络网络拓扑图画图要求：标上设备端口、广域网线路和局域网线路之间要有线缆颜色区分
-
-无线路由器的加">
+    <meta name="description" content="TCP/IP通信基础 eNSP基础">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -47,7 +41,8 @@ IP通信基础数据流方向：单工、半双工、全双工
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -481,7 +476,7 @@ IP通信基础数据流方向：单工、半双工、全双工
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2022-06-29
+                    2022-06-30
                 </div>
                 
 
@@ -495,7 +490,7 @@ IP通信基础数据流方向：单工、半双工、全双工
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    8 Min
+                    9 Min
                 </div>
                 
 
@@ -547,46 +542,46 @@ tkip(temporal key integrity protocol暂时密钥集成协议)
 <li><p><strong>答</strong>：vlan划分有问题，端口隔离有问题，MAC地址表······</p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 电脑基础配置</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 电脑基础配置
 IP地址：192.168.1.66
 子网掩码：255.255.255.0
 网关：192.168.1.1
-<span class="token comment"># 路由器</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>sys
-Enter system view, <span class="token builtin class-name">return</span> user view with Ctrl+Z.
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>inter g0/0/0
-<span class="token punctuation">[</span>Huawei-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">192.168</span>.1.1 <span class="token number">24</span>
-<span class="token punctuation">[</span>Huawei-GigabitEthernet0/0/0<span class="token punctuation">]</span>
-<span class="token comment"># 电脑</span>
-PC<span class="token operator">></span>ping <span class="token number">192.168</span>.1.1
+# 路由器
+&lt;Huawei&gt;sys
+Enter system view, return user view with Ctrl+Z.
+[Huawei]inter g0&#x2F;0&#x2F;0
+[Huawei-GigabitEthernet0&#x2F;0&#x2F;0]ip add 192.168.1.1 24
+[Huawei-GigabitEthernet0&#x2F;0&#x2F;0]
+# 电脑
+PC&gt;ping 192.168.1.1
 
-Ping <span class="token number">192.168</span>.1.1: <span class="token number">32</span> data bytes, Press Ctrl_C to <span class="token builtin class-name">break</span>
-From <span class="token number">192.168</span>.1.1: <span class="token assign-left variable">bytes</span><span class="token operator">=</span><span class="token number">32</span> <span class="token assign-left variable">seq</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">255</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">157</span> ms
-From <span class="token number">192.168</span>.1.1: <span class="token assign-left variable">bytes</span><span class="token operator">=</span><span class="token number">32</span> <span class="token assign-left variable">seq</span><span class="token operator">=</span><span class="token number">2</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">255</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">46</span> ms
-From <span class="token number">192.168</span>.1.1: <span class="token assign-left variable">bytes</span><span class="token operator">=</span><span class="token number">32</span> <span class="token assign-left variable">seq</span><span class="token operator">=</span><span class="token number">3</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">255</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">32</span> ms
-From <span class="token number">192.168</span>.1.1: <span class="token assign-left variable">bytes</span><span class="token operator">=</span><span class="token number">32</span> <span class="token assign-left variable">seq</span><span class="token operator">=</span><span class="token number">4</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">255</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">16</span> ms
-From <span class="token number">192.168</span>.1.1: <span class="token assign-left variable">bytes</span><span class="token operator">=</span><span class="token number">32</span> <span class="token assign-left variable">seq</span><span class="token operator">=</span><span class="token number">5</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">255</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">46</span> ms
+Ping 192.168.1.1: 32 data bytes, Press Ctrl_C to break
+From 192.168.1.1: bytes&#x3D;32 seq&#x3D;1 ttl&#x3D;255 time&#x3D;157 ms
+From 192.168.1.1: bytes&#x3D;32 seq&#x3D;2 ttl&#x3D;255 time&#x3D;46 ms
+From 192.168.1.1: bytes&#x3D;32 seq&#x3D;3 ttl&#x3D;255 time&#x3D;32 ms
+From 192.168.1.1: bytes&#x3D;32 seq&#x3D;4 ttl&#x3D;255 time&#x3D;16 ms
+From 192.168.1.1: bytes&#x3D;32 seq&#x3D;5 ttl&#x3D;255 time&#x3D;46 ms
 
---- <span class="token number">192.168</span>.1.1 <span class="token function">ping</span> statistics ---
-  <span class="token number">5</span> packet<span class="token punctuation">(</span>s<span class="token punctuation">)</span> transmitted
-  <span class="token number">5</span> packet<span class="token punctuation">(</span>s<span class="token punctuation">)</span> received
-  <span class="token number">0.00</span>% packet loss
-  round-trip min/avg/max <span class="token operator">=</span> <span class="token number">16</span>/59/157 ms
+--- 192.168.1.1 ping statistics ---
+  5 packet(s) transmitted
+  5 packet(s) received
+  0.00% packet loss
+  round-trip min&#x2F;avg&#x2F;max &#x3D; 16&#x2F;59&#x2F;157 ms
 
-PC<span class="token operator">></span>
-<span class="token comment"># 交换机</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>display mac-address
-MAC address table of slot <span class="token number">0</span>:
+PC&gt;
+# 交换机
+&lt;Huawei&gt;display mac-address
+MAC address table of slot 0:
 -------------------------------------------------------------------------------
-MAC Address    VLAN/       PEVLAN CEVLAN Port            Type      LSP/LSR-ID  
-               VSI/SI                                              MAC-Tunnel  
+MAC Address    VLAN&#x2F;       PEVLAN CEVLAN Port            Type      LSP&#x2F;LSR-ID  
+               VSI&#x2F;SI                                              MAC-Tunnel  
 -------------------------------------------------------------------------------
-00e0-fca4-15de <span class="token number">1</span>           -      -      GE0/0/1         dynamic   <span class="token number">0</span>/-         
-<span class="token number">5489</span>-9889-0ff0 <span class="token number">1</span>           -      -      GE0/0/2         dynamic   <span class="token number">0</span>/-         
+00e0-fca4-15de 1           -      -      GE0&#x2F;0&#x2F;1         dynamic   0&#x2F;-         
+5489-9889-0ff0 1           -      -      GE0&#x2F;0&#x2F;2         dynamic   0&#x2F;-         
 -------------------------------------------------------------------------------
-Total matching items on slot <span class="token number">0</span> displayed <span class="token operator">=</span> <span class="token number">2</span> 
+Total matching items on slot 0 displayed &#x3D; 2 
 
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;Huawei&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>交换机收到数据帧后，不管有没有MAC地址，记录数据帧的MAC地址，如果MAC地址表有这个MAC地址，则覆盖</p>
 <blockquote>
 <p><strong>干坏事</strong>：如何获取同一个局域网内其他主机的上网信息<br>可以用macof直接把交换机MAC地址打满，这样就可以把交换机变成集线器(用垃圾MAC信息把交换表打满，这样交换机就无法学习正常交换帧的地址，所以此后遇到正常的单播帧就全部封站)<br><strong>安全防护</strong>：MACFlour，设置特定的MAC地址的学习记录，只要发送超过这个设置的阈值，就不接受MAC地址</p>
@@ -833,15 +828,15 @@ Total matching items on slot <span class="token number">0</span> displayed <span
 </table>
 </div>
 <p>修改路由器名字：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 修改路由器名字</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>sys
-Enter system view, <span class="token builtin class-name">return</span> user view with Ctrl+Z.
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>sysname hw
-<span class="token punctuation">[</span>hw<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 修改路由器名字
+&lt;Huawei&gt;sys
+Enter system view, return user view with Ctrl+Z.
+[Huawei]sysname hw
+[hw]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>用户视图到系统视图：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 1.用户视图到系统视图</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>system-view
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>quit  <span class="token comment"># 退出使用quit</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 1.用户视图到系统视图
+&lt;Huawei&gt;system-view
+[Huawei]quit  # 退出使用quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>系统模式到其他模式：</p>
 <ul>
 <li>接口类型：<ul>
@@ -850,30 +845,30 @@ Enter system view, <span class="token builtin class-name">return</span> user vie
 </ul>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 2.系统模式到其他模式</span>
-<span class="token punctuation">[</span>swith<span class="token punctuation">]</span>interface Ethernet <span class="token number">1</span>/0/24  <span class="token comment"># 由系统模式到接口模式</span>
-<span class="token punctuation">[</span>swith<span class="token punctuation">]</span>user-interface vty <span class="token number">0</span> <span class="token number">4</span>  <span class="token comment"># 由系统模式进去用户界面视图</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>user-interface aux <span class="token number">0</span>  <span class="token comment"># 由系统视图模式到AUX口</span>
-<span class="token punctuation">[</span>Huawei-ui-aux0<span class="token punctuation">]</span>speed <span class="token number">115200</span>  <span class="token comment"># 修改AUX口速率</span>
-<span class="token punctuation">[</span>Huawei-Ethernet1/0/2Jreturn  <span class="token comment"># 直接退到用户视图模式</span>
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span>ospf
-<span class="token punctuation">[</span>R2-ospf-1<span class="token punctuation">]</span>  <span class="token comment"># 系统视图进入路由协议视图</span>
-<span class="token punctuation">[</span>swith<span class="token punctuation">]</span>vlan <span class="token number">1</span>
-<span class="token punctuation">[</span>swith-vlan1<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 2.系统模式到其他模式
+[swith]interface Ethernet 1&#x2F;0&#x2F;24  # 由系统模式到接口模式
+[swith]user-interface vty 0 4  # 由系统模式进去用户界面视图
+[Huawei]user-interface aux 0  # 由系统视图模式到AUX口
+[Huawei-ui-aux0]speed 115200  # 修改AUX口速率
+[Huawei-Ethernet1&#x2F;0&#x2F;2Jreturn  # 直接退到用户视图模式
+[R2]ospf
+[R2-ospf-1]  # 系统视图进入路由协议视图
+[swith]vlan 1
+[swith-vlan1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Huawei安全配置登录(使用线路下密码认证)：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 3.Huawei安全配登(使用线路下密码认证)</span>
-<span class="token punctuation">[</span>Huaweiluser-interface console <span class="token number">0</span>  <span class="token comment"># 为console口设置密码</span>
-<span class="token punctuation">[</span>Huawei-ui-console0<span class="token punctuation">]</span>authentication-mode aaa  <span class="token comment"># 设登认证模式为本地账户</span>
-<span class="token punctuation">[</span>Huawei-ui-console0<span class="token punctuation">]</span>authentication- mode password  <span class="token comment"># 设翌认证模式为用户视图下密码 </span>
-<span class="token punctuation">[</span>Huawei-ui-console0<span class="token punctuation">]</span>set authentication password cipher huawei  <span class="token comment"># 设登用户视图下密码以秘文方式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 3.Huawei安全配登(使用线路下密码认证)
+[Huaweiluser-interface console 0  # 为console口设置密码
+[Huawei-ui-console0]authentication-mode aaa  # 设登认证模式为本地账户
+[Huawei-ui-console0]authentication- mode password  # 设翌认证模式为用户视图下密码 
+[Huawei-ui-console0]set authentication password cipher huawei  # 设登用户视图下密码以秘文方式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用本地用户及密码认证：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 使用本地用户及密码认证</span>
-<span class="token punctuation">[</span>DS-1<span class="token punctuation">]</span>user-interface aux <span class="token number">0</span>  <span class="token comment"># 为aux口设登密码</span>
-<span class="token punctuation">[</span>Huawei-ui-console0<span class="token punctuation">]</span>authentication-mode aaa  <span class="token comment"># 设登认证模式为本地账户</span>
-<span class="token punctuation">[</span>Huawei-ui-console0<span class="token punctuation">]</span>quit
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>aaa  <span class="token comment"># 进入aaa模式</span>
-<span class="token punctuation">[</span>Huareiaaallocal-user admin password cipher huawei  <span class="token comment"># 创建用户admin并设登密码</span>
-<span class="token punctuation">[</span>Huawei-aaa<span class="token punctuation">]</span>local-user admin service-type terminal  <span class="token comment"># 允许验证终端登录服务</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 使用本地用户及密码认证
+[DS-1]user-interface aux 0  # 为aux口设登密码
+[Huawei-ui-console0]authentication-mode aaa  # 设登认证模式为本地账户
+[Huawei-ui-console0]quit
+[Huawei]aaa  # 进入aaa模式
+[Huareiaaallocal-user admin password cipher huawei  # 创建用户admin并设登密码
+[Huawei-aaa]local-user admin service-type terminal  # 允许验证终端登录服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>注</strong>：<ul>
 <li>拿到真实华为设备第一件事：创建/修改用户名和密码(一般有默认用户名密码)，不改默认密码<strong>风险很大</strong>！！！</li>
@@ -1381,7 +1376,7 @@ Enter system view, <span class="token builtin class-name">return</span> user vie
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            eNSP基础 telnet远程登录 ssh远程登录
                         
                     </div>
                     <div class="publish-info">
@@ -1643,6 +1638,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1715,7 +1717,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">60.5k</span>
+                        class="white-color">62.6k</span>
             
             
             

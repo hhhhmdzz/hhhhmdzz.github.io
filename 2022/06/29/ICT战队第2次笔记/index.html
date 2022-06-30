@@ -1,18 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh_CN">
 
 
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="ICT战队-第2次笔记, Hexo">
-    <meta name="description" content="ICT战队-第2次笔记[toc]
-江老师开场白：
-组网：smart link
-物理允许环路，工作时不允许
-某一链路断开，不会影响其他的通信
-
-Huawei命令行操作基础# todo 交换机下配置管理ip
-[Huawei]int vlan 1">
+    <meta name="description" content="eNSP基础 telnet远程登录 ssh远程登录">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -48,7 +41,8 @@ Huawei命令行操作基础# todo 交换机下配置管理ip
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -482,7 +476,7 @@ Huawei命令行操作基础# todo 交换机下配置管理ip
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2022-06-29
+                    2022-06-30
                 </div>
                 
 
@@ -525,52 +519,52 @@ Huawei命令行操作基础# todo 交换机下配置管理ip
 物理允许环路，工作时不允许
 某一链路断开，不会影响其他的通信</font>
 
-<h2 id="Huawei命令行操作基础"><a href="#Huawei命令行操作基础" class="headerlink" title="Huawei命令行操作基础"></a>Huawei命令行操作基础</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 交换机下配置管理ip</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>int vlan <span class="token number">1</span>
-<span class="token punctuation">[</span>Huawei-Vlanif1<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">192.168</span>.56.250 <span class="token number">24</span>
-<span class="token punctuation">[</span>Huawei-Vlanif1<span class="token punctuation">]</span>undo <span class="token function">shutdown</span>
+<h2 id="Huawei命令行操作基础"><a href="#Huawei命令行操作基础" class="headerlink" title="Huawei命令行操作基础"></a>Huawei命令行操作基础</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 交换机下配置管理ip
+[Huawei]int vlan 1
+[Huawei-Vlanif1]ip add 192.168.56.250 24
+[Huawei-Vlanif1]undo shutdown
 
-<span class="token comment"># todo 注释</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>description something
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>undo description
+# todo 注释
+[Huawei]description something
+[Huawei]undo description
 
-<span class="token comment"># todo 查看历史命令</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>display history-command历史记录命令
+# todo 查看历史命令
+[Huawei]display history-command历史记录命令
 
-<span class="token comment"># todo 使用中文</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>language-mode Chinese 
-Change language mode, confirm? <span class="token punctuation">[</span>Y/N<span class="token punctuation">]</span> y
-Sep <span class="token number">20</span> <span class="token number">2021</span> <span class="token number">23</span>:44:03-08:00 Huawei %%01CMD/4/LAN_MODE<span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>:The user chose Y when
+# todo 使用中文
+&lt;Huawei&gt;language-mode Chinese 
+Change language mode, confirm? [Y&#x2F;N] y
+Sep 20 2021 23:44:03-08:00 Huawei %%01CMD&#x2F;4&#x2F;LAN_MODE(l)[0]:The user chose Y when
  deciding whether to change the language mode.
 提示：改变语言模式成功。
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>
+&lt;Huawei&gt;
 
-<span class="token comment"># todo 查看设备的配置文件和操作系统</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>dir
-Directory of flash:/
+# todo 查看设备的配置文件和操作系统
+&lt;Huawei&gt;dir
+Directory of flash:&#x2F;
 
-  Idx  Attr     Size<span class="token punctuation">(</span>Byte<span class="token punctuation">)</span>  Date        Time       FileName 
-    <span class="token number">0</span>  drw-              -  Aug 06 <span class="token number">2015</span> <span class="token number">21</span>:26:42   src
-    <span class="token number">1</span>  drw-              -  Sep <span class="token number">19</span> <span class="token number">2021</span> <span class="token number">10</span>:16:17   compatible
+  Idx  Attr     Size(Byte)  Date        Time       FileName 
+    0  drw-              -  Aug 06 2015 21:26:42   src
+    1  drw-              -  Sep 19 2021 10:16:17   compatible
 
-<span class="token number">32,004</span> KB total <span class="token punctuation">(</span><span class="token number">31,972</span> KB <span class="token function">free</span><span class="token punctuation">)</span>
+32,004 KB total (31,972 KB free)
 
-<span class="token comment"># todo 关闭消息信息</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>un <span class="token keyword">in</span> en
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>undo terminal monitor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo 关闭消息信息
+[Huawei]un in en
+[Huawei]undo terminal monitor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>1)交换机没有0/0/0只有0/0/1<br>2)易失、非易失存储器-&gt;内存、硬盘<br>3)开机重装操作系统(操作系统是操作系统，配置文件是配置文件(开机配置、当前配置))</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 查看配置信息</span>
-display version  <span class="token comment"># 版本信息</span>
-display current-configuration  <span class="token comment"># 当前配置</span>
-display saved-configuration  <span class="token comment"># 保存配置</span>
-display current-configuration configuration XXX  <span class="token comment"># 管理员配置生效内容</span>
-display current-configuration configuration vlan  <span class="token comment"># vlan相关配置</span>
-display current-configuration <span class="token operator">|</span> begin  <span class="token comment"># 管道输出指定内容</span>
-display current-configuration <span class="token operator">|</span> b vty <span class="token number">0</span> <span class="token number">4</span>  <span class="token comment"># 管道输出</span>
-display current-configuration <span class="token operator">|</span> include sysname  <span class="token comment"># sysname相关配置</span>
-display <span class="token function">ip</span> interface brief  接口ip状态配置信息，二层接口信息
-display <span class="token function">ip</span> int brief  接口ip状态配置信息，接口三层信息
-display interfaces g0/0/1  接口当前流量<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看配置信息
+display version  # 版本信息
+display current-configuration  # 当前配置
+display saved-configuration  # 保存配置
+display current-configuration configuration XXX  # 管理员配置生效内容
+display current-configuration configuration vlan  # vlan相关配置
+display current-configuration | begin  # 管道输出指定内容
+display current-configuration | b vty 0 4  # 管道输出
+display current-configuration | include sysname  # sysname相关配置
+display ip interface brief  接口ip状态配置信息，二层接口信息
+display ip int brief  接口ip状态配置信息，接口三层信息
+display interfaces g0&#x2F;0&#x2F;1  接口当前流量<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>1)推测设备环路：广播包1%+<br>2)Physical端口，Protocol协议；*down被管理员关掉的</p>
 <div class="table-container">
 <table>
@@ -653,34 +647,34 @@ display interfaces g0/0/1  接口当前流量<span aria-hidden="true" class="lin
 <ul>
 <li>Step2.配置交换机</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 添加IP，此后主机可以ping通</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>sys
-Enter system view, <span class="token builtin class-name">return</span> user view with Ctrl+Z.
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>interface vlan <span class="token number">1</span>
-<span class="token punctuation">[</span>Huawei-Vlanif1<span class="token punctuation">]</span>ip address <span class="token number">192.168</span>.56.250 <span class="token number">24</span>
-<span class="token punctuation">[</span>Huawei-Vlanif1<span class="token punctuation">]</span>undo <span class="token function">shutdown</span> 
-<span class="token punctuation">[</span>Huawei-Vlanif1<span class="token punctuation">]</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 添加IP，此后主机可以ping通
+&lt;Huawei&gt;sys
+Enter system view, return user view with Ctrl+Z.
+[Huawei]interface vlan 1
+[Huawei-Vlanif1]ip address 192.168.56.250 24
+[Huawei-Vlanif1]undo shutdown 
+[Huawei-Vlanif1]
 
-<span class="token comment"># todo 开启telnet服务</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>telnet server enbale  <span class="token comment"># 开启远程登录</span>
+# todo 开启telnet服务
+[Huawei]telnet server enbale  # 开启远程登录
 
-<span class="token comment"># todo 配置虚拟接口</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>user-interface vty <span class="token number">0</span> <span class="token number">4</span>  <span class="token comment"># 同时进入5条虚链路配置</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>user privilege level <span class="token number">15</span>  <span class="token comment"># 设置用户级别为3</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>protocol inbound telnet  <span class="token comment"># 设置允许telnet服务接入（默认允许所有）</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>authentication-mode aaa  <span class="token comment"># 基本本地用户认证</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>authentication-mode none  <span class="token comment"># 不认证</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>authentication-mode password  <span class="token comment"># 基于vty线路下密码认证</span>
+# todo 配置虚拟接口
+[Huawei]user-interface vty 0 4  # 同时进入5条虚链路配置
+[Huawei-ui-vty0-4]user privilege level 15  # 设置用户级别为3
+[Huawei-ui-vty0-4]protocol inbound telnet  # 设置允许telnet服务接入（默认允许所有）
+[Huawei-ui-vty0-4]authentication-mode aaa  # 基本本地用户认证
+[Huawei-ui-vty0-4]authentication-mode none  # 不认证
+[Huawei-ui-vty0-4]authentication-mode password  # 基于vty线路下密码认证
 
-<span class="token comment"># todo 线路下设置密码配合基于密码认证，即password</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>set authentication password cipher huawei  <span class="token comment"># 设置线路下密码</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>user privilege level <span class="token number">15</span>  <span class="token comment"># 设线路下认证权限</span>
+# todo 线路下设置密码配合基于密码认证，即password
+[Huawei-ui-vty0-4]set authentication password cipher huawei  # 设置线路下密码
+[Huawei-ui-vty0-4]user privilege level 15  # 设线路下认证权限
 
-<span class="token comment"># todo 创建认证用户，即aaa</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>aaa  <span class="token comment"># 进入aaa模式</span>
-<span class="token punctuation">[</span>Huawei-aaa<span class="token punctuation">]</span>local-user admin password cipher huawei  <span class="token comment"># 创建damin用户，设置密码</span>
-<span class="token punctuation">[</span>Huawei-aaa<span class="token punctuation">]</span>local-user admin service-type telnet  <span class="token comment"># 允许使用telnet服务</span>
-<span class="token punctuation">[</span>Huawei-aaa<span class="token punctuation">]</span>local-user admin privilege level <span class="token number">15</span>  <span class="token comment"># 设置用户级别为15</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo 创建认证用户，即aaa
+[Huawei]aaa  # 进入aaa模式
+[Huawei-aaa]local-user admin password cipher huawei  # 创建damin用户，设置密码
+[Huawei-aaa]local-user admin service-type telnet  # 允许使用telnet服务
+[Huawei-aaa]local-user admin privilege level 15  # 设置用户级别为15<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>Step3.然后在SecureCRT使用Telnet远程登录</li>
 </ul>
@@ -697,41 +691,41 @@ Enter system view, <span class="token builtin class-name">return</span> user vie
 <li><p>Step 1.配置交换机</p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 创建认证密钥对</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>rsa local-key-pair create
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 创建认证密钥对
+[Huawei]rsa local-key-pair create
 The key name will be: Huawei_Host
-The range of public key size is <span class="token punctuation">(</span><span class="token number">512</span> ~ <span class="token number">2048</span><span class="token punctuation">)</span>. 
-NOTES: If the key modulus is greater than <span class="token number">512</span>, 
+The range of public key size is (512 ~ 2048). 
+NOTES: If the key modulus is greater than 512, 
        it will take a few minutes.
-Input the bits <span class="token keyword">in</span> the modulus<span class="token punctuation">[</span>default <span class="token operator">=</span> <span class="token number">512</span><span class="token punctuation">]</span>:
-Generating keys<span class="token punctuation">..</span>.
-<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>++++++++++++
-<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>.++++++++++++
-<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>.++++++++
-<span class="token punctuation">..</span>++++++++
+Input the bits in the modulus[default &#x3D; 512]:
+Generating keys...
+..........++++++++++++
+.............++++++++++++
+.................++++++++
+..++++++++
 
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>
+[Huawei]
 
-<span class="token comment"># todo 配置虚链路</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>user-interface vty <span class="token number">0</span> <span class="token number">4</span>  <span class="token comment"># 同时进入5条虚链路进行配置</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>user privilege level <span class="token number">15</span>  <span class="token comment"># 设置用户级别为15</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>authentication-mode aaa  <span class="token comment"># 基于本地用户认证</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>protocol inbound <span class="token function">ssh</span>  <span class="token comment"># 设置允许ssh服务接入</span>
-<span class="token punctuation">[</span>Huawei-ui-vty0-4<span class="token punctuation">]</span>
+# todo 配置虚链路
+[Huawei]user-interface vty 0 4  # 同时进入5条虚链路进行配置
+[Huawei-ui-vty0-4]user privilege level 15  # 设置用户级别为15
+[Huawei-ui-vty0-4]authentication-mode aaa  # 基于本地用户认证
+[Huawei-ui-vty0-4]protocol inbound ssh  # 设置允许ssh服务接入
+[Huawei-ui-vty0-4]
 
-<span class="token comment"># todo 创建ssh登录用户，切换与ssh登录权限</span>
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>ssh user admin service-type stelnet  <span class="token comment"># 创建ssh用户</span>
-Info: Succeeded <span class="token keyword">in</span> adding a new SSH user.
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>ssh user admin authentication-type password  <span class="token comment"># 设置ssh验证方式</span>
+# todo 创建ssh登录用户，切换与ssh登录权限
+[Huawei]ssh user admin service-type stelnet  # 创建ssh用户
+Info: Succeeded in adding a new SSH user.
+[Huawei]ssh user admin authentication-type password  # 设置ssh验证方式
 
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>aaa  <span class="token comment"># 进入aaa模式</span>
-<span class="token punctuation">[</span>Huawei-aaa<span class="token punctuation">]</span>local-user admin password cipher huawei  <span class="token comment"># 创建用户admin并设置密码</span>
-<span class="token punctuation">[</span>Huawei-aaa<span class="token punctuation">]</span>local-user admin service-type <span class="token function">ssh</span>  <span class="token comment"># 允许使用ssh服务</span>
-<span class="token punctuation">[</span>Huawei-aaa<span class="token punctuation">]</span>local-user admin privilege level <span class="token number">15</span>  <span class="token comment"># 设置用户级别为15</span>
-<span class="token punctuation">[</span>Huawei-aaa<span class="token punctuation">]</span>q
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span>stelnet server <span class="token builtin class-name">enable</span>  <span class="token comment"># 开启ssh服务</span>
-Info: Succeeded <span class="token keyword">in</span> starting the Stelnet server.
-<span class="token punctuation">[</span>Huawei<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[Huawei]aaa  # 进入aaa模式
+[Huawei-aaa]local-user admin password cipher huawei  # 创建用户admin并设置密码
+[Huawei-aaa]local-user admin service-type ssh  # 允许使用ssh服务
+[Huawei-aaa]local-user admin privilege level 15  # 设置用户级别为15
+[Huawei-aaa]q
+[Huawei]stelnet server enable  # 开启ssh服务
+Info: Succeeded in starting the Stelnet server.
+[Huawei]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>开启了ssh服务就不能再使用telnet服务<br>而且，ssh服务只能使用aaa模式登录</p>
 <ul>
 <li><p>Step2.然后在SecureCRT使用ssh远程登录</p>
@@ -742,41 +736,41 @@ Info: Succeeded <span class="token keyword">in</span> starting the Stelnet serve
 <h2 id="Huawei网络设备文件管理"><a href="#Huawei网络设备文件管理" class="headerlink" title="Huawei网络设备文件管理"></a>Huawei网络设备文件管理</h2><ul>
 <li><strong>网络设备文件管理</strong>：</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 1. 文件操作</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>dir /all  <span class="token comment"># 显示目录中的文件和子目录列表</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>mkdir <span class="token punctuation">[</span>filename  <span class="token comment"># 创建目录</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>rmdir <span class="token punctuation">[</span>filename  <span class="token comment"># 删除目录</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>more <span class="token punctuation">[</span>filename  <span class="token comment"># 显示文件内容</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>copy <span class="token punctuation">[</span>src-filename <span class="token punctuation">[</span>des-filenmae  <span class="token comment"># 拷贝文件</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>move <span class="token punctuation">[</span>src-filename <span class="token punctuation">[</span>des-filenmae  <span class="token comment"># 移动文件</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>rename <span class="token punctuation">[</span>old-name <span class="token punctuation">[</span>new-name  <span class="token comment"># 重命名文件</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>delete filename  <span class="token comment"># 删除文件</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>undelete filename  <span class="token comment"># 恢复删除的文件</span>
-<span class="token comment"># &lt;Huawei>fixdisk drive  # 修复文件系统异常的存储器</span>
-<span class="token comment"># &lt;Huawei>format drive  # 格式化存储器</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 1. 文件操作
+&lt;Huawei&gt;dir &#x2F;all  # 显示目录中的文件和子目录列表
+&lt;Huawei&gt;mkdir [filename  # 创建目录
+&lt;Huawei&gt;rmdir [filename  # 删除目录
+&lt;Huawei&gt;more [filename  # 显示文件内容
+&lt;Huawei&gt;copy [src-filename [des-filenmae  # 拷贝文件
+&lt;Huawei&gt;move [src-filename [des-filenmae  # 移动文件
+&lt;Huawei&gt;rename [old-name [new-name  # 重命名文件
+&lt;Huawei&gt;delete filename  # 删除文件
+&lt;Huawei&gt;undelete filename  # 恢复删除的文件
+# &lt;Huawei&gt;fixdisk drive  # 修复文件系统异常的存储器
+# &lt;Huawei&gt;format drive  # 格式化存储器
 
-<span class="token comment"># todo 2. 配置文件操作</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>save  <span class="token comment"># 保存配置文件</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>reset saved-configuration  <span class="token comment"># 擦除配置文件</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>startup saved-configuration <span class="token builtin class-name">test</span>  <span class="token comment"># 设置下次开机配置文件</span>
+# todo 2. 配置文件操作
+&lt;Huawei&gt;save  # 保存配置文件
+&lt;Huawei&gt;reset saved-configuration  # 擦除配置文件
+&lt;Huawei&gt;startup saved-configuration test  # 设置下次开机配置文件
 
-<span class="token comment"># todo 3. 配置文件显示与维护</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>display saved-configuration  <span class="token comment"># 查看保存的配置文件</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>display startup  <span class="token comment"># 显示当前配置文件</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>display current-configuration <span class="token comment"># 显示当前配置文件</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>display current-configuration configuration aaa  <span class="token comment"># 查看指定内容</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>display this  <span class="token comment"># 查看当前视图下生效的配置</span>
+# todo 3. 配置文件显示与维护
+&lt;Huawei&gt;display saved-configuration  # 查看保存的配置文件
+&lt;Huawei&gt;display startup  # 显示当前配置文件
+&lt;Huawei&gt;display current-configuration # 显示当前配置文件
+&lt;Huawei&gt;display current-configuration configuration aaa  # 查看指定内容
+&lt;Huawei&gt;display this  # 查看当前视图下生效的配置
 
-<span class="token comment"># todo 4. 指定下次启动加载的应用程序</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>startup system-software <span class="token punctuation">[</span>iog-image  <span class="token comment"># 指定下次启动加载的应用程序</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>display boot-loader  <span class="token comment"># 显示下次启动加载的应用程序</span>
+# todo 4. 指定下次启动加载的应用程序
+&lt;Huawei&gt;startup system-software [iog-image  # 指定下次启动加载的应用程序
+&lt;Huawei&gt;display boot-loader  # 显示下次启动加载的应用程序
 
-<span class="token comment"># todo 5.重启系统</span>
-<span class="token operator">&lt;</span>SV<span class="token operator"><span class="token file-descriptor important">3</span>></span>reboot  <span class="token comment"># 重启</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>reboot fast  <span class="token comment"># 快速重启</span>
-<span class="token operator">&lt;</span>SV<span class="token operator"><span class="token file-descriptor important">3</span>></span>schedule <span class="token function">reboot</span> at <span class="token number">22</span>:47  <span class="token comment"># 定时重启</span>
-<span class="token operator">&lt;</span>SV<span class="token operator"><span class="token file-descriptor important">3</span>></span>schedule <span class="token function">reboot</span> delay 00:01  <span class="token comment"># 等待重启</span>
-<span class="token operator">&lt;</span>SV<span class="token operator"><span class="token file-descriptor important">3</span>></span>display schedule <span class="token function">reboot</span>  <span class="token comment"># 显示设置的重启时间</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo 5.重启系统
+&lt;SV3&gt;reboot  # 重启
+&lt;Huawei&gt;reboot fast  # 快速重启
+&lt;SV3&gt;schedule reboot at 22:47  # 定时重启
+&lt;SV3&gt;schedule reboot delay 00:01  # 等待重启
+&lt;SV3&gt;display schedule reboot  # 显示设置的重启时间<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>fixdisk drive</code>不要用，文件系统崩溃找厂商处理<br><code>format drive</code>不要用！！！</p>
 <h3 id="实验三：使用FTP备份文件"><a href="#实验三：使用FTP备份文件" class="headerlink" title="实验三：使用FTP备份文件"></a><strong>实验三：使用FTP备份文件</strong></h3><ul>
 <li>Step1.创建FTP服务器</li>
@@ -788,10 +782,10 @@ Info: Succeeded <span class="token keyword">in</span> starting the Stelnet serve
 <li><p>Step2.上传下载备份</p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>Huawei<span class="token operator">></span>ftp <span class="token number">192.168</span>.56.1  <span class="token comment"># 使用FTP连接到FTP服务器</span>
-<span class="token punctuation">[</span>ftp<span class="token punctuation">]</span>get <span class="token punctuation">[</span>filename  <span class="token comment"># 下载</span>
-<span class="token punctuation">[</span>ftp<span class="token punctuation">]</span>put <span class="token punctuation">[</span>filename  <span class="token comment"># 上传</span>
-<span class="token punctuation">[</span>ftp<span class="token punctuation">]</span>dir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">&lt;Huawei&gt;ftp 192.168.56.1  # 使用FTP连接到FTP服务器
+[ftp]get [filename  # 下载
+[ftp]put [filename  # 上传
+[ftp]dir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <ul>
 <li><strong>问题</strong>：wrong ip address</li>
@@ -865,14 +859,14 @@ Info: Succeeded <span class="token keyword">in</span> starting the Stelnet serve
 <p><code>&lt;R1&gt;display debugging</code>命令用来显示系统中已经打开的调试开关</p>
 <font color=#999AAA>真机抓包：端口镜像</font>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 显示debug信息</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>terminal monitor  <span class="token comment"># 在终端显示日志</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 显示debug信息
+&lt;Huawei&gt;terminal monitor  # 在终端显示日志
 Info: Current terminal monitor is on.
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>terminal debugging  <span class="token comment"># 显示debug信息</span>
+&lt;Huawei&gt;terminal debugging  # 显示debug信息
 Info: Current terminal debugging is on.
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>debugging <span class="token function">ip</span> icmp verbose  <span class="token comment"># 查看ip详细信息</span>
-<span class="token comment"># &lt;Huawei>debugging tcp packet  # 查看tcp详细信息</span>
-<span class="token operator">&lt;</span>Huawei<span class="token operator">></span>save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;Huawei&gt;debugging ip icmp verbose  # 查看ip详细信息
+# &lt;Huawei&gt;debugging tcp packet  # 查看tcp详细信息
+&lt;Huawei&gt;save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>1.</strong> 不要debug信息量很大的日志信息(防止日志显示过多导致无法输入命令)<br><strong>2.</strong> 装完配置一定要<strong>保存</strong>！！！</p>
 <blockquote>
 <p><strong>问题</strong>：万一debug了信息量很大的日志信息<br><strong>解决</strong>：如果是远程登陆，关掉远程登录再登录关掉即可，例：断开telnet，登上去之后<code>undo debugging tcp packet</code>(需要再次敲显示debug等命令)<br>如果是Console口下而且没有开telent，只能重启设备</p>
@@ -1398,7 +1392,7 @@ Info: Current terminal debugging is on.
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            VLAN技术 DHCP协议 STP协议
                         
                     </div>
                     <div class="publish-info">
@@ -1451,7 +1445,7 @@ Info: Current terminal debugging is on.
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            TCP/IP通信基础 eNSP基础
                         
                     </div>
                     <div class="publish-info">
@@ -1747,7 +1741,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">60.5k</span>
+                        class="white-color">62.6k</span>
             
             
             

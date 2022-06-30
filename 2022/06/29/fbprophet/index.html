@@ -1,12 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh_CN">
 
 
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="fbprophet, Hexo">
-    <meta name="description" content="fbprophet[toc]
-1. fbprophet介绍1.1. fbprophet简介Prophet（先知）是 Facebook 开源的一个时间序列预测工具，所以叫 fbprophet。Prophet 算法不仅可以处理时间序列存在一些异">
+    <meta name="description" content="Facebook Prophet 时间序列预测库的原理及使用">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -42,7 +41,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -472,21 +472,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2022-06-29
+                    2022-06-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    5.9k
+                    6.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    24 Min
+                    25 Min
                 </div>
                 
 
@@ -630,39 +630,39 @@
 </li>
 </ul>
 <hr>
-<h2 id="fbprophet使用"><a href="#fbprophet使用" class="headerlink" title="fbprophet使用"></a>fbprophet使用</h2><h3 id="入门实例"><a href="#入门实例" class="headerlink" title="入门实例"></a>入门实例</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token keyword">from</span> fbprophet <span class="token keyword">import</span> Prophet
+<h2 id="fbprophet使用"><a href="#fbprophet使用" class="headerlink" title="fbprophet使用"></a>fbprophet使用</h2><h3 id="入门实例"><a href="#入门实例" class="headerlink" title="入门实例"></a>入门实例</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import numpy as np
+import pandas as pd
+from fbprophet import Prophet
 
-df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span><span class="token string">'example_wp_log_peyton_manning.xlsx'</span><span class="token punctuation">)</span>
-df<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">=</span> np<span class="token punctuation">.</span>log<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+df &#x3D; pd.read_excel(&#39;example_wp_log_peyton_manning.xlsx&#39;)
+df[&#39;y&#39;] &#x3D; np.log(df[&#39;y&#39;])
 
-playoffs <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token string">'holiday'</span><span class="token punctuation">:</span> <span class="token string">'playoff'</span><span class="token punctuation">,</span>
-    <span class="token string">'ds'</span><span class="token punctuation">:</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span><span class="token punctuation">[</span>
-        <span class="token string">'2008-01-13'</span><span class="token punctuation">,</span> <span class="token string">'2009-01-03'</span><span class="token punctuation">,</span> <span class="token string">'2010-01-16'</span><span class="token punctuation">,</span>
-        <span class="token string">'2010-01-24'</span><span class="token punctuation">,</span> <span class="token string">'2010-02-07'</span><span class="token punctuation">,</span> <span class="token string">'2011-01-08'</span><span class="token punctuation">,</span>
-        <span class="token string">'2013-01-12'</span><span class="token punctuation">,</span> <span class="token string">'2014-01-12'</span><span class="token punctuation">,</span> <span class="token string">'2014-01-19'</span><span class="token punctuation">,</span>
-        <span class="token string">'2014-02-02'</span><span class="token punctuation">,</span> <span class="token string">'2015-01-11'</span><span class="token punctuation">,</span> <span class="token string">'2016-01-17'</span><span class="token punctuation">,</span>
-        <span class="token string">'2016-01-24'</span><span class="token punctuation">,</span> <span class="token string">'2016-02-07'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token string">'lower_window'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token string">'upper_window'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-superbowls <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token string">'holiday'</span><span class="token punctuation">:</span> <span class="token string">'superbowl'</span><span class="token punctuation">,</span>
-    <span class="token string">'ds'</span><span class="token punctuation">:</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'2010-02-07'</span><span class="token punctuation">,</span> <span class="token string">'2014-02-02'</span><span class="token punctuation">,</span> <span class="token string">'2016-02-07'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token string">'lower_window'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token string">'upper_window'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-holidays <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">(</span>playoffs<span class="token punctuation">,</span> superbowls<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 季后赛和超级碗比赛特别日期</span>
-m <span class="token operator">=</span> Prophet<span class="token punctuation">(</span>holidays<span class="token operator">=</span>holidays<span class="token punctuation">)</span>  <span class="token comment"># 指定节假日参数，其它参数以默认值进行训练</span>
+playoffs &#x3D; pd.DataFrame(&#123;
+    &#39;holiday&#39;: &#39;playoff&#39;,
+    &#39;ds&#39;: pd.to_datetime([
+        &#39;2008-01-13&#39;, &#39;2009-01-03&#39;, &#39;2010-01-16&#39;,
+        &#39;2010-01-24&#39;, &#39;2010-02-07&#39;, &#39;2011-01-08&#39;,
+        &#39;2013-01-12&#39;, &#39;2014-01-12&#39;, &#39;2014-01-19&#39;,
+        &#39;2014-02-02&#39;, &#39;2015-01-11&#39;, &#39;2016-01-17&#39;,
+        &#39;2016-01-24&#39;, &#39;2016-02-07&#39;]),
+    &#39;lower_window&#39;: 0,
+    &#39;upper_window&#39;: 1,
+&#125;)
+superbowls &#x3D; pd.DataFrame(&#123;
+    &#39;holiday&#39;: &#39;superbowl&#39;,
+    &#39;ds&#39;: pd.to_datetime([&#39;2010-02-07&#39;, &#39;2014-02-02&#39;, &#39;2016-02-07&#39;]),
+    &#39;lower_window&#39;: 0,
+    &#39;upper_window&#39;: 1,
+&#125;)
+holidays &#x3D; pd.concat((playoffs, superbowls))  # 季后赛和超级碗比赛特别日期
+m &#x3D; Prophet(holidays&#x3D;holidays)  # 指定节假日参数，其它参数以默认值进行训练
 
-m<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>df<span class="token punctuation">)</span>  <span class="token comment"># 对过去数据进行训练</span>
+m.fit(df)  # 对过去数据进行训练
 
-future <span class="token operator">=</span> m<span class="token punctuation">.</span>make_future_dataframe<span class="token punctuation">(</span>freq<span class="token operator">=</span><span class="token string">'D'</span><span class="token punctuation">,</span> periods<span class="token operator">=</span><span class="token number">365</span><span class="token punctuation">)</span>  <span class="token comment"># 建立数据预测框架，数据粒度为天，预测步长为一年</span>
-forecast <span class="token operator">=</span> m<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>future<span class="token punctuation">)</span>
+future &#x3D; m.make_future_dataframe(freq&#x3D;&#39;D&#39;, periods&#x3D;365)  # 建立数据预测框架，数据粒度为天，预测步长为一年
+forecast &#x3D; m.predict(future)
 
-m<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>forecast<span class="token punctuation">)</span><span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 绘制预测效果图</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+m.plot(forecast).show()  # 绘制预测效果图<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <font color='grey'>可以看到 Prophet 遵循 sciket-klearn 模型 API。</font>
 
 <p><code>fit()</code> 输入的 <code>DataFrame</code> 必须包含两列数据：<font color='orange'>时间戳</font> <code>ds</code> 和<font color='orange'>时间序列的取值</font> <code>y</code></p>
@@ -678,36 +678,36 @@ m<span class="token punctuation">.</span>plot<span class="token punctuation">(</
 <details><summary>源代码：</summary>
 
 
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Prophet</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""Prophet forecaster.
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">class Prophet(object):
+    &quot;&quot;&quot;Prophet forecaster.
 
     Parameters
     ----------
-    growth: String 'linear' or 'logistic' to specify a linear or logistic
+    growth: String &#39;linear&#39; or &#39;logistic&#39; to specify a linear or logistic
         trend.
     changepoints: List of dates at which to include potential changepoints. If
         not specified, potential changepoints are selected automatically.
     n_changepoints: Number of potential changepoints to include. Not used
-        if input `changepoints` is supplied. If `changepoints` is not supplied,
+        if input &#96;changepoints&#96; is supplied. If &#96;changepoints&#96; is not supplied,
         then n_changepoints potential changepoints are selected uniformly from
-        the first `changepoint_range` proportion of the history.
+        the first &#96;changepoint_range&#96; proportion of the history.
     changepoint_range: Proportion of history in which trend changepoints will
         be estimated. Defaults to 0.8 for the first 80%. Not used if
-        `changepoints` is specified.
-    Not used if input `changepoints` is supplied.
+        &#96;changepoints&#96; is specified.
+    Not used if input &#96;changepoints&#96; is supplied.
     yearly_seasonality: Fit yearly seasonality.
-        Can be 'auto', True, False, or a number of Fourier terms to generate.
+        Can be &#39;auto&#39;, True, False, or a number of Fourier terms to generate.
     weekly_seasonality: Fit weekly seasonality.
-        Can be 'auto', True, False, or a number of Fourier terms to generate.
+        Can be &#39;auto&#39;, True, False, or a number of Fourier terms to generate.
     daily_seasonality: Fit daily seasonality.
-        Can be 'auto', True, False, or a number of Fourier terms to generate.
+        Can be &#39;auto&#39;, True, False, or a number of Fourier terms to generate.
     holidays: pd.DataFrame with columns holiday (string) and ds (date type)
         and optionally columns lower_window and upper_window which specify a
         range of days around the date to be included as holidays.
-        lower_window=-2 will include 2 days prior to the date as holidays. Also
+        lower_window&#x3D;-2 will include 2 days prior to the date as holidays. Also
         optionally can have a column prior_scale specifying the prior scale for
         that holiday.
-    seasonality_mode: 'additive' (default) or 'multiplicative'.
+    seasonality_mode: &#39;additive&#39; (default) or &#39;multiplicative&#39;.
     seasonality_prior_scale: Parameter modulating the strength of the
         seasonality model. Larger values allow the model to fit larger seasonal
         fluctuations, smaller values dampen the seasonality. Can be specified
@@ -721,32 +721,32 @@ m<span class="token punctuation">.</span>plot<span class="token punctuation">(</
         with the specified number of MCMC samples. If 0, will do MAP
         estimation.
     interval_width: Float, width of the uncertainty intervals provided
-        for the forecast. If mcmc_samples=0, this will be only the uncertainty
+        for the forecast. If mcmc_samples&#x3D;0, this will be only the uncertainty
         in the trend using the MAP estimate of the extrapolated generative
-        model. If mcmc.samples>0, this will be integrated over all model
+        model. If mcmc.samples&gt;0, this will be integrated over all model
         parameters, which will include uncertainty in seasonality.
     uncertainty_samples: Number of simulated draws used to estimate
         uncertainty intervals.
-    """</span>
+    &quot;&quot;&quot;
     
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>
-            self<span class="token punctuation">,</span>
-            growth<span class="token operator">=</span><span class="token string">'linear'</span><span class="token punctuation">,</span>
-            changepoints<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
-            n_changepoints<span class="token operator">=</span><span class="token number">25</span><span class="token punctuation">,</span>
-            changepoint_range<span class="token operator">=</span><span class="token number">0.8</span><span class="token punctuation">,</span>
-            yearly_seasonality<span class="token operator">=</span><span class="token string">'auto'</span><span class="token punctuation">,</span>
-            weekly_seasonality<span class="token operator">=</span><span class="token string">'auto'</span><span class="token punctuation">,</span>
-            daily_seasonality<span class="token operator">=</span><span class="token string">'auto'</span><span class="token punctuation">,</span>
-            holidays<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
-            seasonality_mode<span class="token operator">=</span><span class="token string">'additive'</span><span class="token punctuation">,</span>
-            seasonality_prior_scale<span class="token operator">=</span><span class="token number">10.0</span><span class="token punctuation">,</span>
-            holidays_prior_scale<span class="token operator">=</span><span class="token number">10.0</span><span class="token punctuation">,</span>
-            changepoint_prior_scale<span class="token operator">=</span><span class="token number">0.05</span><span class="token punctuation">,</span>
-            mcmc_samples<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>
-            interval_width<span class="token operator">=</span><span class="token number">0.80</span><span class="token punctuation">,</span>
-            uncertainty_samples<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">,</span>
-    <span class="token punctuation">)</span><span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    def __init__(
+            self,
+            growth&#x3D;&#39;linear&#39;,
+            changepoints&#x3D;None,
+            n_changepoints&#x3D;25,
+            changepoint_range&#x3D;0.8,
+            yearly_seasonality&#x3D;&#39;auto&#39;,
+            weekly_seasonality&#x3D;&#39;auto&#39;,
+            daily_seasonality&#x3D;&#39;auto&#39;,
+            holidays&#x3D;None,
+            seasonality_mode&#x3D;&#39;additive&#39;,
+            seasonality_prior_scale&#x3D;10.0,
+            holidays_prior_scale&#x3D;10.0,
+            changepoint_prior_scale&#x3D;0.05,
+            mcmc_samples&#x3D;0,
+            interval_width&#x3D;0.80,
+            uncertainty_samples&#x3D;1000,
+    ):<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </details>
 
@@ -774,13 +774,13 @@ m<span class="token punctuation">.</span>plot<span class="token punctuation">(</
 <p><br></p>
 <details><summary>源代码：</summary>
 
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make_future_dataframe</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> periods<span class="token punctuation">,</span> freq<span class="token operator">=</span><span class="token string">'D'</span><span class="token punctuation">,</span> include_history<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""Simulate the trend using the extrapolated generative model.
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">def make_future_dataframe(self, periods, freq&#x3D;&#39;D&#39;, include_history&#x3D;True):
+    &quot;&quot;&quot;Simulate the trend using the extrapolated generative model.
 
     Parameters
     ----------
     periods: Int number of periods to forecast forward.
-    freq: Any valid frequency for pd.date_range, such as 'D' or 'M'.
+    freq: Any valid frequency for pd.date_range, such as &#39;D&#39; or &#39;M&#39;.
     include_history: Boolean to include the historical dates in the data
         frame for predictions.
 
@@ -788,7 +788,7 @@ m<span class="token punctuation">.</span>plot<span class="token punctuation">(</
     -------
     pd.Dataframe that extends forward from the end of self.history for the
     requested number of periods.
-    """</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    &quot;&quot;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </details>
 
@@ -811,49 +811,49 @@ m<span class="token punctuation">.</span>plot<span class="token punctuation">(</
 </ol>
 </li>
 </ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># todo 导入库</span>
-<span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
-<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-<span class="token keyword">from</span> fbprophet <span class="token keyword">import</span> Prophet
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># todo 导入库
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from fbprophet import Prophet
 
-<span class="token comment"># todo 加载数据</span>
-data <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'./example_wp_log_peyton_manning.csv'</span><span class="token punctuation">)</span>
-<span class="token comment"># todo 查看数据</span>
-data<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+# todo 加载数据
+data &#x3D; pd.read_csv(&#39;.&#x2F;example_wp_log_peyton_manning.csv&#39;)
+# todo 查看数据
+data.head()
 
-<span class="token comment"># todo 修改数据列名</span>
-df <span class="token operator">=</span> df<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">'timestamp'</span><span class="token punctuation">:</span> <span class="token string">'ds'</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">:</span> <span class="token string">'y'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+# todo 修改数据列名
+df &#x3D; df.rename(columns&#x3D;&#123;&#39;timestamp&#39;: &#39;ds&#39;, &#39;value&#39;: &#39;y&#39;&#125;)
 
-<span class="token comment"># todo 修改时间数据格式：如果 'timestamp' 是使用 unixtime 来记录的，需要修改成 YYYY-MM-DD hh:mm:ss 的形式</span>
-df<span class="token punctuation">[</span><span class="token string">'ds'</span><span class="token punctuation">]</span> <span class="token operator">=</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'ds'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> unit<span class="token operator">=</span><span class="token string">'s'</span><span class="token punctuation">)</span>
+# todo 修改时间数据格式：如果 &#39;timestamp&#39; 是使用 unixtime 来记录的，需要修改成 YYYY-MM-DD hh:mm:ss 的形式
+df[&#39;ds&#39;] &#x3D; pd.to_datetime(df[&#39;ds&#39;], unit&#x3D;&#39;s&#39;)
 
-<span class="token comment"># todo 时间序列需要进行归一化：</span>
-df<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">-</span> df<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>std<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+# todo 时间序列需要进行归一化：
+df[&#39;y&#39;] &#x3D; (df[&#39;y&#39;] - df[&#39;y&#39;].mean()) &#x2F; (df[&#39;y&#39;].std())
 
-<span class="token comment"># todo 初始化</span>
-m <span class="token operator">=</span> Prophet<span class="token punctuation">(</span><span class="token punctuation">)</span>
+# todo 初始化
+m &#x3D; Prophet()
 
-<span class="token comment"># todo 拟合</span>
-m<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>df<span class="token punctuation">)</span>
+# todo 拟合
+m.fit(df)
 
-<span class="token comment"># todo 预测：生成预测时间数据</span>
-future <span class="token operator">=</span> m<span class="token punctuation">.</span>make_future_dataframe<span class="token punctuation">(</span>periods<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">,</span> freq<span class="token operator">=</span><span class="token string">'M'</span><span class="token punctuation">)</span>
-<span class="token triple-quoted-string string">"""
+# todo 预测：生成预测时间数据
+future &#x3D; m.make_future_dataframe(periods&#x3D;30, freq&#x3D;&#39;M&#39;)
+&quot;&quot;&quot;
 periods：需要预测的点数：30个
-freq：时间序列的频率：按月来收集的时间序列（'min'分钟）
-"""</span>
-<span class="token comment"># todo 展示预测值数据</span>
-future<span class="token punctuation">.</span>tail<span class="token punctuation">(</span><span class="token punctuation">)</span>
+freq：时间序列的频率：按月来收集的时间序列（&#39;min&#39;分钟）
+&quot;&quot;&quot;
+# todo 展示预测值数据
+future.tail()
 
-<span class="token comment"># todo 预测</span>
-forecast <span class="token operator">=</span> m<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>future<span class="token punctuation">)</span>
+# todo 预测
+forecast &#x3D; m.predict(future)
 
-<span class="token comment"># todo 绘制预测图</span>
-m<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>forecast<span class="token punctuation">)</span>
+# todo 绘制预测图
+m.plot(forecast)
 
-<span class="token comment"># todo 画出时间序列的分量</span>
-m<span class="token punctuation">.</span>plot_components<span class="token punctuation">(</span>forecast<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo 画出时间序列的分量
+m.plot_components(forecast)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>绘制图：（略）</p>
 <ul>
 <li>STEP<ol>
@@ -861,71 +861,71 @@ m<span class="token punctuation">.</span>plot_components<span class="token punct
 </ol>
 </li>
 </ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># todo 导入库</span>
-<span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
-<span class="token keyword">import</span> plotly<span class="token punctuation">.</span>express <span class="token keyword">as</span> px
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># todo 导入库
+import pandas as pd
+import plotly.express as px
 
-<span class="token comment"># todo 载入数据</span>
-df <span class="token operator">=</span> forecast
-<span class="token comment"># todo 查看数据</span>
+# todo 载入数据
+df &#x3D; forecast
+# todo 查看数据
 df
-df<span class="token punctuation">.</span>info
-df<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span>
-df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
-df<span class="token punctuation">.</span>describe<span class="token punctuation">(</span><span class="token punctuation">)</span>
+df.info
+df.info()
+df.head()
+df.describe()
 
-<span class="token comment"># todo 绘制预测值、预测上下限值</span>
-fig <span class="token operator">=</span> px<span class="token punctuation">.</span>scatter<span class="token punctuation">(</span>
-    data_frame<span class="token operator">=</span>df<span class="token punctuation">,</span> 
-    x<span class="token operator">=</span><span class="token string">"ds"</span><span class="token punctuation">,</span> 
-    y<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'yhat'</span><span class="token punctuation">,</span> <span class="token string">"yhat_lower"</span><span class="token punctuation">,</span> <span class="token string">"yhat_upper"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
-<span class="token punctuation">)</span>
+# todo 绘制预测值、预测上下限值
+fig &#x3D; px.scatter(
+    data_frame&#x3D;df, 
+    x&#x3D;&quot;ds&quot;, 
+    y&#x3D;[&#39;yhat&#39;, &quot;yhat_lower&quot;, &quot;yhat_upper&quot;], 
+)
 
-<span class="token comment"># todo 展示</span>
-fig<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo 展示
+fig.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>绘制图：</p>
 <p><img src='./fbprophet_plotly.png'></p>
 <h3 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置"></a>参数设置</h3><ul>
 <li>变点</li>
 </ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">m <span class="token operator">=</span> Prophet<span class="token punctuation">(</span>n_changepoints<span class="token operator">=</span><span class="token number">25</span><span class="token punctuation">)</span>
-m <span class="token operator">=</span> Prophet<span class="token punctuation">(</span>changepoint_range<span class="token operator">=</span><span class="token number">0.8</span><span class="token punctuation">)</span>
-m <span class="token operator">=</span> Prophet<span class="token punctuation">(</span>changepoint_prior_scale<span class="token operator">=</span><span class="token number">0.05</span><span class="token punctuation">)</span>
-m <span class="token operator">=</span> Prophet<span class="token punctuation">(</span>changepoints<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'2014-01-01'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">m &#x3D; Prophet(n_changepoints&#x3D;25)
+m &#x3D; Prophet(changepoint_range&#x3D;0.8)
+m &#x3D; Prophet(changepoint_prior_scale&#x3D;0.05)
+m &#x3D; Prophet(changepoints&#x3D;[&#39;2014-01-01&#39;])
 
-<span class="token comment"># 变点的作图：</span>
-<span class="token keyword">from</span> fbprophet<span class="token punctuation">.</span>plot <span class="token keyword">import</span> add_changepoints_to_plot
-fig <span class="token operator">=</span> m<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>forecast<span class="token punctuation">)</span>
-a <span class="token operator">=</span> add_changepoints_to_plot<span class="token punctuation">(</span>fig<span class="token punctuation">.</span>gca<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> m<span class="token punctuation">,</span> forecast<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# 变点的作图：
+from fbprophet.plot import add_changepoints_to_plot
+fig &#x3D; m.plot(forecast)
+a &#x3D; add_changepoints_to_plot(fig.gca(), m, forecast)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>周期性</li>
 </ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">m <span class="token operator">=</span> Prophet<span class="token punctuation">(</span>weekly_seasonality<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
-m<span class="token punctuation">.</span>add_seasonality<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'monthly'</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">30.5</span><span class="token punctuation">,</span> fourier_order<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
-m <span class="token operator">=</span> Prophet<span class="token punctuation">(</span>weekly_seasonality<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-m<span class="token punctuation">.</span>add_seasonality<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'weekly'</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">,</span> fourier_order<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> prior_scale<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">m &#x3D; Prophet(weekly_seasonality&#x3D;False)
+m.add_seasonality(name&#x3D;&#39;monthly&#39;, period&#x3D;30.5, fourier_order&#x3D;5)
+m &#x3D; Prophet(weekly_seasonality&#x3D;True)
+m.add_seasonality(name&#x3D;&#39;weekly&#39;, period&#x3D;7, fourier_order&#x3D;3, prior_scale&#x3D;0.1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>节假日</li>
 </ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">playoffs <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-  <span class="token string">'holiday'</span><span class="token punctuation">:</span> <span class="token string">'playoff'</span><span class="token punctuation">,</span>
-  <span class="token string">'ds'</span><span class="token punctuation">:</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'2008-01-13'</span><span class="token punctuation">,</span> <span class="token string">'2009-01-03'</span><span class="token punctuation">,</span> <span class="token string">'2010-01-16'</span><span class="token punctuation">,</span>
-                        <span class="token string">'2010-01-24'</span><span class="token punctuation">,</span> <span class="token string">'2010-02-07'</span><span class="token punctuation">,</span> <span class="token string">'2011-01-08'</span><span class="token punctuation">,</span>
-                        <span class="token string">'2013-01-12'</span><span class="token punctuation">,</span> <span class="token string">'2014-01-12'</span><span class="token punctuation">,</span> <span class="token string">'2014-01-19'</span><span class="token punctuation">,</span>
-                        <span class="token string">'2014-02-02'</span><span class="token punctuation">,</span> <span class="token string">'2015-01-11'</span><span class="token punctuation">,</span> <span class="token string">'2016-01-17'</span><span class="token punctuation">,</span>
-                        <span class="token string">'2016-01-24'</span><span class="token punctuation">,</span> <span class="token string">'2016-02-07'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token string">'lower_window'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-  <span class="token string">'upper_window'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-superbowls <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-  <span class="token string">'holiday'</span><span class="token punctuation">:</span> <span class="token string">'superbowl'</span><span class="token punctuation">,</span>
-  <span class="token string">'ds'</span><span class="token punctuation">:</span> pd<span class="token punctuation">.</span>to_datetime<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'2010-02-07'</span><span class="token punctuation">,</span> <span class="token string">'2014-02-02'</span><span class="token punctuation">,</span> <span class="token string">'2016-02-07'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token string">'lower_window'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-  <span class="token string">'upper_window'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-holidays <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span><span class="token punctuation">(</span>playoffs<span class="token punctuation">,</span> superbowls<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">playoffs &#x3D; pd.DataFrame(&#123;
+  &#39;holiday&#39;: &#39;playoff&#39;,
+  &#39;ds&#39;: pd.to_datetime([&#39;2008-01-13&#39;, &#39;2009-01-03&#39;, &#39;2010-01-16&#39;,
+                        &#39;2010-01-24&#39;, &#39;2010-02-07&#39;, &#39;2011-01-08&#39;,
+                        &#39;2013-01-12&#39;, &#39;2014-01-12&#39;, &#39;2014-01-19&#39;,
+                        &#39;2014-02-02&#39;, &#39;2015-01-11&#39;, &#39;2016-01-17&#39;,
+                        &#39;2016-01-24&#39;, &#39;2016-02-07&#39;]),
+  &#39;lower_window&#39;: 0,
+  &#39;upper_window&#39;: 1,
+&#125;)
+superbowls &#x3D; pd.DataFrame(&#123;
+  &#39;holiday&#39;: &#39;superbowl&#39;,
+  &#39;ds&#39;: pd.to_datetime([&#39;2010-02-07&#39;, &#39;2014-02-02&#39;, &#39;2016-02-07&#39;]),
+  &#39;lower_window&#39;: 0,
+  &#39;upper_window&#39;: 1,
+&#125;)
+holidays &#x3D; pd.concat((playoffs, superbowls))
 
-m <span class="token operator">=</span> Prophet<span class="token punctuation">(</span>holidays<span class="token operator">=</span>holidays<span class="token punctuation">,</span> holidays_prior_scale<span class="token operator">=</span><span class="token number">10.0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+m &#x3D; Prophet(holidays&#x3D;holidays, holidays_prior_scale&#x3D;10.0)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>博客园：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hahahu/p/11753804.html">python 安装fbprophet模块的艰辛历程</a>（安装强推！）<br>CSDN：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_23860475/article/details/81354467">python-fbprophet总结</a>（参数说明 + 代码）</p>
 <p>这俩差不多：原理 + 使用<br>标点符：<a target="_blank" rel="noopener" href="https://www.biaodianfu.com/fbprophet.html">Facebook时间序列预测工具fbprophet</a>（这个内容更多一点）<br>知乎：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/52330017">Facebook 时间序列预测算法 Prophet 的研究</a></p>
 <p>这俩差不多：例子多<br>博客园：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/bonelee/p/9577432.html">facebook开源的prophet时间序列预测工具</a>（这个内容更多一点）<br>CSDN：<a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_26917383/article/details/57419862">R+python︱Facebook大规模时序预测『真』神器——Prophet（遍地代码图）</a></p>
@@ -1423,7 +1423,7 @@ m <span class="token operator">=</span> Prophet<span class="token punctuation">(
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            二极管 三极管 场效应管
                         
                     </div>
                     <div class="publish-info">
@@ -1472,7 +1472,7 @@ m <span class="token operator">=</span> Prophet<span class="token punctuation">(
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            BGP边界网关协议
                         
                     </div>
                     <div class="publish-info">
@@ -1768,7 +1768,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">60.5k</span>
+                        class="white-color">62.6k</span>
             
             
             

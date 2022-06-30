@@ -1,15 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh_CN">
 
 
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="ICT战队-第6次笔记, Hexo">
-    <meta name="description" content="ICT战队-第6次笔记[toc]
-OSPF原理：OSPF
-①OSPF网络类型
-
-网络类型：点到点、广播、非广播多路访问、点到多点1.点到点、点到多点网络类型不选DR和BDR；广播、非广播网络类型才选DR和BDR，且使用224.0.0.5、2">
+    <meta name="description" content="OSPF协议 RIP协议">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -45,7 +41,8 @@ OSPF原理：OSPF
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -479,21 +476,21 @@ OSPF原理：OSPF
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2022-06-29
+                    2022-06-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.9k
+                    5.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    24 Min
+                    25 Min
                 </div>
                 
 
@@ -521,14 +518,14 @@ OSPF原理：OSPF
 <li><strong>①OSPF网络类型</strong></li>
 </ul>
 <p>网络类型：点到点、广播、非广播多路访问、点到多点<br>1.点到点、点到多点网络类型不选DR和BDR；广播、非广播网络类型才选DR和BDR，且使用224.0.0.5、224.0.0.6这两个地址<br>2.DR是<strong>端口</strong>的角色，不是路由器的角色<br>3.华为默认Serial串行口默认封装PPP<br>4.非广播多路访问：帧中继：不能发广播帧，但是又是一个广播型网络，所以把广播帧封装成单播帧<br>5.OSPF正常使用224.0.0.5发送OSPF数据包，DROther发送<strong>更新</strong>给DR和BDR使用224.0.0.6</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 修改OSPF路由协议</span>
-<span class="token punctuation">[</span>R3<span class="token punctuation">]</span>int s2/0/0
-<span class="token punctuation">[</span>R3-Serial2/0/0<span class="token punctuation">]</span>ospf network-type ?
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 修改OSPF路由协议
+[R3]int s2&#x2F;0&#x2F;0
+[R3-Serial2&#x2F;0&#x2F;0]ospf network-type ?
   broadcast  Specify OSPF broadcast network
   nbma       Specify OSPF NBMA network
   p2mp       Specify OSPF point-to-multipoint network
   p2p        Specify OSPF point-to-point network
-<span class="token punctuation">[</span>R3-Serial2/0/0<span class="token punctuation">]</span>ospf network-type <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[R3-Serial2&#x2F;0&#x2F;0]ospf network-type <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="实验一：虚链路"><a href="#实验一：虚链路" class="headerlink" title="实验一：虚链路"></a><strong>实验一：虚链路</strong></h3><p>虚链路：解决非骨干区域连接非骨干区域问题。<br>做Virtual Link只找两个区域的ABR(区域边界路由器)。<br>找俩个区域的ABR，让他们互指Virtual-Link即可。</p>
 <ul>
 <li><strong>STEP1：</strong> 网络拓扑</li>
@@ -537,17 +534,17 @@ OSPF原理：OSPF
 <ul>
 <li><strong>STEP2：</strong> 配置虚链路</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 查看OSPF区域的邻居关系</span>
-<span class="token punctuation">[</span>R<span class="token punctuation">]</span>dis ospf peer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：指向对方RID</span>
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span>ospf
-<span class="token punctuation">[</span>R2-ospf-1<span class="token punctuation">]</span>
-<span class="token punctuation">[</span>R2-ospf-1<span class="token punctuation">]</span>dis ospf peer
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看OSPF区域的邻居关系
+[R]dis ospf peer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：指向对方RID
+[R2]ospf
+[R2-ospf-1]
+[R2-ospf-1]dis ospf peer
 
-   OSPF Process <span class="token number">1</span> with Router ID <span class="token number">10.0</span>.2.2
+   OSPF Process 1 with Router ID 10.0.2.2
      Neighbors 
 
- Area <span class="token number">0.0</span>.0.0 interface <span class="token number">12.1</span>.1.2<span class="token punctuation">(</span>GigabitEthernet0/0/0<span class="token punctuation">)</span><span class="token string">'s neighbors
+ Area 0.0.0.0 interface 12.1.1.2(GigabitEthernet0&#x2F;0&#x2F;0)&#39;s neighbors
  Router ID: 10.0.1.1         Address: 12.1.1.1        
    State: Full  Mode:Nbr is  Slave  Priority: 1
    DR: 12.1.1.2  BDR: 12.1.1.1  MTU: 0    
@@ -558,27 +555,27 @@ OSPF原理：OSPF
 
      Neighbors 
 
- Area 0.0.0.1 interface 23.1.1.2(GigabitEthernet0/0/1)'</span>s neighbors
- Router ID: <span class="token number">10.0</span>.3.3         Address: <span class="token number">23.1</span>.1.3        
-   State: Full  Mode:Nbr is  Master  Priority: <span class="token number">1</span>
-   DR: <span class="token number">23.1</span>.1.3  BDR: <span class="token number">23.1</span>.1.2  MTU: <span class="token number">0</span>    
-   Dead timer due <span class="token keyword">in</span> <span class="token number">30</span>  sec 
-   Retrans timer interval: <span class="token number">5</span> 
-   Neighbor is up <span class="token keyword">for</span> 00:06:19     
-   Authentication Sequence: <span class="token punctuation">[</span> <span class="token number">0</span> <span class="token punctuation">]</span> 
+ Area 0.0.0.1 interface 23.1.1.2(GigabitEthernet0&#x2F;0&#x2F;1)&#39;s neighbors
+ Router ID: 10.0.3.3         Address: 23.1.1.3        
+   State: Full  Mode:Nbr is  Master  Priority: 1
+   DR: 23.1.1.3  BDR: 23.1.1.2  MTU: 0    
+   Dead timer due in 30  sec 
+   Retrans timer interval: 5 
+   Neighbor is up for 00:06:19     
+   Authentication Sequence: [ 0 ] 
 
-<span class="token punctuation">[</span>R2-ospf-1<span class="token punctuation">]</span>a <span class="token number">1</span>
-<span class="token punctuation">[</span>R2-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>vlink-peer <span class="token number">10.0</span>.3.3  <span class="token comment"># 对方的RID</span>
+[R2-ospf-1]a 1
+[R2-ospf-1-area-0.0.0.1]vlink-peer 10.0.3.3  # 对方的RID
 
-<span class="token comment"># todo AR3：指向对方RID</span>
-<span class="token punctuation">[</span>R3<span class="token punctuation">]</span>ospf
-<span class="token punctuation">[</span>R3-ospf-1<span class="token punctuation">]</span>a <span class="token number">1</span>
-<span class="token punctuation">[</span>R3-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>dis ospf peer
+# todo AR3：指向对方RID
+[R3]ospf
+[R3-ospf-1]a 1
+[R3-ospf-1-area-0.0.0.1]dis ospf peer
 
-   OSPF Process <span class="token number">1</span> with Router ID <span class="token number">10.0</span>.3.3
+   OSPF Process 1 with Router ID 10.0.3.3
      Neighbors 
 
- Area <span class="token number">0.0</span>.0.1 interface <span class="token number">23.1</span>.1.3<span class="token punctuation">(</span>GigabitEthernet0/0/0<span class="token punctuation">)</span><span class="token string">'s neighbors
+ Area 0.0.0.1 interface 23.1.1.3(GigabitEthernet0&#x2F;0&#x2F;0)&#39;s neighbors
  Router ID: 10.0.2.2         Address: 23.1.1.2        
    State: Full  Mode:Nbr is  Slave  Priority: 1
    DR: 23.1.1.3  BDR: 23.1.1.2  MTU: 0    
@@ -589,16 +586,16 @@ OSPF原理：OSPF
 
      Neighbors 
 
- Area 0.0.0.2 interface 34.1.1.3(GigabitEthernet0/0/1)'</span>s neighbors
- Router ID: <span class="token number">34.1</span>.1.4         Address: <span class="token number">34.1</span>.1.4        
-   State: Full  Mode:Nbr is  Master  Priority: <span class="token number">1</span>
-   DR: <span class="token number">34.1</span>.1.3  BDR: <span class="token number">34.1</span>.1.4  MTU: <span class="token number">0</span>    
-   Dead timer due <span class="token keyword">in</span> <span class="token number">39</span>  sec 
-   Retrans timer interval: <span class="token number">5</span> 
-   Neighbor is up <span class="token keyword">for</span> 00:04:02     
-   Authentication Sequence: <span class="token punctuation">[</span> <span class="token number">0</span> <span class="token punctuation">]</span> 
+ Area 0.0.0.2 interface 34.1.1.3(GigabitEthernet0&#x2F;0&#x2F;1)&#39;s neighbors
+ Router ID: 34.1.1.4         Address: 34.1.1.4        
+   State: Full  Mode:Nbr is  Master  Priority: 1
+   DR: 34.1.1.3  BDR: 34.1.1.4  MTU: 0    
+   Dead timer due in 39  sec 
+   Retrans timer interval: 5 
+   Neighbor is up for 00:04:02     
+   Authentication Sequence: [ 0 ] 
 
-<span class="token punctuation">[</span>R3-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>vlink-peer <span class="token number">10.0</span>.2.2  <span class="token comment"># 对方的RID</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[R3-ospf-1-area-0.0.0.1]vlink-peer 10.0.2.2  # 对方的RID<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>区域2需要通过区域1到达区域0，所以要在区域1下，指向<strong>对方RID</strong>。</p>
 <h3 id="原理：LSA链路状态通告"><a href="#原理：LSA链路状态通告" class="headerlink" title="原理：LSA链路状态通告"></a><strong>原理：LSA链路状态通告</strong></h3><ul>
 <li>弄清楚：LSA由谁产生的、传播范围、包含了什么东西</li>
@@ -648,19 +645,19 @@ OSPF原理：OSPF
 </table>
 </div>
 <p><strong>LSA</strong>(Link-State Advertisement)链路状态通告，路由条目的类型，只是路由报文的一个字段。<br><strong>LSACK</strong>(Link-State Acknowledge)链路状态确认，路由报文。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 重置路由器邻居关系</span>
-<span class="token operator">&lt;</span>R<span class="token operator">></span>reset ospf process<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 查看OSPF链路状态数据库——LSA1</span>
-<span class="token operator">&lt;</span>R<span class="token operator"><span class="token file-descriptor important">1</span>></span>display ospf lsdb router <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 查看OSPF的LSDB链路状态数据库——LSA2</span>
-<span class="token operator">&lt;</span>R<span class="token operator"><span class="token file-descriptor important">2</span>></span>dis ospf lsdb network <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 查看OSPF——LSA3</span>
-<span class="token punctuation">[</span>R6<span class="token punctuation">]</span>display ospf lsdb summary<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 查看OSPF——LAS4</span>
-<span class="token punctuation">[</span>R6<span class="token punctuation">]</span>show <span class="token function">ip</span> ospf border-routers   
-<span class="token punctuation">[</span>R1<span class="token punctuation">]</span>show <span class="token function">ip</span> ospf database asbr-summary<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 查看OSPF——LSA5</span>
-<span class="token punctuation">[</span>R6<span class="token punctuation">]</span>display ospf lsdb ase<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 重置路由器邻居关系
+&lt;R&gt;reset ospf process<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看OSPF链路状态数据库——LSA1
+&lt;R1&gt;display ospf lsdb router <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看OSPF的LSDB链路状态数据库——LSA2
+&lt;R2&gt;dis ospf lsdb network <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看OSPF——LSA3
+[R6]display ospf lsdb summary<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看OSPF——LAS4
+[R6]show ip ospf border-routers   
+[R1]show ip ospf database asbr-summary<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看OSPF——LSA5
+[R6]display ospf lsdb ase<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>同一个区域的LSDB(链路状态数据库)必须保持一致</strong>，否则邻居关系无法建立</p>
 <p>末梢网络：接口没选DR和BDR，且下面连接了一个终端设备PC</p>
 <p>1类LSA：每个路由器都产生<br>2类LSA：DR产生<br>3类LSA：有区域间路由ABR产生，跨区域传播路由条目，只有路由条目信息，所有区域可以传递！<br>4类LSA：ABR产生，告诉ASBR该找谁，为5类LSA服务<br>5类LSA：ASBR产生<br>6类LSA：组播用<br>7类LSA：NSSA中的ASBR产生，仅NSSA区域传播，NSAA区域的ABR将7转5，让其他路由器学习</p>
@@ -671,11 +668,11 @@ OSPF原理：OSPF
 
 <h3 id="实验二：路由注入"><a href="#实验二：路由注入" class="headerlink" title="实验二：路由注入"></a><strong>实验二：路由注入</strong></h3><p>路由注入：让路由器能交换<strong>不同的路由协议</strong>的路由条目</p>
 <p>重分发：<br>类型1：每经过一个路由器，开销cost会自动增加<br>类型2：不管经过几个路由器，开销cost恒定不变(为设定的值)，不管接口开销多大</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># show 路由注入命令</span>
-<span class="token punctuation">[</span>ospf-1<span class="token punctuation">]</span>import-route rip <span class="token number">1</span> <span class="token builtin class-name">type</span> <span class="token number">1</span> cost <span class="token number">50</span>  设置路由引入RIP协议重分发类型1开销cost
-<span class="token punctuation">[</span>ospf-1<span class="token punctuation">]</span>import-route rip <span class="token number">1</span> <span class="token builtin class-name">type</span> <span class="token number">2</span> cost <span class="token number">50</span>  设置路由引入RIP协议重分发类型2开销cost
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># show 路由注入命令
+[ospf-1]import-route rip 1 type 1 cost 50  设置路由引入RIP协议重分发类型1开销cost
+[ospf-1]import-route rip 1 type 2 cost 50  设置路由引入RIP协议重分发类型2开销cost
 
-<span class="token punctuation">[</span>g0/0/0<span class="token punctuation">]</span>ospf cost <span class="token number">10</span>  设置路由器接口OSPF开销cost<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[g0&#x2F;0&#x2F;0]ospf cost 10  设置路由器接口OSPF开销cost<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP1：</strong> 网络拓扑</li>
 </ul>
@@ -688,13 +685,13 @@ OSPF原理：OSPF
 <li><p><strong>STEP3：</strong> 配置路由注入</p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR5：进入RIP，配置OSPF引入</span>
-<span class="token punctuation">[</span>AR5<span class="token punctuation">]</span>rip
-<span class="token punctuation">[</span>AR5-rip-1<span class="token punctuation">]</span>import-route ospf
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR5：进入RIP，配置OSPF引入
+[AR5]rip
+[AR5-rip-1]import-route ospf
 
-<span class="token comment"># todo AR5：进入OSPF，配置RIP引入</span>
-<span class="token punctuation">[</span>AR5<span class="token punctuation">]</span>ospf
-<span class="token punctuation">[</span>AR5-ospf-1<span class="token punctuation">]</span>import-route rip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR5：进入OSPF，配置RIP引入
+[AR5]ospf
+[AR5-ospf-1]import-route rip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>ASBR：自治系统边界路由器<br>想要学习到对方路由条目，Adv rtr必须可达</p>
 <h3 id="实验三：路由汇总"><a href="#实验三：路由汇总" class="headerlink" title="实验三：路由汇总"></a><strong>实验三：路由汇总</strong></h3><p>做了路由汇总之后，如果汇总的路由拓扑发生变化，也不影响</p>
 <ul>
@@ -704,141 +701,141 @@ OSPF原理：OSPF
 <ul>
 <li><strong>STEP2.1：</strong> 配置环回地址</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR4：配置环回地址</span>
-<span class="token punctuation">[</span>AR4<span class="token punctuation">]</span>int lo <span class="token number">0</span>
-<span class="token punctuation">[</span>AR4-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">14.1</span>.4.1 <span class="token number">255.255</span>.255.0
-<span class="token punctuation">[</span>AR4-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">14.1</span>.5.1 <span class="token number">255.255</span>.255.0 sub
-<span class="token punctuation">[</span>AR4-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">14.1</span>.6.1 <span class="token number">255.255</span>.255.0 sub
-<span class="token punctuation">[</span>AR4-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">14.1</span>.7.1 <span class="token number">255.255</span>.255.0 sub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR4：配置环回地址
+[AR4]int lo 0
+[AR4-LoopBack0]ip add 14.1.4.1 255.255.255.0
+[AR4-LoopBack0]ip add 14.1.5.1 255.255.255.0 sub
+[AR4-LoopBack0]ip add 14.1.6.1 255.255.255.0 sub
+[AR4-LoopBack0]ip add 14.1.7.1 255.255.255.0 sub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP2.2：</strong> 宣告环回地址</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 宣告环回地址网段</span>
-<span class="token punctuation">[</span>AR4-LoopBack0<span class="token punctuation">]</span>ospf <span class="token builtin class-name">enable</span> <span class="token number">1</span> a <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 宣告环回地址网段
+[AR4-LoopBack0]ospf enable 1 a 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP2.3：</strong> 查看环回地址是否被学习到</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 查看路由表</span>
-<span class="token punctuation">[</span>R3<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看路由表
+[R3]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">15</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">15</span>       
+         Destinations : 15       Routes : 15       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
 
-       <span class="token number">12.1</span>.1.0/24  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.2        GigabitEthernet0/0/0
-       <span class="token number">14.1</span>.1.0/24  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.2        GigabitEthernet0/0/0
-       <span class="token number">14.1</span>.4.1/32  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.2        GigabitEthernet0/0/0
-       <span class="token number">14.1</span>.5.1/32  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.2        GigabitEthernet0/0/0
-       <span class="token number">14.1</span>.6.1/32  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.2        GigabitEthernet0/0/0
-       <span class="token number">14.1</span>.7.1/32  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.2        GigabitEthernet0/0/0
+       12.1.1.0&#x2F;24  RIP     100  1           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+       14.1.1.0&#x2F;24  RIP     100  1           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+       14.1.4.1&#x2F;32  RIP     100  1           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+       14.1.5.1&#x2F;32  RIP     100  1           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+       14.1.6.1&#x2F;32  RIP     100  1           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+       14.1.7.1&#x2F;32  RIP     100  1           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
        ······
-<span class="token punctuation">[</span>R3<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[R3]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>可以看到掩码是32</p>
 <ul>
 <li><strong>STEP2.4：</strong> 查看OSPF接口网络类型</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR4：查看OSPF接口网络类型 </span>
-<span class="token punctuation">[</span>AR4-LoopBack0<span class="token punctuation">]</span>dis ospf int
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR4：查看OSPF接口网络类型 
+[AR4-LoopBack0]dis ospf int
 
-         OSPF Process <span class="token number">1</span> with Router ID <span class="token number">14.1</span>.1.4
+         OSPF Process 1 with Router ID 14.1.1.4
                  Interfaces 
 
- Area: <span class="token number">0.0</span>.0.1          <span class="token punctuation">(</span>MPLS TE not enabled<span class="token punctuation">)</span>
+ Area: 0.0.0.1          (MPLS TE not enabled)
  IP Address      Type         State    Cost    Pri   DR              BDR 
- <span class="token number">14.1</span>.1.4        Broadcast    DR       <span class="token number">1</span>       <span class="token number">1</span>     <span class="token number">14.1</span>.1.4        <span class="token number">14.1</span>.1.1
- <span class="token number">14.1</span>.4.1        P2P          P-2-P    <span class="token number">0</span>       <span class="token number">1</span>     <span class="token number">0.0</span>.0.0         <span class="token number">0.0</span>.0.0
+ 14.1.1.4        Broadcast    DR       1       1     14.1.1.4        14.1.1.1
+ 14.1.4.1        P2P          P-2-P    0       1     0.0.0.0         0.0.0.0
  
-<span class="token punctuation">[</span>AR4-LoopBack0<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[AR4-LoopBack0]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>可以看出环回地址是点到点网络类型</p>
 <ul>
 <li><strong>STEP2.5：</strong> 修改OSPF接口网络类型</li>
 </ul>
 <p>修改网络类型，让掩码变成24</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 修改网络类型</span>
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span>int lo <span class="token number">0</span>
-<span class="token punctuation">[</span>R2-LoopBack0<span class="token punctuation">]</span>ospf network-type broadcast  <span class="token comment"># 修改网络类型为广播，掩码变成24</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 修改网络类型
+[R2]int lo 0
+[R2-LoopBack0]ospf network-type broadcast  # 修改网络类型为广播，掩码变成24<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>华为：环回口认为是点到点P2P、点到多点p2mp网络类型，掩码是32；修改成广播Broadcast，掩码变成24</p>
 <ul>
 <li><strong>STEP3.1：</strong> 汇总方法1</li>
 </ul>
 <p><strong>同一个区域的LSDB必须保持一致</strong>，所以只能在ABR或者ASBR上做汇总，而且是在要汇总的区域内进行汇总。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>R1<span class="token punctuation">]</span>ospf <span class="token number">1</span>
-<span class="token punctuation">[</span>R1-ospf-1<span class="token punctuation">]</span>a <span class="token number">1</span>                                  
-<span class="token punctuation">[</span>R1-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>abr-summary <span class="token number">14.1</span>.4.0 <span class="token number">255.255</span>.252.0   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[R1]ospf 1
+[R1-ospf-1]a 1                                  
+[R1-ospf-1-area-0.0.0.1]abr-summary 14.1.4.0 255.255.252.0   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP3.2：</strong> 查看路由表</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>R3<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[R3]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">12</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">12</span>       
+         Destinations : 12       Routes : 12       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
 
-       <span class="token number">12.1</span>.1.0/24  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.2        GigabitEthernet0/0/0
-       <span class="token number">14.1</span>.1.0/24  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.2        GigabitEthernet0/0/0
-       <span class="token number">14.1</span>.4.0/22  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.2        GigabitEthernet0/0/0
+       12.1.1.0&#x2F;24  RIP     100  1           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+       14.1.1.0&#x2F;24  RIP     100  1           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+       14.1.4.0&#x2F;22  RIP     100  1           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
        ······
-<span class="token punctuation">[</span>R3<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[R3]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP4.1：</strong> 汇总方法2</li>
 </ul>
 <p>在汇总之前，先配置环回地址和路由引入。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR3：配置环回地址</span>
-<span class="token punctuation">[</span>R3<span class="token punctuation">]</span>int lo <span class="token number">0</span>
-<span class="token punctuation">[</span>R3-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">192.168</span>.0.1 <span class="token number">24</span>
-<span class="token punctuation">[</span>R3-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">192.168</span>.1.1 <span class="token number">24</span> sub
-<span class="token punctuation">[</span>R3-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">192.168</span>.2.1 <span class="token number">24</span> sub
-<span class="token punctuation">[</span>R3-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">192.168</span>.3.1 <span class="token number">24</span> sub
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR3：配置环回地址
+[R3]int lo 0
+[R3-LoopBack0]ip add 192.168.0.1 24
+[R3-LoopBack0]ip add 192.168.1.1 24 sub
+[R3-LoopBack0]ip add 192.168.2.1 24 sub
+[R3-LoopBack0]ip add 192.168.3.1 24 sub
 
-<span class="token comment"># 头都 AR3：宣告网段</span>
-<span class="token punctuation">[</span>R3-LoopBack0<span class="token punctuation">]</span>rip <span class="token number">1</span>
-<span class="token punctuation">[</span>R3-rip-1<span class="token punctuation">]</span>net
-<span class="token punctuation">[</span>R3-rip-1<span class="token punctuation">]</span>network <span class="token number">192.168</span>.0.0
-<span class="token punctuation">[</span>R3-rip-1<span class="token punctuation">]</span>network <span class="token number">192.168</span>.1.0
-<span class="token punctuation">[</span>R3-rip-1<span class="token punctuation">]</span>network <span class="token number">192.168</span>.2.0
-<span class="token punctuation">[</span>R3-rip-1<span class="token punctuation">]</span>network <span class="token number">192.168</span>.3.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：路由引入</span>
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span>ospf <span class="token number">1</span>
-<span class="token punctuation">[</span>R2-ospf-1<span class="token punctuation">]</span>import-route rip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：查看路由表</span>
-<span class="token operator">&lt;</span>R<span class="token operator"><span class="token file-descriptor important">1</span>></span>dis <span class="token function">ip</span> rou
+# 头都 AR3：宣告网段
+[R3-LoopBack0]rip 1
+[R3-rip-1]net
+[R3-rip-1]network 192.168.0.0
+[R3-rip-1]network 192.168.1.0
+[R3-rip-1]network 192.168.2.0
+[R3-rip-1]network 192.168.3.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：路由引入
+[R2]ospf 1
+[R2-ospf-1]import-route rip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：查看路由表
+&lt;R1&gt;dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">22</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">22</span>       
+         Destinations : 22       Routes : 22       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
     ······
-    <span class="token number">192.168</span>.0.0/24  O_ASE   <span class="token number">150</span>  <span class="token number">1</span>           D   <span class="token number">12.1</span>.1.2        GigabitEthernet0/0/0
-    <span class="token number">192.168</span>.1.0/24  O_ASE   <span class="token number">150</span>  <span class="token number">1</span>           D   <span class="token number">12.1</span>.1.2        GigabitEthernet0/0/0
-    <span class="token number">192.168</span>.1.0/26  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">192.168</span>.1.1     LoopBack0
-    <span class="token number">192.168</span>.1.1/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       LoopBack0
-   <span class="token number">192.168</span>.1.63/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       LoopBack0
-    <span class="token number">192.168</span>.2.0/24  O_ASE   <span class="token number">150</span>  <span class="token number">1</span>           D   <span class="token number">12.1</span>.1.2        GigabitEthernet0/0/0
-    <span class="token number">192.168</span>.3.0/24  O_ASE   <span class="token number">150</span>  <span class="token number">1</span>           D   <span class="token number">12.1</span>.1.2        GigabitEthernet0/0/0
+    192.168.0.0&#x2F;24  O_ASE   150  1           D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+    192.168.1.0&#x2F;24  O_ASE   150  1           D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+    192.168.1.0&#x2F;26  Direct  0    0           D   192.168.1.1     LoopBack0
+    192.168.1.1&#x2F;32  Direct  0    0           D   127.0.0.1       LoopBack0
+   192.168.1.63&#x2F;32  Direct  0    0           D   127.0.0.1       LoopBack0
+    192.168.2.0&#x2F;24  O_ASE   150  1           D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+    192.168.3.0&#x2F;24  O_ASE   150  1           D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
     ······
-<span class="token operator">&lt;</span>R<span class="token operator"><span class="token file-descriptor important">1</span>></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：汇总</span>
-<span class="token punctuation">[</span>R2-ospf-1<span class="token punctuation">]</span>asbr-summary <span class="token number">192.168</span>.0.0 <span class="token number">255.255</span>.252.0 cost <span class="token number">66</span>  <span class="token comment"># ASBR汇总，设置开销为66</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：查看路由表</span>
-<span class="token operator">&lt;</span>R<span class="token operator"><span class="token file-descriptor important">1</span>></span>dis <span class="token function">ip</span> rou
+&lt;R1&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：汇总
+[R2-ospf-1]asbr-summary 192.168.0.0 255.255.252.0 cost 66  # ASBR汇总，设置开销为66<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：查看路由表
+&lt;R1&gt;dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">19</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">19</span>       
+         Destinations : 19       Routes : 19       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
     ······
-    <span class="token number">192.168</span>.0.0/22  O_ASE   <span class="token number">150</span>  <span class="token number">66</span>          D   <span class="token number">12.1</span>.1.2        GigabitEthernet0/0/0
-    <span class="token number">192.168</span>.1.0/26  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">192.168</span>.1.1     LoopBack0
-    <span class="token number">192.168</span>.1.1/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       LoopBack0
-   <span class="token number">192.168</span>.1.63/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       LoopBack0
+    192.168.0.0&#x2F;22  O_ASE   150  66          D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+    192.168.1.0&#x2F;26  Direct  0    0           D   192.168.1.1     LoopBack0
+    192.168.1.1&#x2F;32  Direct  0    0           D   127.0.0.1       LoopBack0
+   192.168.1.63&#x2F;32  Direct  0    0           D   127.0.0.1       LoopBack0
    ······
-<span class="token operator">&lt;</span>R<span class="token operator"><span class="token file-descriptor important">1</span>></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;R1&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="实验四：默认路由"><a href="#实验四：默认路由" class="headerlink" title="实验四：默认路由"></a><strong>实验四：默认路由</strong></h3><ul>
 <li><strong>STEP1：</strong> 网络拓扑</li>
 </ul>
@@ -846,56 +843,56 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 <ul>
 <li><strong>STEP2：</strong> 配置默认路由、下放路由</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置默认路由</span>
-<span class="token punctuation">[</span>R1<span class="token punctuation">]</span>ip route-static <span class="token number">0.0</span>.0.0 <span class="token number">0.0</span>.0.0 <span class="token number">192.168</span>.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置默认路由
+[R1]ip route-static 0.0.0.0 0.0.0.0 192.168.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>此时，如果下面路由器想配置默认路由，需要手动添加，比较麻烦，所以考虑使用OSPF下放一条默认路由：更新后的默认路由也能下放。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：OSPF下放路由</span>
-<span class="token punctuation">[</span>R1-ospf-1<span class="token punctuation">]</span>default-route-advertise<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：查看路由表</span>
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：OSPF下放路由
+[R1-ospf-1]default-route-advertise<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：查看路由表
+[R2]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">16</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">16</span>       
+         Destinations : 16       Routes : 16       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
-        <span class="token number">0.0</span>.0.0/0   O_ASE   <span class="token number">150</span>  <span class="token number">1</span>           D   <span class="token number">12.1</span>.
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
+        0.0.0.0&#x2F;0   O_ASE   150  1           D   12.1.
         ······
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[R2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>默认路由通过OSPF(O_ASE)获取到</p>
 <ul>
 <li><strong>STEP3：</strong> 把下放路由改成always查看现象</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：首先删除默认路由</span>
-<span class="token punctuation">[</span>R1<span class="token punctuation">]</span>un <span class="token function">ip</span> route-static <span class="token number">0.0</span>.0.0 <span class="token number">0.0</span>.0.0 <span class="token number">192.168</span>.1.1
-<span class="token punctuation">[</span>R1<span class="token punctuation">]</span>un <span class="token function">ip</span> route-static <span class="token number">0.0</span>.0.0 <span class="token number">0.0</span>.0.0 <span class="token number">192.168</span>.3.254<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：查看路由表</span>
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：首先删除默认路由
+[R1]un ip route-static 0.0.0.0 0.0.0.0 192.168.1.1
+[R1]un ip route-static 0.0.0.0 0.0.0.0 192.168.3.254<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：查看路由表
+[R2]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">15</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">15</span>       
+         Destinations : 15       Routes : 15       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
-       <span class="token number">10.0</span>.1.1/32  OSPF    <span class="token number">10</span>   <span class="token number">1</span>           D   <span class="token number">12.1</span>.1.1        GigabitEthernet0/0/0
-       <span class="token number">10.0</span>.2.0/24  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">10.0</span>.2.2        LoopBack0
-       <span class="token number">10.0</span>.2.2/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       LoopBack0
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
+       10.0.1.1&#x2F;32  OSPF    10   1           D   12.1.1.1        GigabitEthernet0&#x2F;0&#x2F;0
+       10.0.2.0&#x2F;24  Direct  0    0           D   10.0.2.2        LoopBack0
+       10.0.2.2&#x2F;32  Direct  0    0           D   127.0.0.1       LoopBack0
       ······
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置下放路由always</span>
-<span class="token punctuation">[</span>R1<span class="token punctuation">]</span>ospf <span class="token number">1</span>
-<span class="token punctuation">[</span>R1-ospf-1<span class="token punctuation">]</span>default-route-advertise always <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：查看路由表</span>
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+[R2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置下放路由always
+[R1]ospf 1
+[R1-ospf-1]default-route-advertise always <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：查看路由表
+[R2]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">16</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">16</span>       
+         Destinations : 16       Routes : 16       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
-        <span class="token number">0.0</span>.0.0/0   O_ASE   <span class="token number">150</span>  <span class="token number">1</span>           D   <span class="token number">12.1</span>.1.1        GigabitEthernet0/0/0
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
+        0.0.0.0&#x2F;0   O_ASE   150  1           D   12.1.1.1        GigabitEthernet0&#x2F;0&#x2F;0
        ······
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[R2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注：<br>1.默认路由可以把其他路由器的条目吸引到出口路由器<br>2.下放默认路由必须得有默认路由才能下放<br>3.always：不管有没有默认路由都下放</p>
 <h3 id="实验五：末梢网络"><a href="#实验五：末梢网络" class="headerlink" title="实验五：末梢网络"></a><strong>实验五：末梢网络</strong></h3><ul>
 <li><strong>STEP1：</strong> 网络拓扑</li>
@@ -905,58 +902,58 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 <li><strong>STEP2.1：</strong> 配置末梢网络(学习了3类LSA)</li>
 </ul>
 <p>末梢网络：不接受4、5、7类LSA，只接受1、3类LSA。有效降低网络的复杂度。<br>只要在一个路由器上配置末梢网络，整个区域都要配置末梢网络</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：配置末梢网络</span>
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span>ospf
-<span class="token punctuation">[</span>R2-ospf-1<span class="token punctuation">]</span>a <span class="token number">1</span>
-<span class="token punctuation">[</span>R2-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>stub
-<span class="token comment"># 配置完该命令后，可以看到日志信息</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：配置末梢网络
+[R2]ospf
+[R2-ospf-1]a 1
+[R2-ospf-1-area-0.0.0.1]stub
+# 配置完该命令后，可以看到日志信息
 
-<span class="token comment"># todo AR1：配置末梢网络</span>
-<span class="token punctuation">[</span>R1<span class="token punctuation">]</span>ospf
-<span class="token punctuation">[</span>R1-ospf-1<span class="token punctuation">]</span>a <span class="token number">1</span>
-<span class="token punctuation">[</span>R1-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>stub
-<span class="token comment"># 配置完该命令后，ABR会主动产生一个默认路由下放给区域内路由器</span>
+# todo AR1：配置末梢网络
+[R1]ospf
+[R1-ospf-1]a 1
+[R1-ospf-1-area-0.0.0.1]stub
+# 配置完该命令后，ABR会主动产生一个默认路由下放给区域内路由器
 
-<span class="token comment"># todo AR1：查看路由表的默认路由</span>
-<span class="token punctuation">[</span>R1<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR1：查看路由表的默认路由
+[R1]dis ip rou<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>此时，</p>
 <ul>
 <li><strong>STEP2.2：</strong> 配置末梢网络(不学习3类LSA)</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置末梢网络不接受3类LSA</span>
-<span class="token punctuation">[</span>R1-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>stub no-summary 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置末梢网络不接受3类LSA
+[R1-ospf-1-area-0.0.0.1]stub no-summary 
 
-<span class="token comment"># todo AR2：配置末梢网络不接受3类LSA</span>
-<span class="token punctuation">[</span>R2-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>stub no-summary 
+# todo AR2：配置末梢网络不接受3类LSA
+[R2-ospf-1-area-0.0.0.1]stub no-summary 
 
-<span class="token comment"># todo AR1：查看路由表</span>
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
-<span class="token comment"># 可以看到除了直连，只剩一条默认路由，但是可以ping通其他区域路由</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR1：查看路由表
+[R2]dis ip rou
+# 可以看到除了直连，只剩一条默认路由，但是可以ping通其他区域路由<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>两个路由器都配置不接受3类LSA邻居关系才能建立<br>骨干区域不能做成末梢网络<br>末梢网络<strong>不允许</strong>在末梢区域<strong>重分发</strong><br>但是 NSSA 可以做到末梢网络和重分发</p>
 <ul>
 <li><strong>STEP3.1：</strong> 配置NSSA</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR4：配置NSSA</span>
-<span class="token punctuation">[</span>R4<span class="token punctuation">]</span>ospf
-<span class="token punctuation">[</span>R4-ospf-1<span class="token punctuation">]</span>a <span class="token number">2</span>
-<span class="token punctuation">[</span>R4-ospf-1-area-0.0.0.2<span class="token punctuation">]</span>nssa 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR4：配置NSSA
+[R4]ospf
+[R4-ospf-1]a 2
+[R4-ospf-1-area-0.0.0.2]nssa 
 
-<span class="token comment"># todo AR3：配置NSSA</span>
-<span class="token punctuation">[</span>R3<span class="token punctuation">]</span>ospf
-<span class="token punctuation">[</span>R3-ospf-1<span class="token punctuation">]</span>a <span class="token number">2</span>
-<span class="token punctuation">[</span>R3-ospf-1-area-0.0.0.2<span class="token punctuation">]</span>nssa<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR3：配置NSSA
+[R3]ospf
+[R3-ospf-1]a 2
+[R3-ospf-1-area-0.0.0.2]nssa<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP3.2：</strong> NSSA下放路由</li>
 </ul>
 <p>正常NSSA不下放默认路由，下放默认路由可以配置以下命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR3：配置NSSA下放路由</span>
-<span class="token punctuation">[</span>R3-ospf-1-area-0.0.0.2<span class="token punctuation">]</span>nssa default-route-advertise<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR3：配置NSSA下放路由
+[R3-ospf-1-area-0.0.0.2]nssa default-route-advertise<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>如果想要不接受3类LSA，可以配置</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR3：不接受3类LSA</span>
-<span class="token punctuation">[</span>R3-ospf-1-area-0.0.0.2<span class="token punctuation">]</span>nssa default-route-advertise no-summary
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR3：不接受3类LSA
+[R3-ospf-1-area-0.0.0.2]nssa default-route-advertise no-summary
 
-<span class="token comment"># todo AR4：不接受4类LSA</span>
-<span class="token punctuation">[</span>R4-ospf-1-area-0.0.0.2<span class="token punctuation">]</span>nssa default-route-advertise no-summary<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR4：不接受4类LSA
+[R4-ospf-1-area-0.0.0.2]nssa default-route-advertise no-summary<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="RIP"><a href="#RIP" class="headerlink" title="RIP"></a>RIP</h2><p>RIP属于IGP(内部网关协议)</p>
 <h3 id="原理：距离矢量路由协议"><a href="#原理：距离矢量路由协议" class="headerlink" title="原理：距离矢量路由协议"></a><strong>原理：距离矢量路由协议</strong></h3><p>距离矢量：只关心方向和度量</p>
 <p>OSPF封装在IP中，协议号89<br>RIP封装在UDP中，目标端口号520</p>
@@ -971,32 +968,32 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 <ul>
 <li><strong>STEP2.1：</strong> 配置IP</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置端口和环回地址</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR1-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">12.1</span>.1.1 <span class="token number">24</span>  
-<span class="token punctuation">[</span>AR1-GigabitEthernet0/0/0<span class="token punctuation">]</span>int lo <span class="token number">0</span>
-<span class="token punctuation">[</span>AR1-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">1.1</span>.1.1 <span class="token number">32</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置端口和环回地址
+[AR1]int g0&#x2F;0&#x2F;0
+[AR1-GigabitEthernet0&#x2F;0&#x2F;0]ip add 12.1.1.1 24  
+[AR1-GigabitEthernet0&#x2F;0&#x2F;0]int lo 0
+[AR1-LoopBack0]ip add 1.1.1.1 32
 
-<span class="token comment"># todo AR2：配置端口和环回地址</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">12.1</span>.1.2 <span class="token number">24</span>
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/0<span class="token punctuation">]</span>int lo <span class="token number">0</span>
-<span class="token punctuation">[</span>AR2-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">2.2</span>.2.2 <span class="token number">32</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR2：配置端口和环回地址
+[AR2]int g0&#x2F;0&#x2F;0
+[AR2-GigabitEthernet0&#x2F;0&#x2F;0]ip add 12.1.1.2 24
+[AR2-GigabitEthernet0&#x2F;0&#x2F;0]int lo 0
+[AR2-LoopBack0]ip add 2.2.2.2 32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP2.2：</strong> 配置版本和宣告</li>
 </ul>
 <p>RIPv1只能按地址类别进行宣告。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：版本、宣告</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>rip
-<span class="token punctuation">[</span>AR1-rip-1<span class="token punctuation">]</span>version <span class="token number">1</span>
-<span class="token punctuation">[</span>AR1-rip-1<span class="token punctuation">]</span>network <span class="token number">1.0</span>.0.0
-<span class="token punctuation">[</span>AR1-rip-1<span class="token punctuation">]</span>network <span class="token number">12.0</span>.0.0
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：版本、宣告
+[AR1]rip
+[AR1-rip-1]version 1
+[AR1-rip-1]network 1.0.0.0
+[AR1-rip-1]network 12.0.0.0
 
-<span class="token comment"># todo AR2：版本、宣告</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>rip
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>version <span class="token number">1</span>
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>network <span class="token number">2.0</span>.0.0
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>network <span class="token number">12.0</span>.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR2：版本、宣告
+[AR2]rip
+[AR2-rip-1]version 1
+[AR2-rip-1]network 2.0.0.0
+[AR2-rip-1]network 12.0.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP2.3：</strong> 查看路由表</li>
 </ul>
@@ -1004,11 +1001,11 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 <ul>
 <li><strong>STEP2.4：</strong> 修改RIP版本</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：版本</span>
-<span class="token punctuation">[</span>AR1-rip-1<span class="token punctuation">]</span>version <span class="token number">2</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：版本
+[AR1-rip-1]version 2
 
-<span class="token comment"># todo AR2：版本</span>
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>version <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR2：版本
+[AR2-rip-1]version 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP2.5：</strong> 查看路由表</li>
 </ul>
@@ -1021,23 +1018,23 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 <li><strong>STEP2.1：</strong> 配置IP</li>
 </ul>
 <p>路由器：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置IP</span>
-<span class="token punctuation">[</span>AR3<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR3-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">23.1</span>.1.3 <span class="token number">24</span>
-<span class="token punctuation">[</span>AR3-GigabitEthernet0/0/0<span class="token punctuation">]</span>int g0/0/1
-<span class="token punctuation">[</span>AR3-GigabitEthernet0/0/1<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">10.1</span>.2.3 <span class="token number">24</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置IP
+[AR3]int g0&#x2F;0&#x2F;0
+[AR3-GigabitEthernet0&#x2F;0&#x2F;0]ip add 23.1.1.3 24
+[AR3-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
+[AR3-GigabitEthernet0&#x2F;0&#x2F;1]ip add 10.1.2.3 24
 
-<span class="token comment"># todo AR2：配置IP</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>int g0/0/0     
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">12.1</span>.1.2 <span class="token number">24</span>
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/0<span class="token punctuation">]</span>int g0/0/1
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/1<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">23.1</span>.1.2 <span class="token number">24</span>
+# todo AR2：配置IP
+[AR2]int g0&#x2F;0&#x2F;0     
+[AR2-GigabitEthernet0&#x2F;0&#x2F;0]ip add 12.1.1.2 24
+[AR2-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
+[AR2-GigabitEthernet0&#x2F;0&#x2F;1]ip add 23.1.1.2 24
 
-<span class="token comment"># todo AR3：配置IP</span>
-<span class="token punctuation">[</span>AR3<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR3-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">23.1</span>.1.3 <span class="token number">24</span>
-<span class="token punctuation">[</span>AR3-GigabitEthernet0/0/0<span class="token punctuation">]</span>int g0/0/1
-<span class="token punctuation">[</span>AR3-GigabitEthernet0/0/1<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">10.1</span>.2.3 <span class="token number">24</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR3：配置IP
+[AR3]int g0&#x2F;0&#x2F;0
+[AR3-GigabitEthernet0&#x2F;0&#x2F;0]ip add 23.1.1.3 24
+[AR3-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
+[AR3-GigabitEthernet0&#x2F;0&#x2F;1]ip add 10.1.2.3 24<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <div class="table-container">
 <table>
 <thead>
@@ -1074,23 +1071,23 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 <li><p><strong>STEP3：</strong> 修改版本为RIPv1，宣告网段</p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：宣告网段</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>rip
-<span class="token punctuation">[</span>AR1-rip-1<span class="token punctuation">]</span>version <span class="token number">2</span>
-<span class="token punctuation">[</span>AR1-rip-1<span class="token punctuation">]</span>network <span class="token number">10.0</span>.0.0
-<span class="token punctuation">[</span>AR1-rip-1<span class="token punctuation">]</span>network <span class="token number">12.0</span>.0.0
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：宣告网段
+[AR1]rip
+[AR1-rip-1]version 2
+[AR1-rip-1]network 10.0.0.0
+[AR1-rip-1]network 12.0.0.0
 
-<span class="token comment"># todo AR2：宣告网段</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>rip
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>version <span class="token number">2</span>
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>network <span class="token number">12.0</span>.0.0 
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>network <span class="token number">23.0</span>.0.0
+# todo AR2：宣告网段
+[AR2]rip
+[AR2-rip-1]version 2
+[AR2-rip-1]network 12.0.0.0 
+[AR2-rip-1]network 23.0.0.0
 
-<span class="token comment"># todo AR3：宣告网段</span>
-<span class="token punctuation">[</span>AR3<span class="token punctuation">]</span>rip
-<span class="token punctuation">[</span>AR3-rip-1<span class="token punctuation">]</span>version <span class="token number">2</span>
-<span class="token punctuation">[</span>AR3-rip-1<span class="token punctuation">]</span>network <span class="token number">23.0</span>.0.0
-<span class="token punctuation">[</span>AR3-rip-1<span class="token punctuation">]</span>network <span class="token number">10.0</span>.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR3：宣告网段
+[AR3]rip
+[AR3-rip-1]version 2
+[AR3-rip-1]network 23.0.0.0
+[AR3-rip-1]network 10.0.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p><strong>②配置：路由汇总</strong></p>
 </li>
@@ -1098,41 +1095,41 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 </li>
 </ul>
 <p>RIPv1默认自动汇总，不能手动开启或关闭，RIPv2默认自动汇总，可以手动开启或关闭。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo STEP1：所有路由器改为RIPv2，开启自动汇总</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo STEP1：所有路由器改为RIPv2，开启自动汇总
 
-<span class="token comment"># todo STEP2：查看AR2路由表，发现是没汇总的明细路由</span>
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+# todo STEP2：查看AR2路由表，发现是没汇总的明细路由
+[AR2-rip-1]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">12</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">12</span>       
+         Destinations : 12       Routes : 12       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
 
-       <span class="token number">10.1</span>.1.0/24  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">12.1</span>.1.1        GigabitEthernet0/0/0
-       <span class="token number">10.1</span>.2.0/24  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.3        GigabitEthernet0/0/1
+       10.1.1.0&#x2F;24  RIP     100  1           D   12.1.1.1        GigabitEthernet0&#x2F;0&#x2F;0
+       10.1.2.0&#x2F;24  RIP     100  1           D   23.1.1.3        GigabitEthernet0&#x2F;0&#x2F;1
        ······
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>
+[AR2-rip-1]
 
-<span class="token comment"># todo STEP3：所有路由器关闭自动汇总，路由表不变</span>
+# todo STEP3：所有路由器关闭自动汇总，路由表不变
 
-<span class="token comment"># todo STEP4：所有路由器改为RIPv1，开启自动汇总</span>
+# todo STEP4：所有路由器改为RIPv1，开启自动汇总
 
-<span class="token comment"># todo STEP5：查看AR2路由表，发现汇总路由</span>
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+# todo STEP5：查看AR2路由表，发现汇总路由
+[AR2-rip-1]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">11</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">12</span>       
+         Destinations : 11       Routes : 12       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
 
-       <span class="token number">10.0</span>.0.0/8   RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">12.1</span>.1.1        GigabitEthernet0/0/0
-                    RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.3        GigabitEthernet0/0/1
+       10.0.0.0&#x2F;8   RIP     100  1           D   12.1.1.1        GigabitEthernet0&#x2F;0&#x2F;0
+                    RIP     100  1           D   23.1.1.3        GigabitEthernet0&#x2F;0&#x2F;1
        ······
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>
+[AR2-rip-1]
 
-<span class="token comment"># todo STEP6：所有路由器关闭自动汇总，路由表不变</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo STEP6：所有路由器关闭自动汇总，路由表不变<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p><strong>③配置：链路聚合</strong></p>
 </li>
@@ -1143,35 +1140,35 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 <ul>
 <li><strong>STEP2：</strong> 配置环回地址</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置环回地址</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>int lo <span class="token number">0</span>
-<span class="token punctuation">[</span>AR1-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">10.2</span>.0.1 <span class="token number">24</span>
-<span class="token punctuation">[</span>AR1-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">10.2</span>.1.1 <span class="token number">24</span> sub
-<span class="token punctuation">[</span>AR1-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">10.2</span>.2.1 <span class="token number">24</span> sub
-<span class="token punctuation">[</span>AR1-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">10.2</span>.3.1 <span class="token number">24</span> sub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置环回地址
+[AR1]int lo 0
+[AR1-LoopBack0]ip add 10.2.0.1 24
+[AR1-LoopBack0]ip add 10.2.1.1 24 sub
+[AR1-LoopBack0]ip add 10.2.2.1 24 sub
+[AR1-LoopBack0]ip add 10.2.3.1 24 sub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP3.1：</strong> 修改所有路由器为RIPv2</li>
 <li><strong>STEP3.2：</strong> 配置链路聚合</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1配置链路聚合</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR1-GigabitEthernet0/0/0<span class="token punctuation">]</span>rip summary-address <span class="token number">10.2</span>.0.0 <span class="token number">255.255</span>.252.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1配置链路聚合
+[AR1]int g0&#x2F;0&#x2F;0
+[AR1-GigabitEthernet0&#x2F;0&#x2F;0]rip summary-address 10.2.0.0 255.255.252.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP3.3：</strong> 查看路由表</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 查看AR2路由表</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看AR2路由表
+[AR2]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">13</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">13</span>       
+         Destinations : 13       Routes : 13       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
-       <span class="token number">10.1</span>.1.0/24  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">12.1</span>.1.1        GigabitEthernet0/0/0
-       <span class="token number">10.1</span>.2.0/24  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">23.1</span>.1.3        GigabitEthernet0/0/1
-       <span class="token number">10.2</span>.0.0/22  RIP     <span class="token number">100</span>  <span class="token number">1</span>           D   <span class="token number">12.1</span>.1.1        GigabitEthernet0/0/0
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
+       10.1.1.0&#x2F;24  RIP     100  1           D   12.1.1.1        GigabitEthernet0&#x2F;0&#x2F;0
+       10.1.2.0&#x2F;24  RIP     100  1           D   23.1.1.3        GigabitEthernet0&#x2F;0&#x2F;1
+       10.2.0.0&#x2F;22  RIP     100  1           D   12.1.1.1        GigabitEthernet0&#x2F;0&#x2F;0
        ······
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[AR2-rip-1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p><strong>④配置：下放路由</strong></p>
 </li>
@@ -1186,8 +1183,8 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 <ul>
 <li><strong>STEP3：</strong> 配置下放默认路由</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：配置下放默认路由</span>
-<span class="token punctuation">[</span>AR2-rip-1<span class="token punctuation">]</span>default-route originate <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：配置下放默认路由
+[AR2-rip-1]default-route originate <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>STEP4：</strong> 查看路由表</li>
 </ul>
@@ -1202,13 +1199,13 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 <li><p><strong>STEP2：</strong> 配置抑制接口</p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：设置抑制接口</span>
-<span class="token punctuation">[</span>AR1-rip-1<span class="token punctuation">]</span>silent-interface g0/0/1
-<span class="token comment"># [AR1-rip-1]silent-interface all  # 把所有端口设置为抑制接口</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：设置抑制接口
+[AR1-rip-1]silent-interface g0&#x2F;0&#x2F;1
+# [AR1-rip-1]silent-interface all  # 把所有端口设置为抑制接口<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>实际上，可以先把所有端口设置为抑制接口，然后再取消其中某个需要的接口</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># show 该配置模拟器上不可用，实际中可用</span>
-<span class="token punctuation">[</span>AR1-rip-1<span class="token punctuation">]</span>silent-interface all
-<span class="token punctuation">[</span>AR1-rip-1<span class="token punctuation">]</span>un silent-interface g0/0/0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># show 该配置模拟器上不可用，实际中可用
+[AR1-rip-1]silent-interface all
+[AR1-rip-1]un silent-interface g0&#x2F;0&#x2F;0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>⑥配置：认证</strong></li>
 </ul>
@@ -1219,13 +1216,13 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 <li><p><strong>STEP2：</strong> 配置认证</p>
 </li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置认证</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR1-GigabitEthernet0/0/0<span class="token punctuation">]</span>rip authentication-mode md5 usual cipher <span class="token number">123456</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置认证
+[AR1]int g0&#x2F;0&#x2F;0
+[AR1-GigabitEthernet0&#x2F;0&#x2F;0]rip authentication-mode md5 usual cipher 123456
 
-<span class="token comment"># todo AR2：配置认证</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/0<span class="token punctuation">]</span>rip authentication-mode md5 usual cipher <span class="token number">123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR2：配置认证
+[AR2]int g0&#x2F;0&#x2F;0
+[AR2-GigabitEthernet0&#x2F;0&#x2F;0]rip authentication-mode md5 usual cipher 123456<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>密码不要加空格！！！</strong></p>
 <h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><p>使用SecureCRT连接eNSP设备：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41490561/article/details/104894891">CRT(Securecrt)连接ENSP设备</a></p>
 
@@ -1725,7 +1722,7 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            ACL访问控制列表 NAT网络地址转换
                         
                     </div>
                     <div class="publish-info">
@@ -1778,7 +1775,7 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            静态路由 OSPF协议
                         
                     </div>
                     <div class="publish-info">
@@ -1995,6 +1992,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -2067,7 +2071,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">60.5k</span>
+                        class="white-color">62.6k</span>
             
             
             

@@ -1,21 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="zh-Hans">
+<html lang="zh_CN">
 
 
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="ICT战队-第5次笔记, Hexo">
-    <meta name="description" content="ICT战队-第5次笔记[toc]
-路由协议实验一：静态路由
-STEP1：网络拓扑
-
-
-
-STEP2.1：路由器配置IP
-
-说明：AR几就配置X.X.X.几/24的地址，例：AR2：12.1.5.2/24。
-# AR1
-[AR1]int g0">
+    <meta name="description" content="静态路由 OSPF协议">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -51,7 +41,8 @@ STEP2.1：路由器配置IP
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -485,21 +476,21 @@ STEP2.1：路由器配置IP
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2022-06-29
+                    2022-06-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.4k
+                    4.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    21 Min
+                    22 Min
                 </div>
                 
 
@@ -531,23 +522,23 @@ STEP2.1：路由器配置IP
 <li>STEP2.1：路由器配置IP</li>
 </ul>
 <p>说明：<code>AR几</code>就配置<code>X.X.X.几/24</code>的地址，例：AR2：12.1.5.2/24。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># AR1</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR1-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">192.168</span>.1.1 <span class="token number">24</span>
-<span class="token punctuation">[</span>AR1-GigabitEthernet0/0/0<span class="token punctuation">]</span>int g0/0/1
-<span class="token punctuation">[</span>AR1-GigabitEthernet0/0/1<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">12.1</span>.1.1 <span class="token number">24</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># AR1
+[AR1]int g0&#x2F;0&#x2F;0
+[AR1-GigabitEthernet0&#x2F;0&#x2F;0]ip add 192.168.1.1 24
+[AR1-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
+[AR1-GigabitEthernet0&#x2F;0&#x2F;1]ip add 12.1.1.1 24
 
-<span class="token comment"># AR2</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">12.1</span>.1.2 <span class="token number">24</span>
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/0<span class="token punctuation">]</span>int g0/0/1
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/1<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">23.1</span>.1.2 <span class="token number">24</span>
+# AR2
+[AR2]int g0&#x2F;0&#x2F;0
+[AR2-GigabitEthernet0&#x2F;0&#x2F;0]ip add 12.1.1.2 24
+[AR2-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
+[AR2-GigabitEthernet0&#x2F;0&#x2F;1]ip add 23.1.1.2 24
 
-<span class="token comment"># AR3</span>
-<span class="token punctuation">[</span>AR3<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR3-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">23.1</span>.1.3 <span class="token number">24</span>
-<span class="token punctuation">[</span>AR3-GigabitEthernet0/0/0<span class="token punctuation">]</span>int g0/0/1
-<span class="token punctuation">[</span>AR3-GigabitEthernet0/0/1<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">192.168</span>.2.3 <span class="token number">24</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# AR3
+[AR3]int g0&#x2F;0&#x2F;0
+[AR3-GigabitEthernet0&#x2F;0&#x2F;0]ip add 23.1.1.3 24
+[AR3-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
+[AR3-GigabitEthernet0&#x2F;0&#x2F;1]ip add 192.168.2.3 24<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>STEP2.2：主机配置IP</li>
 </ul>
@@ -584,93 +575,93 @@ STEP2.1：路由器配置IP
 <ul>
 <li>STEP2.4：查看路由表</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[AR2]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">10</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">10</span>       
+         Destinations : 10       Routes : 10       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
 
-       <span class="token number">12.1</span>.1.0/24  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">12.1</span>.1.2        GigabitEthernet0/0/0
-       <span class="token number">12.1</span>.1.2/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       GigabitEthernet0/0/0
-     <span class="token number">12.1</span>.1.255/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       GigabitEthernet0/0/0
-       <span class="token number">23.1</span>.1.0/24  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">23.1</span>.1.2        GigabitEthernet0/0/1
-       <span class="token number">23.1</span>.1.2/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       GigabitEthernet0/0/1
-     <span class="token number">23.1</span>.1.255/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       GigabitEthernet0/0/1
-      <span class="token number">127.0</span>.0.0/8   Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       InLoopBack0
-      <span class="token number">127.0</span>.0.1/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       InLoopBack0
-<span class="token number">127.255</span>.255.255/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       InLoopBack0
-<span class="token number">255.255</span>.255.255/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       InLoopBack0
+       12.1.1.0&#x2F;24  Direct  0    0           D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+       12.1.1.2&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;0
+     12.1.1.255&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;0
+       23.1.1.0&#x2F;24  Direct  0    0           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;1
+       23.1.1.2&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;1
+     23.1.1.255&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;1
+      127.0.0.0&#x2F;8   Direct  0    0           D   127.0.0.1       InLoopBack0
+      127.0.0.1&#x2F;32  Direct  0    0           D   127.0.0.1       InLoopBack0
+127.255.255.255&#x2F;32  Direct  0    0           D   127.0.0.1       InLoopBack0
+255.255.255.255&#x2F;32  Direct  0    0           D   127.0.0.1       InLoopBack0
 
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[AR2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>STEP2.5：DEBUG</li>
 </ul>
 <p>在理想环境下，抓包容易，但是在真实生产环境中，抓包很难实现。因此，一般使用DEBUG写日志。</p>
 <font color=#999AAA>让客户主动找你，别主动去找客户。</font>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 显示日志</span>
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>terminal monitor  <span class="token comment"># 在终端显示日志</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 显示日志
+&lt;AR2&gt;terminal monitor  # 在终端显示日志
 Info: Current terminal monitor is on.
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>terminal debugging  <span class="token comment"># 显示日志等级</span>
+&lt;AR2&gt;terminal debugging  # 显示日志等级
 Info: Current terminal debugging is on.
-<span class="token comment"># &lt;AR2>terminal all  # 永远不要使用该命令</span>
-<span class="token comment"># todo 显示相应日志</span>
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>debugging <span class="token function">ip</span> icmp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# &lt;AR2&gt;terminal all  # 永远不要使用该命令
+# todo 显示相应日志
+&lt;AR2&gt;debugging ip icmp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>然后，使用AR1 ping AR2，可以在AR2终端看到(ping通了)：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2终端信息</span>
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>
-Oct <span class="token number">12</span> <span class="token number">2021</span> <span class="token number">17</span>:46:11.832.2-08:00 AR2 IP/7/debug_icmp:
-ICMP Send: echo-reply<span class="token punctuation">(</span>Type<span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">Code</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>, Src <span class="token operator">=</span> <span class="token number">2.1</span>.1.12, Dst <span class="token operator">=</span> <span class="token number">1.1</span>.1.12, ICMP Id <span class="token operator">=</span> 0xabcd, ICMP Seq <span class="token operator">=</span> <span class="token number">256</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2终端信息
+&lt;AR2&gt;
+Oct 12 2021 17:46:11.832.2-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
+ICMP Send: echo-reply(Type&#x3D;0, Code&#x3D;0), Src &#x3D; 2.1.1.12, Dst &#x3D; 1.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 256
 
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>
-Oct <span class="token number">12</span> <span class="token number">2021</span> <span class="token number">17</span>:46:12.272.1-08:00 AR2 IP/7/debug_icmp:
-ICMP Receive: echo<span class="token punctuation">(</span>Type<span class="token operator">=</span><span class="token number">2048</span>, <span class="token assign-left variable">Code</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>, Src <span class="token operator">=</span> <span class="token number">1.1</span>.1.12, Dst <span class="token operator">=</span> <span class="token number">2.1</span>.1.12, ICMP Id <span class="token operator">=</span> 0xabcd, ICMP Seq <span class="token operator">=</span> <span class="token number">512</span>
+&lt;AR2&gt;
+Oct 12 2021 17:46:12.272.1-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
+ICMP Receive: echo(Type&#x3D;2048, Code&#x3D;0), Src &#x3D; 1.1.1.12, Dst &#x3D; 2.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 512
 
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>
-Oct <span class="token number">12</span> <span class="token number">2021</span> <span class="token number">17</span>:46:12.272.2-08:00 AR2 IP/7/debug_icmp:
-ICMP Send: echo-reply<span class="token punctuation">(</span>Type<span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">Code</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>, Src <span class="token operator">=</span> <span class="token number">2.1</span>.1.12, Dst <span class="token operator">=</span> <span class="token number">1.1</span>.1.12, ICMP Id <span class="token operator">=</span> 0xabcd, ICMP Seq <span class="token operator">=</span> <span class="token number">512</span>
+&lt;AR2&gt;
+Oct 12 2021 17:46:12.272.2-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
+ICMP Send: echo-reply(Type&#x3D;0, Code&#x3D;0), Src &#x3D; 2.1.1.12, Dst &#x3D; 1.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 512
 
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>
-Oct <span class="token number">12</span> <span class="token number">2021</span> <span class="token number">17</span>:46:12.772.1-08:00 AR2 IP/7/debug_icmp:
-ICMP Receive: echo<span class="token punctuation">(</span>Type<span class="token operator">=</span><span class="token number">2048</span>, <span class="token assign-left variable">Code</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>, Src <span class="token operator">=</span> <span class="token number">1.1</span>.1.12, Dst <span class="token operator">=</span> <span class="token number">2.1</span>.1.12, ICMP Id <span class="token operator">=</span> 0xabcd, ICMP Seq <span class="token operator">=</span> <span class="token number">768</span>
+&lt;AR2&gt;
+Oct 12 2021 17:46:12.772.1-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
+ICMP Receive: echo(Type&#x3D;2048, Code&#x3D;0), Src &#x3D; 1.1.1.12, Dst &#x3D; 2.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 768
 
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>
-Oct <span class="token number">12</span> <span class="token number">2021</span> <span class="token number">17</span>:46:12.772.2-08:00 AR2 IP/7/debug_icmp:
-ICMP Send: echo-reply<span class="token punctuation">(</span>Type<span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">Code</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>, Src <span class="token operator">=</span> <span class="token number">2.1</span>.1.12, Dst <span class="token operator">=</span> <span class="token number">1.1</span>.1.12, ICMP Id <span class="token operator">=</span> 0xabcd, ICMP Seq <span class="token operator">=</span> <span class="token number">768</span>
+&lt;AR2&gt;
+Oct 12 2021 17:46:12.772.2-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
+ICMP Send: echo-reply(Type&#x3D;0, Code&#x3D;0), Src &#x3D; 2.1.1.12, Dst &#x3D; 1.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 768
 
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>
-Oct <span class="token number">12</span> <span class="token number">2021</span> <span class="token number">17</span>:46:13.272.1-08:00 AR2 IP/7/debug_icmp:
-ICMP Receive: echo<span class="token punctuation">(</span>Type<span class="token operator">=</span><span class="token number">2048</span>, <span class="token assign-left variable">Code</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>, Src <span class="token operator">=</span> <span class="token number">1.1</span>.1.12, Dst <span class="token operator">=</span> <span class="token number">2.1</span>.1.12, ICMP Id <span class="token operator">=</span> 0xabcd, ICMP Seq <span class="token operator">=</span> <span class="token number">1024</span>
+&lt;AR2&gt;
+Oct 12 2021 17:46:13.272.1-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
+ICMP Receive: echo(Type&#x3D;2048, Code&#x3D;0), Src &#x3D; 1.1.1.12, Dst &#x3D; 2.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 1024
 
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>
-Oct <span class="token number">12</span> <span class="token number">2021</span> <span class="token number">17</span>:46:13.272.2-08:00 AR2 IP/7/debug_icmp:
-ICMP Send: echo-reply<span class="token punctuation">(</span>Type<span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">Code</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>, Src <span class="token operator">=</span> <span class="token number">2.1</span>.1.12, Dst <span class="token operator">=</span> <span class="token number">1.1</span>.1.12, ICMP Id <span class="token operator">=</span> 0xabcd, ICMP Seq <span class="token operator">=</span> <span class="token number">1024</span>
+&lt;AR2&gt;
+Oct 12 2021 17:46:13.272.2-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
+ICMP Send: echo-reply(Type&#x3D;0, Code&#x3D;0), Src &#x3D; 2.1.1.12, Dst &#x3D; 1.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 1024
 
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>
-Oct <span class="token number">12</span> <span class="token number">2021</span> <span class="token number">17</span>:46:13.762.1-08:00 AR2 IP/7/debug_icmp:
-ICMP Receive: echo<span class="token punctuation">(</span>Type<span class="token operator">=</span><span class="token number">2048</span>, <span class="token assign-left variable">Code</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>, Src <span class="token operator">=</span> <span class="token number">1.1</span>.1.12, Dst <span class="token operator">=</span> <span class="token number">2.1</span>.1.12, ICMP Id <span class="token operator">=</span> 0xabcd, ICMP Seq <span class="token operator">=</span> <span class="token number">1280</span>
+&lt;AR2&gt;
+Oct 12 2021 17:46:13.762.1-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
+ICMP Receive: echo(Type&#x3D;2048, Code&#x3D;0), Src &#x3D; 1.1.1.12, Dst &#x3D; 2.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 1280
 
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span>
-Oct <span class="token number">12</span> <span class="token number">2021</span> <span class="token number">17</span>:46:13.762.2-08:00 AR2 IP/7/debug_icmp:
-ICMP Send: echo-reply<span class="token punctuation">(</span>Type<span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">Code</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>, Src <span class="token operator">=</span> <span class="token number">2.1</span>.1.12, Dst <span class="token operator">=</span> <span class="token number">1.1</span>.1.12, ICMP Id <span class="token operator">=</span> 0xabcd, ICMP Seq <span class="token operator">=</span> <span class="token number">1280</span>
+&lt;AR2&gt;
+Oct 12 2021 17:46:13.762.2-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
+ICMP Send: echo-reply(Type&#x3D;0, Code&#x3D;0), Src &#x3D; 2.1.1.12, Dst &#x3D; 1.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 1280
 
-<span class="token operator">&lt;</span>AR<span class="token operator"><span class="token file-descriptor important">2</span>></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;AR2&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhenyi2000/article/details/79795095">ICMP类型字段(Type)以及代码字段(Code)含义汇总</a></p>
 <ul>
 <li>STEP3.1：配置静态路由</li>
 </ul>
 <p>静态路由配置语法：<code>[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;下跳地址&gt;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1配置静态路由</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>ip route-static <span class="token number">192.168</span>.2.0 <span class="token number">255.255</span>.255.0 <span class="token number">12.1</span>.1.2
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1配置静态路由
+[AR1]ip route-static 192.168.2.0 255.255.255.0 12.1.1.2
 
-<span class="token comment"># todo AR2配置静态路由</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>ip route-static <span class="token number">192.168</span>.2.0 <span class="token number">255.255</span>.255.0 <span class="token number">23.1</span>.1.3
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>ip route-static <span class="token number">192.168</span>.1.0 <span class="token number">255.255</span>.255.0 <span class="token number">12.1</span>.1.1
+# todo AR2配置静态路由
+[AR2]ip route-static 192.168.2.0 255.255.255.0 23.1.1.3
+[AR2]ip route-static 192.168.1.0 255.255.255.0 12.1.1.1
 
-<span class="token comment"># todo AR3配置静态路由</span>
-<span class="token punctuation">[</span>AR3<span class="token punctuation">]</span>ip route-static <span class="token number">192.168</span>.1.0 <span class="token number">255.255</span>.255.0 <span class="token number">23.1</span>.1.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo AR3配置静态路由
+[AR3]ip route-static 192.168.1.0 255.255.255.0 23.1.1.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>STEP3.2：测试网络连通性</li>
 </ul>
@@ -687,15 +678,15 @@ ICMP Send: echo-reply<span class="token punctuation">(</span>Type<span class="to
 <li>STEP3：测试连通性(略：路由器互相ping不通)</li>
 <li>STEP4：添加静态路由</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>ip route-static <span class="token number">192.168</span>.1.1 <span class="token number">255.255</span>.255.0 g0/0/0
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1
+[AR1]ip route-static 192.168.1.1 255.255.255.0 g0&#x2F;0&#x2F;0
 Info: The destination address and mask of the configured static route mismatched
-, and the static route <span class="token number">192.168</span>.1.0/24 was generated.
+, and the static route 192.168.1.0&#x2F;24 was generated.
 
-<span class="token comment"># todo AR2</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>ip route-static <span class="token number">12.1</span>.1.1 <span class="token number">255.255</span>.255.0 g0/0/0
+# todo AR2
+[AR2]ip route-static 12.1.1.1 255.255.255.0 g0&#x2F;0&#x2F;0
 Info: The destination address and mask of the configured static route mismatched
-, and the static route <span class="token number">12.1</span>.1.0/24 was generated.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+, and the static route 12.1.1.0&#x2F;24 was generated.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>STEP5：测试连通性</li>
 </ul>
@@ -778,24 +769,24 @@ Info: The destination address and mask of the configured static route mismatched
 <li>STEP2.1：路由器配置环回口地址</li>
 </ul>
 <p>路由器的环回口可以自己指定，配置任意IP地址。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置环回口</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>int LoopBack <span class="token number">0</span>
-<span class="token punctuation">[</span>AR1-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">1.1</span>.1.1 <span class="token number">32</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置环回口
+[AR1]int LoopBack 0
+[AR1-LoopBack0]ip add 1.1.1.1 32
 
-<span class="token comment"># todo 查看环回地址</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>dis <span class="token function">ip</span> int bri<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# todo 查看环回地址
+[AR1]dis ip rou
+[AR1]dis ip int bri<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>STEP2.2：配置IP地址</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置IP</span>
-<span class="token punctuation">[</span>AR1int g0/0/0
-<span class="token punctuation">[</span>AR1-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">12.1</span>.1.1 <span class="token number">24</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：配置IP</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">12.1</span>.1.2 <span class="token number">24</span>
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/0<span class="token punctuation">]</span>int g0/0/1
-<span class="token punctuation">[</span>AR2-GigabitEthernet0/0/1<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">192.168</span>.1.2 <span class="token number">24</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置IP
+[AR1int g0&#x2F;0&#x2F;0
+[AR1-GigabitEthernet0&#x2F;0&#x2F;0]ip add 12.1.1.1 24<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：配置IP
+[AR2]int g0&#x2F;0&#x2F;0
+[AR2-GigabitEthernet0&#x2F;0&#x2F;0]ip add 12.1.1.2 24
+[AR2-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
+[AR2-GigabitEthernet0&#x2F;0&#x2F;1]ip add 192.168.1.2 24<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <div class="table-container">
 <table>
 <thead>
@@ -820,89 +811,89 @@ Info: The destination address and mask of the configured static route mismatched
 <li>STEP2.3：配置默认路由</li>
 </ul>
 <p>末梢网络一般添加默认路由</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置默认路由</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>ip route-static <span class="token number">192.168</span>.1.0 <span class="token number">255.255</span>.255.0 <span class="token number">12.1</span>.1.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：配置默认路由</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>ip route-static <span class="token number">0.0</span>.0.0 <span class="token number">0.0</span>.0.0 <span class="token number">12.1</span>.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置默认路由
+[AR1]ip route-static 192.168.1.0 255.255.255.0 12.1.1.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：配置默认路由
+[AR2]ip route-static 0.0.0.0 0.0.0.0 12.1.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>STEP0：测试连通</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># tood AR1：</span>
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>ping -a <span class="token number">1.1</span>.1.1 <span class="token number">192.168</span>.1.250  
-  PING <span class="token number">192.168</span>.1.250: <span class="token number">56</span>  data bytes, press CTRL_C to <span class="token builtin class-name">break</span>
-    Request <span class="token function">time</span> out
-    Reply from <span class="token number">192.168</span>.1.250: <span class="token assign-left variable">bytes</span><span class="token operator">=</span><span class="token number">56</span> <span class="token assign-left variable">Sequence</span><span class="token operator">=</span><span class="token number">2</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">127</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">40</span> ms
-    Reply from <span class="token number">192.168</span>.1.250: <span class="token assign-left variable">bytes</span><span class="token operator">=</span><span class="token number">56</span> <span class="token assign-left variable">Sequence</span><span class="token operator">=</span><span class="token number">3</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">127</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">30</span> ms
-    Reply from <span class="token number">192.168</span>.1.250: <span class="token assign-left variable">bytes</span><span class="token operator">=</span><span class="token number">56</span> <span class="token assign-left variable">Sequence</span><span class="token operator">=</span><span class="token number">4</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">127</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">30</span> ms
-    Reply from <span class="token number">192.168</span>.1.250: <span class="token assign-left variable">bytes</span><span class="token operator">=</span><span class="token number">56</span> <span class="token assign-left variable">Sequence</span><span class="token operator">=</span><span class="token number">5</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">127</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">20</span> ms
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># tood AR1：
+[AR1]ping -a 1.1.1.1 192.168.1.250  
+  PING 192.168.1.250: 56  data bytes, press CTRL_C to break
+    Request time out
+    Reply from 192.168.1.250: bytes&#x3D;56 Sequence&#x3D;2 ttl&#x3D;127 time&#x3D;40 ms
+    Reply from 192.168.1.250: bytes&#x3D;56 Sequence&#x3D;3 ttl&#x3D;127 time&#x3D;30 ms
+    Reply from 192.168.1.250: bytes&#x3D;56 Sequence&#x3D;4 ttl&#x3D;127 time&#x3D;30 ms
+    Reply from 192.168.1.250: bytes&#x3D;56 Sequence&#x3D;5 ttl&#x3D;127 time&#x3D;20 ms
 
-  --- <span class="token number">192.168</span>.1.250 <span class="token function">ping</span> statistics ---
-    <span class="token number">5</span> packet<span class="token punctuation">(</span>s<span class="token punctuation">)</span> transmitted
-    <span class="token number">4</span> packet<span class="token punctuation">(</span>s<span class="token punctuation">)</span> received
-    <span class="token number">20.00</span>% packet loss
-    round-trip min/avg/max <span class="token operator">=</span> <span class="token number">20</span>/30/40 ms
+  --- 192.168.1.250 ping statistics ---
+    5 packet(s) transmitted
+    4 packet(s) received
+    20.00% packet loss
+    round-trip min&#x2F;avg&#x2F;max &#x3D; 20&#x2F;30&#x2F;40 ms
 
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[AR1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>STEP3：删除主机连线，路由器之间成环</li>
 </ul>
 <p><img src="/img/loading.gif" data-original="./3d43052de942494c9a89739643363d1a.png"></p>
 <p>此时测试连通性：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>AR1<span class="token punctuation">]</span>tracert -a <span class="token number">1.1</span>.1.1 <span class="token number">192.168</span>.1.250
- <span class="token function">traceroute</span> to  <span class="token number">192.168</span>.1.250<span class="token punctuation">(</span><span class="token number">192.168</span>.1.250<span class="token punctuation">)</span>, max hops: <span class="token number">30</span> ,packet length: <span class="token number">40</span>,press CTRL_C to <span class="token builtin class-name">break</span> 
- <span class="token number">1</span> <span class="token number">12.1</span>.1.2 <span class="token number">50</span> ms  <span class="token number">20</span> ms  <span class="token number">20</span> ms 
- <span class="token number">2</span> <span class="token number">12.1</span>.1.1 <span class="token number">10</span> ms  <span class="token number">20</span> ms  <span class="token number">10</span> ms 
- <span class="token number">3</span> <span class="token number">12.1</span>.1.2 <span class="token number">20</span> ms  <span class="token number">10</span> ms  <span class="token number">30</span> ms 
- <span class="token number">4</span> <span class="token number">12.1</span>.1.1 <span class="token number">20</span> ms  <span class="token number">20</span> ms  <span class="token number">20</span> ms 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[AR1]tracert -a 1.1.1.1 192.168.1.250
+ traceroute to  192.168.1.250(192.168.1.250), max hops: 30 ,packet length: 40,press CTRL_C to break 
+ 1 12.1.1.2 50 ms  20 ms  20 ms 
+ 2 12.1.1.1 10 ms  20 ms  10 ms 
+ 3 12.1.1.2 20 ms  10 ms  30 ms 
+ 4 12.1.1.1 20 ms  20 ms  20 ms 
 ······
-<span class="token number">27</span> <span class="token number">12.1</span>.1.2 <span class="token number">80</span> ms  <span class="token number">60</span> ms  <span class="token number">100</span> ms 
-<span class="token number">28</span> <span class="token number">12.1</span>.1.1 <span class="token number">70</span> ms  <span class="token number">80</span> ms  <span class="token number">80</span> ms 
-<span class="token number">29</span> <span class="token number">12.1</span>.1.2 <span class="token number">70</span> ms  <span class="token number">100</span> ms  <span class="token number">80</span> ms 
-<span class="token number">30</span> <span class="token number">12.1</span>.1.1 <span class="token number">80</span> ms  <span class="token number">90</span> ms  <span class="token number">80</span> ms 
-<span class="token punctuation">[</span>AR1<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+27 12.1.1.2 80 ms  60 ms  100 ms 
+28 12.1.1.1 70 ms  80 ms  80 ms 
+29 12.1.1.2 70 ms  100 ms  80 ms 
+30 12.1.1.1 80 ms  90 ms  80 ms 
+[AR1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>环路原因：路由器端口down了后，其路由表中的对应的路由条目会被删除，此时路由器就会根据默认路由进行转发，这两台路由器都根据默认路由进行转发就形成了环路。</p>
 <ul>
 <li>STEP4：配置防环的丢弃路由</li>
 </ul>
 <p>丢弃路由：匹配到指定的地址都丢弃掉</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：配置丢弃路由</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>ip route-static <span class="token number">192.168</span>.1.0 <span class="token number">255.255</span>.255.0 NULL <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：配置丢弃路由
+[AR2]ip route-static 192.168.1.0 255.255.255.0 NULL 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>STEP0：分别连接/断开连线测试连通性</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：线路连接时的路由表</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：线路连接时的路由表
+[AR2]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">11</span>       Routes <span class="token builtin class-name">:</span> <span class="token number">11</span>       
+         Destinations : 11       Routes : 11       
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
 
-        <span class="token number">0.0</span>.0.0/0   Static  <span class="token number">60</span>   <span class="token number">0</span>          RD   <span class="token number">12.1</span>.1.1        GigabitEthernet0/0/0
-       <span class="token number">12.1</span>.1.0/24  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">12.1</span>.1.2        GigabitEthernet0/0/0
-       <span class="token number">12.1</span>.1.2/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       GigabitEthernet0/0/0
+        0.0.0.0&#x2F;0   Static  60   0          RD   12.1.1.1        GigabitEthernet0&#x2F;0&#x2F;0
+       12.1.1.0&#x2F;24  Direct  0    0           D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+       12.1.1.2&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;0
     ······
-    <span class="token number">192.168</span>.1.0/24  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">192.168</span>.1.2     GigabitEthernet0/0/1
-    <span class="token number">192.168</span>.1.2/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       GigabitEthernet0/0/1
-  <span class="token number">192.168</span>.1.255/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       GigabitEthernet0/0/1
-<span class="token number">255.255</span>.255.255/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       InLoopBack0
+    192.168.1.0&#x2F;24  Direct  0    0           D   192.168.1.2     GigabitEthernet0&#x2F;0&#x2F;1
+    192.168.1.2&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;1
+  192.168.1.255&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;1
+255.255.255.255&#x2F;32  Direct  0    0           D   127.0.0.1       InLoopBack0
 
-<span class="token comment"># todo AR2：线路断开时的路由表</span>
-<span class="token punctuation">[</span>AR2<span class="token punctuation">]</span>dis <span class="token function">ip</span> rou
+# todo AR2：线路断开时的路由表
+[AR2]dis ip rou
 Route Flags: R - relay, D - download to fib
 ------------------------------------------------------------------------------
 Routing Tables: Public
-         Destinations <span class="token builtin class-name">:</span> <span class="token number">9</span>        Routes <span class="token builtin class-name">:</span> <span class="token number">9</span>        
+         Destinations : 9        Routes : 9        
 
-Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
+Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
 
-        <span class="token number">0.0</span>.0.0/0   Static  <span class="token number">60</span>   <span class="token number">0</span>          RD   <span class="token number">12.1</span>.1.1        GigabitEthernet0/0/0
-       <span class="token number">12.1</span>.1.0/24  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">12.1</span>.1.2        GigabitEthernet0/0/0
-       <span class="token number">12.1</span>.1.2/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       GigabitEthernet0/0/0
+        0.0.0.0&#x2F;0   Static  60   0          RD   12.1.1.1        GigabitEthernet0&#x2F;0&#x2F;0
+       12.1.1.0&#x2F;24  Direct  0    0           D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
+       12.1.1.2&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;0
     ······
-    <span class="token number">192.168</span>.1.0/24  Static  <span class="token number">60</span>   <span class="token number">0</span>           D   <span class="token number">0.0</span>.0.0         NULL0
-<span class="token number">255.255</span>.255.255/32  Direct  <span class="token number">0</span>    <span class="token number">0</span>           D   <span class="token number">127.0</span>.0.1       InLoopBack0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    192.168.1.0&#x2F;24  Static  60   0           D   0.0.0.0         NULL0
+255.255.255.255&#x2F;32  Direct  0    0           D   127.0.0.1       InLoopBack0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注意到：<br>连接：<code>192.168.1.0/24  Direct  0    0           D   192.168.1.2     GigabitEthernet0/0/1</code><br>断开：<code>192.168.1.0/24  Static  60   0           D   0.0.0.0         NULL0</code></p>
 <ul>
 <li>总结<ul>
@@ -915,20 +906,20 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 </ul>
 <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h3><font color=#999AAA>略：上面已经做过</font>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 命令：配置到达某个网段的静态路由</span>
-<span class="token punctuation">[</span>AR<span class="token punctuation">]</span>ip route-static <span class="token operator">&lt;</span>目标网段<span class="token operator">></span> <span class="token operator">&lt;</span>子网掩码<span class="token operator">></span> <span class="token operator">&lt;</span>出口地址<span class="token operator">></span>
-<span class="token punctuation">[</span>AR<span class="token punctuation">]</span>ip route-static <span class="token operator">&lt;</span>目标网段<span class="token operator">></span> <span class="token operator">&lt;</span>子网掩码位数<span class="token operator">></span> <span class="token operator">&lt;</span>下一跳地址<span class="token operator">></span>
-<span class="token punctuation">[</span>AR<span class="token punctuation">]</span>ip route-static <span class="token operator">&lt;</span>目标网段<span class="token operator">></span> <span class="token operator">&lt;</span>子网掩码位数<span class="token operator">></span> <span class="token operator">&lt;</span>下一跳端口<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="负载分担"><a href="#负载分担" class="headerlink" title="负载分担"></a>负载分担</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 命令：配置等价路由实现负载分担</span>
-<span class="token punctuation">[</span>AR<span class="token punctuation">]</span>ip route-static <span class="token operator">&lt;</span>目标网段<span class="token operator">></span> <span class="token operator">&lt;</span>子网掩码<span class="token operator">></span> <span class="token operator">&lt;</span>出口地址<span class="token operator"><span class="token file-descriptor important">1</span>></span>
-<span class="token punctuation">[</span>AR<span class="token punctuation">]</span>ip route-static <span class="token operator">&lt;</span>目标网段<span class="token operator">></span> <span class="token operator">&lt;</span>子网掩码<span class="token operator">></span> <span class="token operator">&lt;</span>出口地址<span class="token operator"><span class="token file-descriptor important">2</span>></span>
-<span class="token punctuation">[</span>AR<span class="token punctuation">]</span>ip route-static <span class="token operator">&lt;</span>目标网段<span class="token operator">></span> <span class="token operator">&lt;</span>子网掩码<span class="token operator">></span> <span class="token operator">&lt;</span>出口地址<span class="token operator"><span class="token file-descriptor important">3</span>></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="路由备份"><a href="#路由备份" class="headerlink" title="路由备份"></a>路由备份</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 命令：静态路由的路由备份</span>
-<span class="token punctuation">[</span>AR<span class="token punctuation">]</span>ip route-static <span class="token operator">&lt;</span>目标网段<span class="token operator">></span> <span class="token operator">&lt;</span>子网掩码<span class="token operator">></span> <span class="token operator">&lt;</span>出口地址<span class="token operator"><span class="token file-descriptor important">1</span>></span>
-<span class="token punctuation">[</span>AR<span class="token punctuation">]</span>ip route-static <span class="token operator">&lt;</span>目标网段<span class="token operator">></span> <span class="token operator">&lt;</span>子网掩码<span class="token operator">></span> <span class="token operator">&lt;</span>出口地址<span class="token operator"><span class="token file-descriptor important">2</span>></span> preference <span class="token number">100</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 命令：配置到达某个网段的静态路由
+[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址&gt;
+[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码位数&gt; &lt;下一跳地址&gt;
+[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码位数&gt; &lt;下一跳端口&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="负载分担"><a href="#负载分担" class="headerlink" title="负载分担"></a>负载分担</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 命令：配置等价路由实现负载分担
+[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址1&gt;
+[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址2&gt;
+[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址3&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="路由备份"><a href="#路由备份" class="headerlink" title="路由备份"></a>路由备份</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 命令：静态路由的路由备份
+[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址1&gt;
+[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址2&gt; preference 100<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><img src="/img/loading.gif" data-original="./9a6bb1b37b814f4f9ad645286c1befb7.png"></p>
-<h3 id="缺省路由"><a href="#缺省路由" class="headerlink" title="缺省路由"></a>缺省路由</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 命令：配置缺省路由</span>
-<span class="token punctuation">[</span>AR<span class="token punctuation">]</span>ip route-static <span class="token number">0.0</span>.0.0 <span class="token number">0.0</span>.0.0 <span class="token operator">&lt;</span>下一跳地址<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="缺省路由"><a href="#缺省路由" class="headerlink" title="缺省路由"></a>缺省路由</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 命令：配置缺省路由
+[AR]ip route-static 0.0.0.0 0.0.0.0 &lt;下一跳地址&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="OSPF路由协议"><a href="#OSPF路由协议" class="headerlink" title="OSPF路由协议"></a>OSPF路由协议</h2><h3 id="原理：OSPF路由协议"><a href="#原理：OSPF路由协议" class="headerlink" title="原理：OSPF路由协议"></a><strong>原理：OSPF路由协议</strong></h3><ul>
 <li><strong>①开方式最短路径优先协议OSPF</strong></li>
 </ul>
@@ -977,25 +968,25 @@ Destination/Mask    Proto   Pre  Cost      Flags NextHop         Interface
 </ul>
 <p>首先打开抓包</p>
 <p>然后清空邻居关系</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>R<span class="token operator"><span class="token file-descriptor important">1</span>></span>reset ospf process 
-Warning: The OSPF process will be reset. Continue? <span class="token punctuation">[</span>Y/N<span class="token punctuation">]</span>:y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">&lt;R1&gt;reset ospf process 
+Warning: The OSPF process will be reset. Continue? [Y&#x2F;N]:y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>查看抓到的数据包/查询路由表State：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo 查看OSPF邻居表</span>
-<span class="token punctuation">[</span>R1<span class="token punctuation">]</span>dis ospf peer
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看OSPF邻居表
+[R1]dis ospf peer
 
-         OSPF Process <span class="token number">1</span> with Router ID <span class="token number">12.1</span>.1.1
+         OSPF Process 1 with Router ID 12.1.1.1
                  Neighbors 
 
- Area <span class="token number">0.0</span>.0.0 interface <span class="token number">12.1</span>.1.1<span class="token punctuation">(</span>GigabitEthernet0/0/0<span class="token punctuation">)</span>'s neighbors
- Router ID: <span class="token number">12.1</span>.1.2         Address: <span class="token number">12.1</span>.1.2        
-   State: Full  Mode:Nbr is  Master  Priority: <span class="token number">1</span>
-   DR: <span class="token number">12.1</span>.1.2  BDR: <span class="token number">12.1</span>.1.1  MTU: <span class="token number">0</span>    
-   Dead timer due <span class="token keyword">in</span> <span class="token number">31</span>  sec 
-   Retrans timer interval: <span class="token number">5</span> 
-   Neighbor is up <span class="token keyword">for</span> 00:03:03     
-   Authentication Sequence: <span class="token punctuation">[</span> <span class="token number">0</span> <span class="token punctuation">]</span> 
+ Area 0.0.0.0 interface 12.1.1.1(GigabitEthernet0&#x2F;0&#x2F;0)&#39;s neighbors
+ Router ID: 12.1.1.2         Address: 12.1.1.2        
+   State: Full  Mode:Nbr is  Master  Priority: 1
+   DR: 12.1.1.2  BDR: 12.1.1.1  MTU: 0    
+   Dead timer due in 31  sec 
+   Retrans timer interval: 5 
+   Neighbor is up for 00:03:03     
+   Authentication Sequence: [ 0 ] 
 
-<span class="token punctuation">[</span>R1<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[R1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="实验三：DR和BDR"><a href="#实验三：DR和BDR" class="headerlink" title="实验三：DR和BDR"></a><strong>实验三：DR和BDR</strong></h3><ul>
 <li>STEP1：网络拓扑</li>
 </ul>
@@ -1032,23 +1023,23 @@ Warning: The OSPF process will be reset. Continue? <span class="token punctuatio
 <li>STEP3：配置OSPF</li>
 </ul>
 <p>OSPF宣告网段：<code>network &lt;目标网段&gt; &lt;反掩码&gt;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR3：配置OSPF</span>
-<span class="token punctuation">[</span>R3<span class="token punctuation">]</span>ospf  <span class="token comment"># OSPF进程ID</span>
-<span class="token punctuation">[</span>R3-ospf-1<span class="token punctuation">]</span>a <span class="token number">0</span>  <span class="token comment"># 进入区域</span>
-<span class="token punctuation">[</span>R3-ospf-1-area-0.0.0.0<span class="token punctuation">]</span>network <span class="token number">10.0</span>.123.0 <span class="token number">0.0</span>.0.255  <span class="token comment"># 宣告直连网段</span>
-<span class="token punctuation">[</span>R3-ospf-1-area-0.0.0.0<span class="token punctuation">]</span>network <span class="token number">10.0</span>.3.0 <span class="token number">0.0</span>.0.255  <span class="token comment"># 宣告换回网段</span>
-<span class="token comment"># [R3-ospf-1]silent-interface LoopBack 0  # 如果需要，启用抑制端口</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1：配置OSPF</span>
-<span class="token punctuation">[</span>R1<span class="token punctuation">]</span>ospf
-<span class="token punctuation">[</span>R1-ospf-1<span class="token punctuation">]</span>a <span class="token number">0</span>
-<span class="token punctuation">[</span>R1-ospf-1-area-0.0.0.0<span class="token punctuation">]</span>network <span class="token number">10.0</span>.123.0 <span class="token number">0.0</span>.0.255
-······<span class="token punctuation">(</span>可以看到：Down-<span class="token operator">></span>Init-<span class="token operator">></span>2Way-<span class="token operator">></span>ExStart-<span class="token operator">></span>Exchange-<span class="token operator">></span>Loading<span class="token punctuation">)</span>
-<span class="token punctuation">[</span>R1-ospf-1-area-0.0.0.0<span class="token punctuation">]</span>network <span class="token number">10.0</span>.1.0 <span class="token number">0.0</span>.0.255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR2：配置OSPF</span>
-<span class="token punctuation">[</span>R2<span class="token punctuation">]</span>ospf
-<span class="token punctuation">[</span>R2-ospf-1<span class="token punctuation">]</span>a <span class="token number">0.0</span>.0.0
-<span class="token punctuation">[</span>R2-ospf-1-area-0.0.0.0<span class="token punctuation">]</span>network <span class="token number">10.0</span>.123.0 <span class="token number">0.0</span>.0.255
-<span class="token punctuation">[</span>R2-ospf-1-area-0.0.0.0<span class="token punctuation">]</span>network <span class="token number">10.0</span>.2.0 <span class="token number">0.0</span>.0.255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR3：配置OSPF
+[R3]ospf  # OSPF进程ID
+[R3-ospf-1]a 0  # 进入区域
+[R3-ospf-1-area-0.0.0.0]network 10.0.123.0 0.0.0.255  # 宣告直连网段
+[R3-ospf-1-area-0.0.0.0]network 10.0.3.0 0.0.0.255  # 宣告换回网段
+# [R3-ospf-1]silent-interface LoopBack 0  # 如果需要，启用抑制端口<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置OSPF
+[R1]ospf
+[R1-ospf-1]a 0
+[R1-ospf-1-area-0.0.0.0]network 10.0.123.0 0.0.0.255
+······(可以看到：Down-&gt;Init-&gt;2Way-&gt;ExStart-&gt;Exchange-&gt;Loading)
+[R1-ospf-1-area-0.0.0.0]network 10.0.1.0 0.0.0.255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：配置OSPF
+[R2]ospf
+[R2-ospf-1]a 0.0.0.0
+[R2-ospf-1-area-0.0.0.0]network 10.0.123.0 0.0.0.255
+[R2-ospf-1-area-0.0.0.0]network 10.0.2.0 0.0.0.255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>问：直连路由还有必要宣告吗？<br>答：如果不宣告，那么该接口无法收发OSPF报文。</p>
 </blockquote>
@@ -1057,16 +1048,16 @@ Warning: The OSPF process will be reset. Continue? <span class="token punctuatio
 <ul>
 <li>STEP4：查看DR和BDR</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>AR<span class="token punctuation">]</span>dis ospf peer  <span class="token comment"># 查看OSPF邻居关系</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[AR]dis ospf peer  # 查看OSPF邻居关系<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在这里，因为我们路由器配置顺序为：AR3-&gt;AR1-&gt;AR2<br>因为没开启抢占特性，所以AR3为DR，AR1为BDR，AR2为DROther</p>
 <p>每隔10s发送一个Hello报文，40s收不到Hello，断开邻居关系(死亡间隔40s)</p>
 <h3 id="实验四：OSPF认证"><a href="#实验四：OSPF认证" class="headerlink" title="实验四：OSPF认证"></a><strong>实验四：OSPF认证</strong></h3><ul>
 <li>STEP1：网络拓扑(略：同上)</li>
 <li>STEP2：配置认证</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR1、AR2、AR3均配置认证</span>
-<span class="token punctuation">[</span>R1-GigabitEthernet0/0/0<span class="token punctuation">]</span>ospf authentication-mode md5 <span class="token number">1</span> cipher huawei
-<span class="token comment"># md5方式加密，Ket id为1，Key id保持一致！</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1、AR2、AR3均配置认证
+[R1-GigabitEthernet0&#x2F;0&#x2F;0]ospf authentication-mode md5 1 cipher huawei
+# md5方式加密，Ket id为1，Key id保持一致！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>hmac-md5：<a target="_blank" rel="noopener" href="https://blog.csdn.net/chy2z/article/details/80828770">HMAC-MD5 签名算法</a><br>simple：防君子不妨小人，认证之后正常收发OSPF包，但是抓包能直接看到密码</p>
 <p>修改**卡信息：网络验证：只能改服务器数据；本地验证：想咋改咋改(不会…)</p>
 <blockquote>
@@ -1081,13 +1072,13 @@ Warning: The OSPF process will be reset. Continue? <span class="token punctuatio
 <ul>
 <li>STEP2：配置多区域OSPF</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR3：配置多区域OSPF</span>
-<span class="token punctuation">[</span>R3<span class="token punctuation">]</span>int g0/0/1
-<span class="token punctuation">[</span>R3-GigabitEthernet0/0/1<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">10.0</span>.34.3 <span class="token number">24</span>  <span class="token comment"># 接口添加IP地址</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR3：配置多区域OSPF
+[R3]int g0&#x2F;0&#x2F;1
+[R3-GigabitEthernet0&#x2F;0&#x2F;1]ip add 10.0.34.3 24  # 接口添加IP地址
 
-<span class="token punctuation">[</span>R3<span class="token punctuation">]</span>ospf <span class="token number">1</span>
-<span class="token punctuation">[</span>R3-ospf-1<span class="token punctuation">]</span>a <span class="token number">1</span>  <span class="token comment"># 进入区域1</span>
-<span class="token punctuation">[</span>R3-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>network <span class="token number">10.0</span>.34.0 <span class="token number">0.0</span>.0.255  <span class="token comment"># 宣告区域</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[R3]ospf 1
+[R3-ospf-1]a 1  # 进入区域1
+[R3-ospf-1-area-0.0.0.1]network 10.0.34.0 0.0.0.255  # 宣告区域<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <div class="table-container">
 <table>
 <thead>
@@ -1106,21 +1097,21 @@ Warning: The OSPF process will be reset. Continue? <span class="token punctuatio
 </tbody>
 </table>
 </div>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># todo AR4：配置多区域OSPF</span>
-<span class="token punctuation">[</span>AR4<span class="token punctuation">]</span>int g0/0/0
-<span class="token punctuation">[</span>AR4-GigabitEthernet0/0/0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">10.0</span>.34.4 <span class="token number">24</span>  <span class="token comment"># 接口配置地址</span>
-<span class="token punctuation">[</span>AR4-GigabitEthernet0/0/0<span class="token punctuation">]</span>int loo <span class="token number">0</span>
-<span class="token punctuation">[</span>AR4-LoopBack0<span class="token punctuation">]</span>ip <span class="token function">add</span> <span class="token number">10.0</span>.4.4 <span class="token number">24</span>  <span class="token comment"># 环回口网络类型：点到点，掩码按32宣告</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR4：配置多区域OSPF
+[AR4]int g0&#x2F;0&#x2F;0
+[AR4-GigabitEthernet0&#x2F;0&#x2F;0]ip add 10.0.34.4 24  # 接口配置地址
+[AR4-GigabitEthernet0&#x2F;0&#x2F;0]int loo 0
+[AR4-LoopBack0]ip add 10.0.4.4 24  # 环回口网络类型：点到点，掩码按32宣告
 
-<span class="token punctuation">[</span>R4<span class="token punctuation">]</span>ospf <span class="token number">1</span>
-<span class="token punctuation">[</span>R4-ospf-1<span class="token punctuation">]</span>a <span class="token number">1</span>  <span class="token comment"># 进入区域1</span>
-<span class="token punctuation">[</span>R4-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>network <span class="token number">10.0</span>.34.0 <span class="token number">0.0</span>.0.255  <span class="token comment"># 宣告网段</span>
+[R4]ospf 1
+[R4-ospf-1]a 1  # 进入区域1
+[R4-ospf-1-area-0.0.0.1]network 10.0.34.0 0.0.0.255  # 宣告网段
 
-<span class="token punctuation">[</span>R4-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>int loo <span class="token number">0</span>
-<span class="token punctuation">[</span>AR4-LoopBack0<span class="token punctuation">]</span>ospf <span class="token builtin class-name">enable</span> <span class="token number">1</span> a <span class="token number">1</span>
-<span class="token comment"># 宣告环回口网段的一种方式，和在OSPF area里面用network效果一样</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>AR4-ospf-1-area-0.0.0.1<span class="token punctuation">]</span>network <span class="token number">10.0</span>.34.4 <span class="token number">0.0</span>.0.0
-<span class="token comment"># 宣告端口，虽然反掩码是32，但是还是按端口反掩码进行正常宣告</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+[R4-ospf-1-area-0.0.0.1]int loo 0
+[AR4-LoopBack0]ospf enable 1 a 1
+# 宣告环回口网段的一种方式，和在OSPF area里面用network效果一样<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[AR4-ospf-1-area-0.0.0.1]network 10.0.34.4 0.0.0.0
+# 宣告端口，虽然反掩码是32，但是还是按端口反掩码进行正常宣告<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>(理论上不允许！)物理上非骨干区域连接非骨干区域，可以想办法把两个区域变成一个区域：Virtual Link。</p>
 <ul>
 <li>练习题：OSPF故障排查</li>
@@ -1622,7 +1613,7 @@ Warning: The OSPF process will be reset. Continue? <span class="token punctuatio
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            OSPF协议 RIP协议
                         
                     </div>
                     <div class="publish-info">
@@ -1675,7 +1666,7 @@ Warning: The OSPF process will be reset. Continue? <span class="token punctuatio
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            STP生成树协议 VRRP虚拟路由冗余协议 逻辑链路聚合 交换机端口安全技术 AAA认证
                         
                     </div>
                     <div class="publish-info">
@@ -1892,6 +1883,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1964,7 +1962,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">60.5k</span>
+                        class="white-color">62.6k</span>
             
             
             
