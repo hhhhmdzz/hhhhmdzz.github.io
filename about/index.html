@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ICT战队-第5次笔记, Hexo">
-    <meta name="description" content="静态路由 OSPF协议">
+    <meta name="keywords" content="About, Hexo">
+    <meta name="description" content="Hexo">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +28,7 @@
     </style>
 
 
-    <title>ICT战队-第5次笔记 | Hexo</title>
+    <title>About | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -319,12 +319,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ICT战队-第5次笔记</h1>
+                    <h1 class="description center-align post-title">about</h1>
                 </div>
             </div>
         </div>
@@ -438,29 +438,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/HCIA/">
-                                <span class="chip bg-color">HCIA</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%8D%8E%E4%B8%BAeNSP/">
-                                <span class="chip bg-color">华为eNSP</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/ICT%E6%88%98%E9%98%9F%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/" class="post-category">
-                                ICT战队数据通信
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -469,28 +452,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-06-29
+                    2022-07-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2022-06-30
+                    2022-07-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.7k
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    22 Min
+                    1 Min
                 </div>
                 
 
@@ -513,610 +496,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="ICT战队-第5次笔记"><a href="#ICT战队-第5次笔记" class="headerlink" title="ICT战队-第5次笔记"></a>ICT战队-第5次笔记</h1><p>[toc]</p>
-<h2 id="路由协议"><a href="#路由协议" class="headerlink" title="路由协议"></a>路由协议</h2><h3 id="实验一：静态路由"><a href="#实验一：静态路由" class="headerlink" title="实验一：静态路由"></a><strong>实验一：静态路由</strong></h3><ul>
-<li>STEP1：网络拓扑</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="./2f4fbfc4c48246bcb81ce7296075cf04.png"></p>
-<ul>
-<li>STEP2.1：路由器配置IP</li>
-</ul>
-<p>说明：<code>AR几</code>就配置<code>X.X.X.几/24</code>的地址，例：AR2：12.1.5.2/24。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># AR1
-[AR1]int g0&#x2F;0&#x2F;0
-[AR1-GigabitEthernet0&#x2F;0&#x2F;0]ip add 192.168.1.1 24
-[AR1-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
-[AR1-GigabitEthernet0&#x2F;0&#x2F;1]ip add 12.1.1.1 24
-
-# AR2
-[AR2]int g0&#x2F;0&#x2F;0
-[AR2-GigabitEthernet0&#x2F;0&#x2F;0]ip add 12.1.1.2 24
-[AR2-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
-[AR2-GigabitEthernet0&#x2F;0&#x2F;1]ip add 23.1.1.2 24
-
-# AR3
-[AR3]int g0&#x2F;0&#x2F;0
-[AR3-GigabitEthernet0&#x2F;0&#x2F;0]ip add 23.1.1.3 24
-[AR3-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
-[AR3-GigabitEthernet0&#x2F;0&#x2F;1]ip add 192.168.2.3 24<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>STEP2.2：主机配置IP</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">主机</th>
-<th style="text-align:center">IP地址</th>
-<th style="text-align:center">掩码</th>
-<th style="text-align:center">网关</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">PC1</td>
-<td style="text-align:center">192.168.1.250</td>
-<td style="text-align:center">255.255.255.0</td>
-<td style="text-align:center">192.168.1.1</td>
-</tr>
-<tr>
-<td style="text-align:center">PC2</td>
-<td style="text-align:center">192.168.2.250</td>
-<td style="text-align:center">255.255.255.0</td>
-<td style="text-align:center">192.168.2.3</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>STEP2.3：测试网络连通性(略)</li>
-</ul>
-<p>用PC1 ping PC2，ping不通。</p>
-<ul>
-<li>STEP2.4：查看路由表</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[AR2]dis ip rou
-Route Flags: R - relay, D - download to fib
-------------------------------------------------------------------------------
-Routing Tables: Public
-         Destinations : 10       Routes : 10       
-
-Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
-
-       12.1.1.0&#x2F;24  Direct  0    0           D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
-       12.1.1.2&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;0
-     12.1.1.255&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;0
-       23.1.1.0&#x2F;24  Direct  0    0           D   23.1.1.2        GigabitEthernet0&#x2F;0&#x2F;1
-       23.1.1.2&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;1
-     23.1.1.255&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;1
-      127.0.0.0&#x2F;8   Direct  0    0           D   127.0.0.1       InLoopBack0
-      127.0.0.1&#x2F;32  Direct  0    0           D   127.0.0.1       InLoopBack0
-127.255.255.255&#x2F;32  Direct  0    0           D   127.0.0.1       InLoopBack0
-255.255.255.255&#x2F;32  Direct  0    0           D   127.0.0.1       InLoopBack0
-
-[AR2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>STEP2.5：DEBUG</li>
-</ul>
-<p>在理想环境下，抓包容易，但是在真实生产环境中，抓包很难实现。因此，一般使用DEBUG写日志。</p>
-<font color=#999AAA>让客户主动找你，别主动去找客户。</font>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 显示日志
-&lt;AR2&gt;terminal monitor  # 在终端显示日志
-Info: Current terminal monitor is on.
-&lt;AR2&gt;terminal debugging  # 显示日志等级
-Info: Current terminal debugging is on.
-# &lt;AR2&gt;terminal all  # 永远不要使用该命令
-# todo 显示相应日志
-&lt;AR2&gt;debugging ip icmp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后，使用AR1 ping AR2，可以在AR2终端看到(ping通了)：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2终端信息
-&lt;AR2&gt;
-Oct 12 2021 17:46:11.832.2-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
-ICMP Send: echo-reply(Type&#x3D;0, Code&#x3D;0), Src &#x3D; 2.1.1.12, Dst &#x3D; 1.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 256
-
-&lt;AR2&gt;
-Oct 12 2021 17:46:12.272.1-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
-ICMP Receive: echo(Type&#x3D;2048, Code&#x3D;0), Src &#x3D; 1.1.1.12, Dst &#x3D; 2.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 512
-
-&lt;AR2&gt;
-Oct 12 2021 17:46:12.272.2-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
-ICMP Send: echo-reply(Type&#x3D;0, Code&#x3D;0), Src &#x3D; 2.1.1.12, Dst &#x3D; 1.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 512
-
-&lt;AR2&gt;
-Oct 12 2021 17:46:12.772.1-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
-ICMP Receive: echo(Type&#x3D;2048, Code&#x3D;0), Src &#x3D; 1.1.1.12, Dst &#x3D; 2.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 768
-
-&lt;AR2&gt;
-Oct 12 2021 17:46:12.772.2-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
-ICMP Send: echo-reply(Type&#x3D;0, Code&#x3D;0), Src &#x3D; 2.1.1.12, Dst &#x3D; 1.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 768
-
-&lt;AR2&gt;
-Oct 12 2021 17:46:13.272.1-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
-ICMP Receive: echo(Type&#x3D;2048, Code&#x3D;0), Src &#x3D; 1.1.1.12, Dst &#x3D; 2.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 1024
-
-&lt;AR2&gt;
-Oct 12 2021 17:46:13.272.2-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
-ICMP Send: echo-reply(Type&#x3D;0, Code&#x3D;0), Src &#x3D; 2.1.1.12, Dst &#x3D; 1.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 1024
-
-&lt;AR2&gt;
-Oct 12 2021 17:46:13.762.1-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
-ICMP Receive: echo(Type&#x3D;2048, Code&#x3D;0), Src &#x3D; 1.1.1.12, Dst &#x3D; 2.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 1280
-
-&lt;AR2&gt;
-Oct 12 2021 17:46:13.762.2-08:00 AR2 IP&#x2F;7&#x2F;debug_icmp:
-ICMP Send: echo-reply(Type&#x3D;0, Code&#x3D;0), Src &#x3D; 2.1.1.12, Dst &#x3D; 1.1.1.12, ICMP Id &#x3D; 0xabcd, ICMP Seq &#x3D; 1280
-
-&lt;AR2&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhenyi2000/article/details/79795095">ICMP类型字段(Type)以及代码字段(Code)含义汇总</a></p>
-<ul>
-<li>STEP3.1：配置静态路由</li>
-</ul>
-<p>静态路由配置语法：<code>[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;下跳地址&gt;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1配置静态路由
-[AR1]ip route-static 192.168.2.0 255.255.255.0 12.1.1.2
-
-# todo AR2配置静态路由
-[AR2]ip route-static 192.168.2.0 255.255.255.0 23.1.1.3
-[AR2]ip route-static 192.168.1.0 255.255.255.0 12.1.1.1
-
-# todo AR3配置静态路由
-[AR3]ip route-static 192.168.1.0 255.255.255.0 23.1.1.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>STEP3.2：测试网络连通性</li>
-</ul>
-<p>主机之间可以ping通，其通信过程为：</p>
-<p><img src="/img/loading.gif" data-original="./33d9c319820d41ddb02fabbe4654a383.png"></p>
-<p><strong>路由器基于路由表进行转发</strong>。</p>
-<h3 id="小实验-1"><a href="#小实验-1" class="headerlink" title="小实验$_1$"></a>小实验$_1$</h3><p>两个路由器地址不在同一网段能否通信。</p>
-<ul>
-<li>STEP1：网络拓扑</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="./62af52d773c54532bb3cd64d843be2e8.png"></p>
-<ul>
-<li>STEP2：路由器配置IP(略)</li>
-<li>STEP3：测试连通性(略：路由器互相ping不通)</li>
-<li>STEP4：添加静态路由</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1
-[AR1]ip route-static 192.168.1.1 255.255.255.0 g0&#x2F;0&#x2F;0
-Info: The destination address and mask of the configured static route mismatched
-, and the static route 192.168.1.0&#x2F;24 was generated.
-
-# todo AR2
-[AR2]ip route-static 12.1.1.1 255.255.255.0 g0&#x2F;0&#x2F;0
-Info: The destination address and mask of the configured static route mismatched
-, and the static route 12.1.1.0&#x2F;24 was generated.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>STEP5：测试连通性</li>
-</ul>
-<p>此时，<strong>按理来说</strong>，应该能ping通了。<br>但是，涉及到ARP轮询技术(?)，没有ping通。</p>
-<blockquote>
-<p>注；如果路由器没有基于路由表进行转发，一般就是路由器出BUG了。</p>
-</blockquote>
-<h3 id="原理：路由协议"><a href="#原理：路由协议" class="headerlink" title="原理：路由协议"></a><strong>原理：路由协议</strong></h3><p><img src="/img/loading.gif" data-original="./ac940265ba7d419bb08b350e0f188a80.png"></p>
-<p>查询AS：<a target="_blank" rel="noopener" href="https://www.cidr-report.org/as2.0/">CIDR Report</a></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>算法</th>
-<th>协议</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>距离矢量路由选择协议</td>
-<td>RIP、BGP</td>
-</tr>
-<tr>
-<td>链路状态路由选择协议</td>
-<td>OSPF、ISIS</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>距离矢量：实时根据方向的距离转发数据<br>链路状态：已经计算好转发数据的最短路径</p>
-<p>路由度量：</p>
-<p><img src="/img/loading.gif" data-original="./1849c73748a74dba92878c6f96ce3003.png"></p>
-<p>等价路由：ECMP</p>
-<p><img src="/img/loading.gif" data-original="./b8f533e8554148be93a4b4cb5f58f219.png"></p>
-<p>例：等价路由</p>
-<p><img src="/img/loading.gif" data-original="./c74f445e32564661b7d857b3d856a1d6.png"></p>
-<p>路由表<strong>最长匹配原则</strong></p>
-<p>VRP缺省路由优先级：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">路由协议</th>
-<th style="text-align:center">优先级</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">DIRECT</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">OSPF</td>
-<td style="text-align:center">10</td>
-</tr>
-<tr>
-<td style="text-align:center">IS-IS</td>
-<td style="text-align:center">15</td>
-</tr>
-<tr>
-<td style="text-align:center">STATIC</td>
-<td style="text-align:center">60</td>
-</tr>
-<tr>
-<td style="text-align:center">RIP</td>
-<td style="text-align:center">100</td>
-</tr>
-<tr>
-<td style="text-align:center">OSPF ASE</td>
-<td style="text-align:center">150</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="小实验-2"><a href="#小实验-2" class="headerlink" title="小实验$_2$"></a>小实验$_2$</h3><ul>
-<li>STEP1：网络拓扑</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="./8aaf15f88feb46068eec0ef6c6ba23f3.png"></p>
-<ul>
-<li>STEP2.1：路由器配置环回口地址</li>
-</ul>
-<p>路由器的环回口可以自己指定，配置任意IP地址。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置环回口
-[AR1]int LoopBack 0
-[AR1-LoopBack0]ip add 1.1.1.1 32
-
-# todo 查看环回地址
-[AR1]dis ip rou
-[AR1]dis ip int bri<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>STEP2.2：配置IP地址</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置IP
-[AR1int g0&#x2F;0&#x2F;0
-[AR1-GigabitEthernet0&#x2F;0&#x2F;0]ip add 12.1.1.1 24<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：配置IP
-[AR2]int g0&#x2F;0&#x2F;0
-[AR2-GigabitEthernet0&#x2F;0&#x2F;0]ip add 12.1.1.2 24
-[AR2-GigabitEthernet0&#x2F;0&#x2F;0]int g0&#x2F;0&#x2F;1
-[AR2-GigabitEthernet0&#x2F;0&#x2F;1]ip add 192.168.1.2 24<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>主机</th>
-<th>IP地址</th>
-<th>子网掩码</th>
-<th>网关</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>PC1</td>
-<td>192.168.1.250</td>
-<td>255.255.255.0</td>
-<td>192.168.1.2</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>STEP2.3：配置默认路由</li>
-</ul>
-<p>末梢网络一般添加默认路由</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置默认路由
-[AR1]ip route-static 192.168.1.0 255.255.255.0 12.1.1.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：配置默认路由
-[AR2]ip route-static 0.0.0.0 0.0.0.0 12.1.1.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<ul>
-<li>STEP0：测试连通</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># tood AR1：
-[AR1]ping -a 1.1.1.1 192.168.1.250  
-  PING 192.168.1.250: 56  data bytes, press CTRL_C to break
-    Request time out
-    Reply from 192.168.1.250: bytes&#x3D;56 Sequence&#x3D;2 ttl&#x3D;127 time&#x3D;40 ms
-    Reply from 192.168.1.250: bytes&#x3D;56 Sequence&#x3D;3 ttl&#x3D;127 time&#x3D;30 ms
-    Reply from 192.168.1.250: bytes&#x3D;56 Sequence&#x3D;4 ttl&#x3D;127 time&#x3D;30 ms
-    Reply from 192.168.1.250: bytes&#x3D;56 Sequence&#x3D;5 ttl&#x3D;127 time&#x3D;20 ms
-
-  --- 192.168.1.250 ping statistics ---
-    5 packet(s) transmitted
-    4 packet(s) received
-    20.00% packet loss
-    round-trip min&#x2F;avg&#x2F;max &#x3D; 20&#x2F;30&#x2F;40 ms
-
-[AR1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>STEP3：删除主机连线，路由器之间成环</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="./3d43052de942494c9a89739643363d1a.png"></p>
-<p>此时测试连通性：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[AR1]tracert -a 1.1.1.1 192.168.1.250
- traceroute to  192.168.1.250(192.168.1.250), max hops: 30 ,packet length: 40,press CTRL_C to break 
- 1 12.1.1.2 50 ms  20 ms  20 ms 
- 2 12.1.1.1 10 ms  20 ms  10 ms 
- 3 12.1.1.2 20 ms  10 ms  30 ms 
- 4 12.1.1.1 20 ms  20 ms  20 ms 
-······
-27 12.1.1.2 80 ms  60 ms  100 ms 
-28 12.1.1.1 70 ms  80 ms  80 ms 
-29 12.1.1.2 70 ms  100 ms  80 ms 
-30 12.1.1.1 80 ms  90 ms  80 ms 
-[AR1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>环路原因：路由器端口down了后，其路由表中的对应的路由条目会被删除，此时路由器就会根据默认路由进行转发，这两台路由器都根据默认路由进行转发就形成了环路。</p>
-<ul>
-<li>STEP4：配置防环的丢弃路由</li>
-</ul>
-<p>丢弃路由：匹配到指定的地址都丢弃掉</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：配置丢弃路由
-[AR2]ip route-static 192.168.1.0 255.255.255.0 NULL 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<ul>
-<li>STEP0：分别连接/断开连线测试连通性</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：线路连接时的路由表
-[AR2]dis ip rou
-Route Flags: R - relay, D - download to fib
-------------------------------------------------------------------------------
-Routing Tables: Public
-         Destinations : 11       Routes : 11       
-
-Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
-
-        0.0.0.0&#x2F;0   Static  60   0          RD   12.1.1.1        GigabitEthernet0&#x2F;0&#x2F;0
-       12.1.1.0&#x2F;24  Direct  0    0           D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
-       12.1.1.2&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;0
-    ······
-    192.168.1.0&#x2F;24  Direct  0    0           D   192.168.1.2     GigabitEthernet0&#x2F;0&#x2F;1
-    192.168.1.2&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;1
-  192.168.1.255&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;1
-255.255.255.255&#x2F;32  Direct  0    0           D   127.0.0.1       InLoopBack0
-
-# todo AR2：线路断开时的路由表
-[AR2]dis ip rou
-Route Flags: R - relay, D - download to fib
-------------------------------------------------------------------------------
-Routing Tables: Public
-         Destinations : 9        Routes : 9        
-
-Destination&#x2F;Mask    Proto   Pre  Cost      Flags NextHop         Interface
-
-        0.0.0.0&#x2F;0   Static  60   0          RD   12.1.1.1        GigabitEthernet0&#x2F;0&#x2F;0
-       12.1.1.0&#x2F;24  Direct  0    0           D   12.1.1.2        GigabitEthernet0&#x2F;0&#x2F;0
-       12.1.1.2&#x2F;32  Direct  0    0           D   127.0.0.1       GigabitEthernet0&#x2F;0&#x2F;0
-    ······
-    192.168.1.0&#x2F;24  Static  60   0           D   0.0.0.0         NULL0
-255.255.255.255&#x2F;32  Direct  0    0           D   127.0.0.1       InLoopBack0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>注意到：<br>连接：<code>192.168.1.0/24  Direct  0    0           D   192.168.1.2     GigabitEthernet0/0/1</code><br>断开：<code>192.168.1.0/24  Static  60   0           D   0.0.0.0         NULL0</code></p>
-<ul>
-<li>总结<ul>
-<li>路由：RIP、OSPG、BGP</li>
-<li>动态协议：距离矢量、链路状态</li>
-<li>路由表：目的地址、协议、优先级、度量、下一跳、下一跳端口</li>
-<li>等价路由：同一协议，到同一目的有多个相同度量</li>
-</ul>
-</li>
-</ul>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h3><font color=#999AAA>略：上面已经做过</font>
-
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 命令：配置到达某个网段的静态路由
-[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址&gt;
-[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码位数&gt; &lt;下一跳地址&gt;
-[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码位数&gt; &lt;下一跳端口&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="负载分担"><a href="#负载分担" class="headerlink" title="负载分担"></a>负载分担</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 命令：配置等价路由实现负载分担
-[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址1&gt;
-[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址2&gt;
-[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址3&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="路由备份"><a href="#路由备份" class="headerlink" title="路由备份"></a>路由备份</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 命令：静态路由的路由备份
-[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址1&gt;
-[AR]ip route-static &lt;目标网段&gt; &lt;子网掩码&gt; &lt;出口地址2&gt; preference 100<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/img/loading.gif" data-original="./9a6bb1b37b814f4f9ad645286c1befb7.png"></p>
-<h3 id="缺省路由"><a href="#缺省路由" class="headerlink" title="缺省路由"></a>缺省路由</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 命令：配置缺省路由
-[AR]ip route-static 0.0.0.0 0.0.0.0 &lt;下一跳地址&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="OSPF路由协议"><a href="#OSPF路由协议" class="headerlink" title="OSPF路由协议"></a>OSPF路由协议</h2><h3 id="原理：OSPF路由协议"><a href="#原理：OSPF路由协议" class="headerlink" title="原理：OSPF路由协议"></a><strong>原理：OSPF路由协议</strong></h3><ul>
-<li><strong>①开方式最短路径优先协议OSPF</strong></li>
-</ul>
-<p><img src="/img/loading.gif" data-original="./a7cc17215aba44b2a7f5d4bc5b7b1c34.png"></p>
-<p>协议号：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zhenyi2000/article/details/79795140">IP协议(Protocol)字段释义</a></p>
-<p>有些特定<strong>防火墙过滤</strong>某一协议得写协议号。</p>
-<ul>
-<li><strong>②OSPF基本特点</strong></li>
-</ul>
-<p><img src="/img/loading.gif" data-original="./d9775633684f4fc68de933983ab55079.png"></p>
-<p>无类：不关心IP地址的类别<br>区域划分：骨干、非骨干区域(非骨干必须和骨干直连)<br>无路由自环：迪杰斯特拉<br>收敛快：毫秒级别<br>组播：代替广播，使用224.0.0.5和224.0.0.6<br>等值路由：负载均衡<br>认证：支持认证</p>
-<ul>
-<li><strong>③OSPF报文</strong></li>
-</ul>
-<p>OSPF的3张表：邻居表、链路状态数据库、路由表</p>
-<p>OSPF五种报文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43499889/article/details/104987294">OSPF报文类型及格式总结</a></p>
-<font color=#999AAA>LSA( Link-State Advertisement )链路状态通告</font>
-
-<ol>
-<li>Hello报文：用来发现并维持邻居</li>
-<li>DD报文(Database Description)：用来描述本地LSDB信息(和邻居是否互通)，只携带LSA的Header</li>
-<li>LSR报文(Link State Request，链路状态请求)：用于请求邻居的LSA</li>
-<li>LSU报文()：发送LSA具体信息，或者用于泛洪LSA，或者用于隐式回应LSU报文</li>
-<li>LSAck报文()：用于回应LSU报文</li>
-</ol>
-<ul>
-<li><strong>④OSPF状态过程</strong></li>
-</ul>
-<p><strong>Init</strong>：已经把Hello报文发出去，但是暂没收到回应，默认10s发一次，如果收到回复，则进入 2-way 状态<br><strong>2-way</strong>：选举DR和BDR，2-way这个状态最长持续40s。<br><strong>ExStart</strong>：<br><strong>Exchange</strong>：<br><strong>Loading</strong>：<br><strong>Full</strong>：</p>
-<ul>
-<li><strong>⑤DR和BDR</strong></li>
-</ul>
-<p>避免一个更新被重复传递多次，减少路由更新消耗的资源。</p>
-<p>DRother只能和DR、BDR建立邻接关系，DRother只能建立 2-way 状态</p>
-<p>选DR和BDR：比较RouterID(RID)大小(越大越优)</p>
-<p><strong>RID来源</strong>：<br>1.管理员手动设置<br>2.活动的环回口最大IP<br>3.活动的物理接口最大IP</p>
-<p>在Wireshark中，OSPF数据帧的<code>Source OSPF Router</code>就是RID</p>
-<p>OSPF先选举BDR：比大小，谁大谁先成为BDR，如果没有DR，BDR就变成DR，然后再选举BDR。</p>
-<p>显示确认：使用专有的报文进行确认<br><strong>隐式确认</strong>：(基于<strong>序列号</strong>的确认机制)收到一份报文，然后向发送者回复一份<strong>序列号相同</strong>的报文。仅有OSPF支持这种确认机制。</p>
-<h3 id="实验二：使用debug观察邻接关系形成过程"><a href="#实验二：使用debug观察邻接关系形成过程" class="headerlink" title="实验二：使用debug观察邻接关系形成过程"></a><strong>实验二：使用debug观察邻接关系形成过程</strong></h3><ul>
-<li>STEP1：网络拓扑</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="./332dc88ff0414092aa2b22ee4142ebcf.png"></p>
-<ul>
-<li>STEP2：查看OSPF表</li>
-</ul>
-<p>首先打开抓包</p>
-<p>然后清空邻居关系</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">&lt;R1&gt;reset ospf process 
-Warning: The OSPF process will be reset. Continue? [Y&#x2F;N]:y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>查看抓到的数据包/查询路由表State：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo 查看OSPF邻居表
-[R1]dis ospf peer
-
-         OSPF Process 1 with Router ID 12.1.1.1
-                 Neighbors 
-
- Area 0.0.0.0 interface 12.1.1.1(GigabitEthernet0&#x2F;0&#x2F;0)&#39;s neighbors
- Router ID: 12.1.1.2         Address: 12.1.1.2        
-   State: Full  Mode:Nbr is  Master  Priority: 1
-   DR: 12.1.1.2  BDR: 12.1.1.1  MTU: 0    
-   Dead timer due in 31  sec 
-   Retrans timer interval: 5 
-   Neighbor is up for 00:03:03     
-   Authentication Sequence: [ 0 ] 
-
-[R1]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="实验三：DR和BDR"><a href="#实验三：DR和BDR" class="headerlink" title="实验三：DR和BDR"></a><strong>实验三：DR和BDR</strong></h3><ul>
-<li>STEP1：网络拓扑</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="./d946c30a16fc44918cc8e3406bbfdd3b.png"></p>
-<ul>
-<li>STEP2：配置IP地址(略)</li>
-</ul>
-<p>除了网络拓扑中的端口IP地址，还有：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>路由器</th>
-<th>环回地址</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AR1</td>
-<td>10.0.1.1</td>
-</tr>
-<tr>
-<td>AR2</td>
-<td>10.0.2.2</td>
-</tr>
-<tr>
-<td>AR3</td>
-<td>10.0.3.3</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>STEP3：配置OSPF</li>
-</ul>
-<p>OSPF宣告网段：<code>network &lt;目标网段&gt; &lt;反掩码&gt;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR3：配置OSPF
-[R3]ospf  # OSPF进程ID
-[R3-ospf-1]a 0  # 进入区域
-[R3-ospf-1-area-0.0.0.0]network 10.0.123.0 0.0.0.255  # 宣告直连网段
-[R3-ospf-1-area-0.0.0.0]network 10.0.3.0 0.0.0.255  # 宣告换回网段
-# [R3-ospf-1]silent-interface LoopBack 0  # 如果需要，启用抑制端口<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1：配置OSPF
-[R1]ospf
-[R1-ospf-1]a 0
-[R1-ospf-1-area-0.0.0.0]network 10.0.123.0 0.0.0.255
-······(可以看到：Down-&gt;Init-&gt;2Way-&gt;ExStart-&gt;Exchange-&gt;Loading)
-[R1-ospf-1-area-0.0.0.0]network 10.0.1.0 0.0.0.255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR2：配置OSPF
-[R2]ospf
-[R2-ospf-1]a 0.0.0.0
-[R2-ospf-1-area-0.0.0.0]network 10.0.123.0 0.0.0.255
-[R2-ospf-1-area-0.0.0.0]network 10.0.2.0 0.0.0.255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>问：直连路由还有必要宣告吗？<br>答：如果不宣告，那么该接口无法收发OSPF报文。</p>
-</blockquote>
-<p><code>network</code>功能：1.宣告网段，2.接口收发OSPF报文</p>
-<p>如果路由器端口连接了终端PC，建议配置好<code>network</code>后，再把接口功能过滤掉，即抑制端口<code>silent-interface</code>：只宣告网段，但不能收发OSPF报文。(没必要和PC收发OSPF报文)</p>
-<ul>
-<li>STEP4：查看DR和BDR</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[AR]dis ospf peer  # 查看OSPF邻居关系<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>在这里，因为我们路由器配置顺序为：AR3-&gt;AR1-&gt;AR2<br>因为没开启抢占特性，所以AR3为DR，AR1为BDR，AR2为DROther</p>
-<p>每隔10s发送一个Hello报文，40s收不到Hello，断开邻居关系(死亡间隔40s)</p>
-<h3 id="实验四：OSPF认证"><a href="#实验四：OSPF认证" class="headerlink" title="实验四：OSPF认证"></a><strong>实验四：OSPF认证</strong></h3><ul>
-<li>STEP1：网络拓扑(略：同上)</li>
-<li>STEP2：配置认证</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR1、AR2、AR3均配置认证
-[R1-GigabitEthernet0&#x2F;0&#x2F;0]ospf authentication-mode md5 1 cipher huawei
-# md5方式加密，Ket id为1，Key id保持一致！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>hmac-md5：<a target="_blank" rel="noopener" href="https://blog.csdn.net/chy2z/article/details/80828770">HMAC-MD5 签名算法</a><br>simple：防君子不妨小人，认证之后正常收发OSPF包，但是抓包能直接看到密码</p>
-<p>修改**卡信息：网络验证：只能改服务器数据；本地验证：想咋改咋改(不会…)</p>
-<blockquote>
-<p>技巧：每个文件都会有一个自己的指纹信息，生成一个32位/64位的哈希值，且该值唯一，扫描文件的MD5值，只要发现有与违法视频/文件MD5值匹配的，就认为扫描的文件违法。所以，如果想在百度网盘上传一个不健康的小视频/软件，那么可以把一个非空的.txt文件和想要上传的文件一起压缩，再上传即可。</p>
-</blockquote>
-<font color=#999AAA>饱汉不知饿汉饥:smirk:</font>
-
-<h3 id="实验五：多区域OSPF"><a href="#实验五：多区域OSPF" class="headerlink" title="实验五：多区域OSPF"></a><strong>实验五：多区域OSPF</strong></h3><ul>
-<li>STEP1：网络拓扑</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="./169b2c3f83ec4f608e592b6b3adcfaef.png"></p>
-<ul>
-<li>STEP2：配置多区域OSPF</li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR3：配置多区域OSPF
-[R3]int g0&#x2F;0&#x2F;1
-[R3-GigabitEthernet0&#x2F;0&#x2F;1]ip add 10.0.34.3 24  # 接口添加IP地址
-
-[R3]ospf 1
-[R3-ospf-1]a 1  # 进入区域1
-[R3-ospf-1-area-0.0.0.1]network 10.0.34.0 0.0.0.255  # 宣告区域<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>路由器</th>
-<th>IP地址</th>
-<th>环回地址</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AR4</td>
-<td>10.0.34.4</td>
-<td>10.0.4.4</td>
-</tr>
-</tbody>
-</table>
-</div>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># todo AR4：配置多区域OSPF
-[AR4]int g0&#x2F;0&#x2F;0
-[AR4-GigabitEthernet0&#x2F;0&#x2F;0]ip add 10.0.34.4 24  # 接口配置地址
-[AR4-GigabitEthernet0&#x2F;0&#x2F;0]int loo 0
-[AR4-LoopBack0]ip add 10.0.4.4 24  # 环回口网络类型：点到点，掩码按32宣告
-
-[R4]ospf 1
-[R4-ospf-1]a 1  # 进入区域1
-[R4-ospf-1-area-0.0.0.1]network 10.0.34.0 0.0.0.255  # 宣告网段
-
-[R4-ospf-1-area-0.0.0.1]int loo 0
-[AR4-LoopBack0]ospf enable 1 a 1
-# 宣告环回口网段的一种方式，和在OSPF area里面用network效果一样<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[AR4-ospf-1-area-0.0.0.1]network 10.0.34.4 0.0.0.0
-# 宣告端口，虽然反掩码是32，但是还是按端口反掩码进行正常宣告<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>(理论上不允许！)物理上非骨干区域连接非骨干区域，可以想办法把两个区域变成一个区域：Virtual Link。</p>
-<ul>
-<li>练习题：OSPF故障排查</li>
-</ul>
-<div><h1>你可能会喜欢<span style="font-size:10; color:gray"></span></h1><ul><li><a href="https://hhhhmdzz.github.io/2022/06/29/ICT%E6%88%98%E9%98%9F%E7%AC%AC9%E6%AC%A1%E7%AC%94%E8%AE%B0/">ICT战队-第9次笔记</a></li><li><a href="https://hhhhmdzz.github.io/2022/06/29/ICT%E6%88%98%E9%98%9F%E7%AC%AC8%E6%AC%A1%E7%AC%94%E8%AE%B0/">ICT战队-第8次笔记</a></li><li><a href="https://hhhhmdzz.github.io/2022/06/29/ICT%E6%88%98%E9%98%9F%E7%AC%AC7%E6%AC%A1%E7%AC%94%E8%AE%B0/">ICT战队-第7次笔记</a></li><li><a href="https://hhhhmdzz.github.io/2022/06/29/ICT%E6%88%98%E9%98%9F%E7%AC%AC6%E6%AC%A1%E7%AC%94%E8%AE%B0/">ICT战队-第6次笔记</a></li></ul></div>
+                
                 
             </div>
             <hr/>
@@ -1142,7 +522,7 @@ Warning: The OSPF process will be reset. Continue? [Y&#x2F;N]:y<span aria-hidden
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hhhhmdzz.github.io/2022/06/29/ICT%E6%88%98%E9%98%9F%E7%AC%AC5%E6%AC%A1%E7%AC%94%E8%AE%B0/">https://hhhhmdzz.github.io/2022/06/29/ICT%E6%88%98%E9%98%9F%E7%AC%AC5%E6%AC%A1%E7%AC%94%E8%AE%B0/</a>
+                    <a href="https://hhhhmdzz.github.io/about/index.html">https://hhhhmdzz.github.io/about/index.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1179,15 +559,7 @@ Warning: The OSPF process will be reset. Continue? [Y&#x2F;N]:y<span aria-hidden
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/HCIA/">
-                                    <span class="chip bg-color">HCIA</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%8D%8E%E4%B8%BAeNSP/">
-                                    <span class="chip bg-color">华为eNSP</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -1597,53 +969,39 @@ Warning: The OSPF process will be reset. Continue? [Y&#x2F;N]:y<span aria-hidden
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2022/06/29/ICT%E6%88%98%E9%98%9F%E7%AC%AC6%E6%AC%A1%E7%AC%94%E8%AE%B0/">
+                <a href="/about/index.html">
                     <div class="card-image">
                         
                         
-                        <img src="/img/loading.gif" data-original="/medias/featureimages/15.jpg" class="responsive-img" alt="ICT战队-第6次笔记">
+                        <img src="/img/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
                         
-                        <span class="card-title">ICT战队-第6次笔记</span>
+                        <span class="card-title">about</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            OSPF协议 RIP协议
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-03
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/ICT%E6%88%98%E9%98%9F%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/" class="post-category">
-                                    ICT战队数据通信
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            hhhhmdzz
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/HCIA/">
-                        <span class="chip bg-color">HCIA</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8D%8E%E4%B8%BAeNSP/">
-                        <span class="chip bg-color">华为eNSP</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -1651,52 +1009,37 @@ Warning: The OSPF process will be reset. Continue? [Y&#x2F;N]:y<span aria-hidden
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                Current&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/29/ICT%E6%88%98%E9%98%9F%E7%AC%AC4%E6%AC%A1%E7%AC%94%E8%AE%B0/">
+                <a href="/about/index.html">
                     <div class="card-image">
                         
                         
-                        <img src="/img/loading.gif" data-original="/medias/featureimages/1.jpg" class="responsive-img" alt="ICT战队-第4次笔记">
+                        <img src="/img/loading.gif" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
                         
-                        <span class="card-title">ICT战队-第4次笔记</span>
+                        <span class="card-title">about</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STP生成树协议 VRRP虚拟路由冗余协议 逻辑链路聚合 交换机端口安全技术 AAA认证
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-03
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/ICT%E6%88%98%E9%98%9F%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/" class="post-category">
-                                    ICT战队数据通信
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            hhhhmdzz
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/HCIA/">
-                        <span class="chip bg-color">HCIA</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8D%8E%E4%B8%BAeNSP/">
-                        <span class="chip bg-color">华为eNSP</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
