@@ -415,7 +415,7 @@
                 <h1 id="fbprophet"><a href="#fbprophet" class="headerlink" title="fbprophet"></a>fbprophet</h1><p>[toc]</p>
 <h2 id="1-fbprophet介绍"><a href="#1-fbprophet介绍" class="headerlink" title="1. fbprophet介绍"></a>1. fbprophet介绍</h2><h3 id="1-1-fbprophet简介"><a href="#1-1-fbprophet简介" class="headerlink" title="1.1. fbprophet简介"></a>1.1. fbprophet简介</h3><p>Prophet（先知）是 Facebook 开源的一个时间序列预测工具，所以叫 fbprophet。Prophet 算法不仅可以处理时间序列存在一些<font color="red">异常值</font>的情况，也可以处理部分<font color="red">缺失值</font>的情形，还能够<font color="red">几乎全自动地预测</font>时间序列未来的走势。从论文上的描述来看，这个 prophet 算法是基于<font color="red">时间序列分解</font>（趋势+季节+节假日）和<font color="red">机器学习</font>的拟合来做的，其中在拟合模型的时候使用了 pyStan 这个开源工具，因此能够在较快的时间内得到需要预测的结果。</p>
 <p>Github：<a target="_blank" rel="noopener" href="https://github.com/facebook/prophet">https://github.com/facebook/prophet</a><br>官方网址：<a target="_blank" rel="noopener" href="https://facebook.github.io/prophet/">https://github.com/facebook/prophet</a><br>论文名字与网址：Forecasting at scale，<a target="_blank" rel="noopener" href="https://peerj.com/preprints/3190/">https://github.com/facebook/prophet</a></p>
-<h3 id="1-2-fbprophet原理"><a href="#1-2-fbprophet原理" class="headerlink" title="1.2. fbprophet原理"></a>1.2. fbprophet原理</h3><p><font color='grey'>可以先不看原理，看完实例再回来看原理。</font></p>
+<h3 id="1-2-fbprophet原理"><a href="#1-2-fbprophet原理" class="headerlink" title="1.2. fbprophet原理"></a>1.2. fbprophet原理</h3><p><font color="grey">可以先不看原理，看完实例再回来看原理。</font></p>
 <ul>
 <li><strong>传统时间序列预测方法缺陷</strong><ul>
 <li>适用的时序数据过于局限<br>例如：最通用的 ARIMA 模型，其要求时序数据是稳定的，或者通过差分化后是稳定的，且在差分运算时提取的是固定周期的信息。<br>回忆：automated ARIMA 要求输入的参数是差分的最大阶数、自回归分量和移动平均分量。</li>
@@ -427,7 +427,7 @@
 </ul>
 <hr>
 <ul>
-<li><strong>prophet整体框架</strong>：<em>Modeling</em>、<em>Forecast Evaluation</em>、<em>Surface Problems</em> 以及 <em>Visually Inspect Forecasts</em><br><img src="/fbprophet/fbprophet_framework.png" alt="fbprophet_framework"><ul>
+<li><strong>prophet整体框架</strong>：<em>Modeling</em>、<em>Forecast Evaluation</em>、<em>Surface Problems</em> 以及 <em>Visually Inspect Forecasts</em><br><img src="/2022/06/29/fbprophet/fbprophet_framework.png" alt="fbprophet_framework"><ul>
 <li><em>Modeling</em>：<font color="orange">建立时间序列模型</font>。分析师根据预测问题的背景选择一个合适的模型。</li>
 <li><em>Forecast Evaluation</em>：<font color="orange">模型评估</font>。根据模型对历史数据进行仿真，在模型的参数不确定的情况下，我们可以进行多种尝试，并根据对应的仿真效果评估哪种模型更适合。</li>
 <li><em>Surface Problems</em>：<font color="orange">呈现问题</font>。如果尝试了多种参数后，模型的整体表现依然不理想，这个时候可以将误差较大的潜在原因呈现给分析师。</li>
@@ -468,14 +468,14 @@
 <p><br>（1）将 $C$ 构建成随时间变化的函数：$C(t) &#x3D; K$ 或者 $C(t) &#x3D; Mt + K$。（确定 $C(t)$）</p>
 <p><br>（2）在 Prophet 里面设置变点的位置：1.人工指定 <code>n_changepoints</code>；2.算法自动选择。假设已经设置了 $S$ 个变点，并且变点的位置为时间戳 $s_j \ (1 \le j \le S)$。在这些时间戳上，需要知道其增长率的变化，假设有一个向量 $\delta \in \mathbb{R}^S$，其中 $\delta_j$ 表示在时间戳 $s_j$ 上的增长率的变化量。如果一开始的增长率为 $k$，那么在时间戳 $t$ 上的增长率就是 $k + \sum_{j: \ t &gt; s_j}^{}{\delta_j}$。为了简化公式，定义一个指示函数 $a(t) \in {0, 1}^S$ 为 $a_j(t) &#x3D; \begin{cases}1,&amp;if \ t \ge s_j\0,&amp;otherwise\end{cases}$。那么在时间戳 $t$ 上的增长率就是 $k + a^T\delta$。（确定 $k&#x3D;k(t)$）</p>
 <p><br>（3）参数 $m$ 确定线段的边界 ${\large \gamma_j &#x3D; (s_j - m - \sum_{l &lt; j}^{}{\gamma_l})(1 - \frac{k + \sum_{l &lt; j}^{}{\delta_l}}{k + \sum_{l \le j}^{}{\delta_l}})}$（确定 $m&#x3D;m(t)$）</p>
-<p><br>所以，分段的逻辑回归增长模型就是：<font color='orangered'>${\large g(t) &#x3D; \frac{C(t)}{1 + e^{-(k + a(t)^t\delta)(t - (m + a(t)^T\gamma))}}}$</font><br>其中，$a(t) &#x3D; (a_1(t), \dots, a_S(t))^T, \delta &#x3D; (\delta_1, \dots, \delta_S)^T, \gamma &#x3D; (\gamma_1, \dots, \gamma_S)^T$<br><br></p>
+<p><br>所以，分段的逻辑回归增长模型就是：<font color="orangered">${\large g(t) &#x3D; \frac{C(t)}{1 + e^{-(k + a(t)^t\delta)(t - (m + a(t)^T\gamma))}}}$</font><br>其中，$a(t) &#x3D; (a_1(t), \dots, a_S(t))^T, \delta &#x3D; (\delta_1, \dots, \delta_S)^T, \gamma &#x3D; (\gamma_1, \dots, \gamma_S)^T$<br><br></p>
 <ul>
 <li><ol start="2">
 <li><strong>Linear growth</strong>（线性增长）</li>
 </ol>
 </li>
 </ul>
-<p>线性增长采用线性模型：<font color='orangered'>${\large g(t) &#x3D; (k + a(t)\delta)t + (m + a(t)^T\gamma)}$</font></p>
+<p>线性增长采用线性模型：<font color="orangered">${\large g(t) &#x3D; (k + a(t)\delta)t + (m + a(t)^T\gamma)}$</font></p>
 <p>其中，$k$ 表示增长率，$\delta$ 表示增长率的变化量，$m$ 表示偏移参数，$\gamma &#x3D; (\gamma_1, \dots, \gamma_S)^T, \gamma_j &#x3D; -s_j\delta_j$ 用于确定线段边界。</p>
 </li>
 </ul>
@@ -489,7 +489,7 @@
 <p>傅立叶级数的参数可以形成列向量：$$\beta &#x3D; (a_1, b_1, \dots, a_N, b_N)^T$$</p>
 <p>当 $N &#x3D; 10$ 时，$$X(t) &#x3D; \left[cos(\frac{2 \pi (1) t}{365.25}), \dots, sin(\frac{2 \pi (10) t}{365.25}) \right]$$</p>
 <p>当 $N &#x3D; 3$ 时，$$X(t) &#x3D; \left[cos(\frac{2 \pi (1) t}{7}), \dots, sin(\frac{2 \pi (3) t}{7}) \right]$$</p>
-<p>所以，时间序列的季节项就是：<font color='orangered'>${\large s(t) &#x3D; X(t) \beta, \ \beta \sim N(0, \sigma^2)}$</font></p>
+<p>所以，时间序列的季节项就是：<font color="orangered">${\large s(t) &#x3D; X(t) \beta, \ \beta \sim N(0, \sigma^2)}$</font></p>
 <p>其中，$\sigma$ &#x3D; <code>seasonality_prior_scale</code>，$\sigma$ 值越大，表示季节的效应越明显；$\sigma$ 值越小，表示季节的效应越不明显。</p>
 <p><code>seasonality_mode</code> 对应着两种模式： <code>&quot;additive&quot;</code> 加法(默认)和 <code>&quot;multiplicative&quot;</code> 乘法。</p>
 <p>$X(t)$ 函数是通过 <code>fourier_series</code> 来构建。</p>
@@ -498,7 +498,7 @@
 <li><strong>$h(t)$ 节假日(holidays and events)</strong></li>
 </ul>
 <p>由于每个节假日对时间序列的影响程度不一样，例如春节，国庆节则是七天的假期，对于劳动节等假期来说则假日较短。因此，不同的节假日可以看成相互独立的模型，并且可以为不同的节假日设置不同的前后窗口值，表示该节假日会影响前后一段时间的时间序列。</p>
-<p>对第 $i$ 个节假日来说，$D_i$ 表示该节假日的前后一段时间，$\kappa_i$ 表示该节假日的影响范围，有 $L$ 个节假日。那么时间序列的节假日可以表示为：<font color='orangered'>${\large h(t) &#x3D; Z(t) \kappa &#x3D; \sum_\limits{i &#x3D; 1}^{L}\kappa_i \cdot 1_{ { t \in D_i } } }$</font></p>
+<p>对第 $i$ 个节假日来说，$D_i$ 表示该节假日的前后一段时间，$\kappa_i$ 表示该节假日的影响范围，有 $L$ 个节假日。那么时间序列的节假日可以表示为：<font color="orangered">${\large h(t) &#x3D; Z(t) \kappa &#x3D; \sum_\limits{i &#x3D; 1}^{L}\kappa_i \cdot 1_{ { t \in D_i } } }$</font></p>
 <p>其中，$Z(t) &#x3D; (1_{ { t \in D_1 } }, \dots, 1_{ { t \in D_L} }), \ \kappa &#x3D; (\kappa_1, \dots, \kappa_L)^T, \ \kappa \sim N(0, \upsilon^2)$</p>
 <p>$\upsilon$ &#x3D; <code>holidays_prior_scale</code>，默认值是 10，值越大，节假日对模型的影响越大；值越小，节假日对模型的效果越小。</p>
 <hr>
@@ -524,7 +524,7 @@
 <ul>
 <li><p><strong>调参经验</strong></p>
 <ol>
-<li>首先我们去除数据中的异常点（outlier），直接赋值为 <code>None</code> 就可以，因为 Prophet 的设计中可以通过<font color='red'>插值</font>处理缺失值，但是对异常值比较敏感。</li>
+<li>首先我们去除数据中的异常点（outlier），直接赋值为 <code>None</code> 就可以，因为 Prophet 的设计中可以通过<font color="red">插值</font>处理缺失值，但是对异常值比较敏感。</li>
 <li>选择趋势模型，默认使用分段线性的趋势，但是如果认为模型的趋势是按照 log 函数方式增长的，可设置 <code>growth=&#39;logistic&#39;</code> 从而使用分段 log 的增长方式</li>
 <li>设置趋势转折点 <code>changepoint</code>，如果我们知道时间序列的趋势会在某些位置发现转变，可以进行人工设置，比如某一天有新产品上线会影响我们的走势，我们可以将这个时刻设置为转折点。</li>
 <li>设置周期性，模型默认是带有年和星期以及天的周期性，其他月、小时的周期性需要自己根据数据的特征进行设置，或者设置将年和星期等周期关闭。</li>
@@ -535,9 +535,9 @@
 <li>如果对历史数据进行仿真预测时发现，从一个截点到下一个截点误差急剧的增加，这说明在两个截点期间数据的产生过程发生了较大的变化，此时两个截点之间应该增加一个 <code>changepoint</code> ，来对这期间的不同阶段分别建模。</li>
 </ol>
 <ul>
-<li>a. 如果预测结果的误差很大，考虑选取的模型是否准确，尝试调整<font color='orange'>增长率模型</font>（<code>growth</code>）的参数，在必要的情况下也需要调整<font color='orange'>季节性</font>（<code>seasonality</code>）参数。</li>
-<li>b. 如果在尝试的大多数方法中，某些日期的预测依然存在很大的误差，这就说明历史数据中存在<font color='orange'>异常值</font>。最好的办法就是找到这些异常值并剔除掉。使用者无需像其他方法那样对剔除的数据进行插值拟合，可以仅保留异常值对应的时间， 并将异常值修改为空值（NA），模型在预测时依然可以给出这个时间点对应的预测结果。</li>
-<li>c. 如果对历史数据进行仿真预测时发现，<font color='orange'>从一个截点到下一个截点误差急剧增加</font>，这说明在两个截点期间数据的产生过程发生了较大的变化，此时两个截点之间应该增加一个 <code>changepoint</code>，来对这期间的不同阶段分别建模。</li>
+<li>a. 如果预测结果的误差很大，考虑选取的模型是否准确，尝试调整<font color="orange">增长率模型</font>（<code>growth</code>）的参数，在必要的情况下也需要调整<font color="orange">季节性</font>（<code>seasonality</code>）参数。</li>
+<li>b. 如果在尝试的大多数方法中，某些日期的预测依然存在很大的误差，这就说明历史数据中存在<font color="orange">异常值</font>。最好的办法就是找到这些异常值并剔除掉。使用者无需像其他方法那样对剔除的数据进行插值拟合，可以仅保留异常值对应的时间， 并将异常值修改为空值（NA），模型在预测时依然可以给出这个时间点对应的预测结果。</li>
+<li>c. 如果对历史数据进行仿真预测时发现，<font color="orange">从一个截点到下一个截点误差急剧增加</font>，这说明在两个截点期间数据的产生过程发生了较大的变化，此时两个截点之间应该增加一个 <code>changepoint</code>，来对这期间的不同阶段分别建模。</li>
 </ul>
 </li>
 </ul>
@@ -576,17 +576,17 @@ forecast <span class="token operator">=</span> m<span class="token punctuation">
 
 m<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>forecast<span class="token punctuation">)</span><span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 绘制预测效果图</span></code></pre>
 
-<p><font color='grey'>可以看到 Prophet 遵循 sciket-klearn 模型 API。</font></p>
-<p><code>fit()</code> 输入的 <code>DataFrame</code> 必须包含两列数据：<font color='orange'>时间戳</font> <code>ds</code> 和<font color='orange'>时间序列的取值</font> <code>y</code></p>
-<p>在预测效果图中，黑点表示<font color='black'>实际值</font>，<font color='blue'>蓝色</font>表示<font color='blue'>预测值</font>，<font color='lightblue'>浅蓝色</font>表示 <code>yhat_upper</code> 和 <code>yhat_lower</code>，置信区间受到 <code>interval_width</code> 这个参数的影响；当然，从 <code>forecasts</code> 的 <code>keys</code> 中可以看到，还有其他的 <code>_upper</code> 和 <code>_lower</code>，同样也会受到这个参数的影响。</p>
-<img src="./预测效果图.png">
+<p><font color="grey">可以看到 Prophet 遵循 sciket-klearn 模型 API。</font></p>
+<p><code>fit()</code> 输入的 <code>DataFrame</code> 必须包含两列数据：<font color="orange">时间戳</font> <code>ds</code> 和<font color="orange">时间序列的取值</font> <code>y</code></p>
+<p>在预测效果图中，黑点表示<font color="black">实际值</font>，<font color="blue">蓝色</font>表示<font color="blue">预测值</font>，<font color="lightblue">浅蓝色</font>表示 <code>yhat_upper</code> 和 <code>yhat_lower</code>，置信区间受到 <code>interval_width</code> 这个参数的影响；当然，从 <code>forecasts</code> 的 <code>keys</code> 中可以看到，还有其他的 <code>_upper</code> 和 <code>_lower</code>，同样也会受到这个参数的影响。</p>
+<img src="/2022/06/29/fbprophet/预测效果图.png">
 
-<p><code>predict()</code> 输出的 <code>DataFrame</code> 包含四列数据：<font color='orange'>时间戳</font> <code>ds</code>、<font color='orange'>时间序列的预测值</font> <code>yhat</code>、<font color='orange'>预测值的下界</font> <code>yhat_lower</code>、<font color='orange'>预测值的上界</font> <code>yhat_upper</code></p>
-<img src="./成分趋势图.png">
+<p><code>predict()</code> 输出的 <code>DataFrame</code> 包含四列数据：<font color="orange">时间戳</font> <code>ds</code>、<font color="orange">时间序列的预测值</font> <code>yhat</code>、<font color="orange">预测值的下界</font> <code>yhat_lower</code>、<font color="orange">预测值的上界</font> <code>yhat_upper</code></p>
+<img src="/2022/06/29/fbprophet/成分趋势图.png">
 
 <p>在成分趋势图中，四个图从上至下依次是对增长趋势模型（trend）、节假日模型（holidays）以及季节性模型（weekly 和 yearly）。</p>
 <p>所谓成分分析就是指对原理公式中的三大部分模型单独进行分析，成分分析有助于我们考察模型中的各个组件分别对预测结果的影响，通过可视化的展示，我们可以准确判断影响预测效果的具体原因，从而针对性的解决。成分分析是我们提高模型准确性的重要来源。</p>
-<p>需要注意的是，如果<font color='red'>没有</font>在 <code>holidays</code> 参数里注明具体的节假日信息，模块也<font color='red'>不会</font>自动对这一部分进行分析。如果对于上面的结果你觉得有不合理的地方，那么可以根据中参数使用说明更改相应的成分影响，这里应该尽可能的利用你的专业背景知识，以使各部分组成的影响更符合实际。举个例子，如果在每年趋势 <code>yearly</code> 中你认为当前的效果过拟合了，那么就可以调解 <code>seasonality_prior_scale</code> 这个参数，值越小，这里的季节性波动就越小。</p>
+<p>需要注意的是，如果<font color="red">没有</font>在 <code>holidays</code> 参数里注明具体的节假日信息，模块也<font color="red">不会</font>自动对这一部分进行分析。如果对于上面的结果你觉得有不合理的地方，那么可以根据中参数使用说明更改相应的成分影响，这里应该尽可能的利用你的专业背景知识，以使各部分组成的影响更符合实际。举个例子，如果在每年趋势 <code>yearly</code> 中你认为当前的效果过拟合了，那么就可以调解 <code>seasonality_prior_scale</code> 这个参数，值越小，这里的季节性波动就越小。</p>
 <h3 id="Prophet-类"><a href="#Prophet-类" class="headerlink" title="Prophet() 类"></a><code>Prophet()</code> 类</h3><p>作用：进行时间序列预测</p>
 <br>
 
@@ -667,21 +667,21 @@ m<span class="token punctuation">.</span>plot<span class="token punctuation">(</
 
 <ul>
 <li><code>Prophet()</code> 参数说明：<ul>
-<li><code>growth</code>: 字符串 <code>&quot;linear&quot;</code> 或 <code>&quot;logistic&quot;</code>，表示<font color='red'>线性增长趋势</font>或者<font color='red'>逻辑增长趋势</font>。</li>
-<li><code>changepoints</code>: 日期型向量，指定<font color='red'>潜在拐点</font>，如果不指定，将会自动选择潜在拐点。例如：<code>changepoints=[&quot;2014-01-01&quot;]</code> 指定 <code>&#39;2014-01-01&#39;</code> 这一天是潜在的 <code>changepoints</code>。</li>
-<li><code>n_changepoints</code>: 表示 <code>changepoints</code> 的<font color='red'>数量大小</font>，如果 <code>changepoints</code> 指定，该传入参数将不会被使用。如果 <code>changepoints</code> 不指定，将会从输入的历史数据前 $80%$ 中选取 $25$ 个（个数由 <code>n_changepoints</code> 传入参数决定）潜在改变点。</li>
-<li><code>changepoint_range</code>: 估计趋势变化点的<font color='red'>历史比例</font>。如果指定了 <code>changepoints</code>，则不使用。</li>
-<li><code>yearly_seasonality</code>: 指定是否<font color='red'>分析数据的年季节性</font>，如果为 <code>True</code>，默认取傅里叶项为 $10$，最后会输出<code>yearly_trend, yearly_upper, yearly_lower</code> 等数据。</li>
-<li><code>weekly_seasonality</code>: 指定是否<font color='red'>分析数据的周季节性</font>，如果为 <code>True</code>，默认取傅里叶项为 $10$，最后会输出<code>weekly_trend, weekly_upper, weekly_lower</code> 等数据。</li>
-<li><code>daily_seasonality</code>: 指定是否<font color='red'>分析数据的天季节性</font>，如果为 <code>True</code>，默认取傅里叶项为 $10$，最后会输出<code>daily_trend, daily_upper, daily_lower</code> 等数据。</li>
+<li><code>growth</code>: 字符串 <code>&quot;linear&quot;</code> 或 <code>&quot;logistic&quot;</code>，表示<font color="red">线性增长趋势</font>或者<font color="red">逻辑增长趋势</font>。</li>
+<li><code>changepoints</code>: 日期型向量，指定<font color="red">潜在拐点</font>，如果不指定，将会自动选择潜在拐点。例如：<code>changepoints=[&quot;2014-01-01&quot;]</code> 指定 <code>&#39;2014-01-01&#39;</code> 这一天是潜在的 <code>changepoints</code>。</li>
+<li><code>n_changepoints</code>: 表示 <code>changepoints</code> 的<font color="red">数量大小</font>，如果 <code>changepoints</code> 指定，该传入参数将不会被使用。如果 <code>changepoints</code> 不指定，将会从输入的历史数据前 $80%$ 中选取 $25$ 个（个数由 <code>n_changepoints</code> 传入参数决定）潜在改变点。</li>
+<li><code>changepoint_range</code>: 估计趋势变化点的<font color="red">历史比例</font>。如果指定了 <code>changepoints</code>，则不使用。</li>
+<li><code>yearly_seasonality</code>: 指定是否<font color="red">分析数据的年季节性</font>，如果为 <code>True</code>，默认取傅里叶项为 $10$，最后会输出<code>yearly_trend, yearly_upper, yearly_lower</code> 等数据。</li>
+<li><code>weekly_seasonality</code>: 指定是否<font color="red">分析数据的周季节性</font>，如果为 <code>True</code>，默认取傅里叶项为 $10$，最后会输出<code>weekly_trend, weekly_upper, weekly_lower</code> 等数据。</li>
+<li><code>daily_seasonality</code>: 指定是否<font color="red">分析数据的天季节性</font>，如果为 <code>True</code>，默认取傅里叶项为 $10$，最后会输出<code>daily_trend, daily_upper, daily_lower</code> 等数据。</li>
 <li><code>holidays</code>: 传入 <code>DataFrame</code> 格式的数据。这个数据包含有 <code>holiday</code> 列 (<code>string</code>) 和 <code>ds</code> (<code>date</code>类型) 和可选列 <code>lower_window</code> 和 <code>upper_window</code> 来指定该日期的 <code>lower_window</code> 或者 <code>upper_window</code> 范围内都被列为假期。<code>lower_window = -2</code> 将包括前 $2$ 天的日期作为假期。（默认<code>None</code>）</li>
-<li><code>seasonality_mode</code>: <font color='red'>季节模型</font> <code>&quot;additive&quot;</code>(default) or <code>&quot;multiplicative&quot;</code>。</li>
-<li><code>seasonality_prior_scale</code>: 调节<font color='red'>季节性组件的强度</font>。值越大，模型将适应更强的季节性波动，值越小，越抑制季节性波动。</li>
-<li><code>holidays_prior_scale</code>: 调节<font color='red'>节假日模型组件的强度</font>。值越大，该节假日对模型的影响越大，值越小，节假日的影响越小。</li>
-<li><code>changepoint_prior_scale</code>: <font color='red'>增长趋势模型的灵活度</font>。调节 <code>changepoint</code> 选择的灵活度，值越大选择的 <code>changepoint</code> 越多，使模型对历史数据的拟合程度变强，然而也增加了过拟合的风险。</li>
-<li><code>mcmc_samples</code>: <font color='red'>mcmc采样</font>，用于获得预测未来的不确定性。若大于 $0$，将做mcmc样本的全贝叶斯推理，如果为 $0$，将做最大后验估计。</li>
-<li><code>interval_width</code>: 衡量<font color='red'>未来时间内趋势改变的程度</font>。表示预测未来时使用的趋势间隔出现的频率和幅度与历史数据的相似度，值越大越相似。当 <code>mcmc_samples = 0</code> 时，该参数仅用于增长趋势模型的改变程度，当 <code>mcmc_samples &gt; 0</code> 时，该参数也包括了季节性趋势改变的程度。</li>
-<li><code>uncertainty_samples</code>: 用于<font color='red'>估计不确定性区间的模拟抽取数</font></li>
+<li><code>seasonality_mode</code>: <font color="red">季节模型</font> <code>&quot;additive&quot;</code>(default) or <code>&quot;multiplicative&quot;</code>。</li>
+<li><code>seasonality_prior_scale</code>: 调节<font color="red">季节性组件的强度</font>。值越大，模型将适应更强的季节性波动，值越小，越抑制季节性波动。</li>
+<li><code>holidays_prior_scale</code>: 调节<font color="red">节假日模型组件的强度</font>。值越大，该节假日对模型的影响越大，值越小，节假日的影响越小。</li>
+<li><code>changepoint_prior_scale</code>: <font color="red">增长趋势模型的灵活度</font>。调节 <code>changepoint</code> 选择的灵活度，值越大选择的 <code>changepoint</code> 越多，使模型对历史数据的拟合程度变强，然而也增加了过拟合的风险。</li>
+<li><code>mcmc_samples</code>: <font color="red">mcmc采样</font>，用于获得预测未来的不确定性。若大于 $0$，将做mcmc样本的全贝叶斯推理，如果为 $0$，将做最大后验估计。</li>
+<li><code>interval_width</code>: 衡量<font color="red">未来时间内趋势改变的程度</font>。表示预测未来时使用的趋势间隔出现的频率和幅度与历史数据的相似度，值越大越相似。当 <code>mcmc_samples = 0</code> 时，该参数仅用于增长趋势模型的改变程度，当 <code>mcmc_samples &gt; 0</code> 时，该参数也包括了季节性趋势改变的程度。</li>
+<li><code>uncertainty_samples</code>: 用于<font color="red">估计不确定性区间的模拟抽取数</font></li>
 </ul>
 </li>
 </ul>
@@ -710,9 +710,9 @@ m<span class="token punctuation">.</span>plot<span class="token punctuation">(</
 
 <ul>
 <li><code>make_future_dataframe()</code> 参数说明：<ul>
-<li><code>periods</code>: <font color='red'>向前预测步数</font></li>
-<li><code>freq</code>: <font color='red'>预测单位</font>，小时为 <code>&#39;H&#39;</code>，天为 <code>&#39;D&#39;</code>，月为 <code>&#39;M&#39;</code></li>
-<li><code>include_history</code>: <font color='red'>是否包含历史数据的预测</font></li>
+<li><code>periods</code>: <font color="red">向前预测步数</font></li>
+<li><code>freq</code>: <font color="red">预测单位</font>，小时为 <code>&#39;H&#39;</code>，天为 <code>&#39;D&#39;</code>，月为 <code>&#39;M&#39;</code></li>
+<li><code>include_history</code>: <font color="red">是否包含历史数据的预测</font></li>
 </ul>
 </li>
 </ul>
@@ -802,7 +802,7 @@ fig <span class="token operator">=</span> px<span class="token punctuation">.</s
 fig<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 
 <p>绘制图：</p>
-<img src='./fbprophet_plotly.png'>
+<img src="/2022/06/29/fbprophet/fbprophet_plotly.png">
 
 <h3 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置"></a>参数设置</h3><ul>
 <li>变点</li>
