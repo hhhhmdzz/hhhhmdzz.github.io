@@ -85,19 +85,21 @@
       <link href="/2022/09/02/shu-xue-jian-mo-2022-xiao-sai-a-ti/"/>
       <url>/2022/09/02/shu-xue-jian-mo-2022-xiao-sai-a-ti/</url>
       
-        <content type="html"><![CDATA[<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+        <content type="html"><![CDATA[<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul><li><p><code>.pdf</code> 格式（效果一般，不推荐）<a href="https://hhhhmdzz.github.io//PDF/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-2022-%E6%A0%A1%E8%B5%9B-A%E9%A2%98/pre_work.pdf">https://hhhhmdzz.github.io//PDF/数学建模-2022-校赛-A题/pre_work.pdf</a>)<br>  问题1：<a href="https://hhhhmdzz.github.io//PDF/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-2022-%E6%A0%A1%E8%B5%9B-A%E9%A2%98/task1.pdf">task1.pdf</a><br>  问题2：<a href="https://hhhhmdzz.github.io//PDF/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-2022-%E6%A0%A1%E8%B5%9B-A%E9%A2%98/task2.pdf">task2.pdf</a><br>  问题3：<a href="https://hhhhmdzz.github.io//PDF/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-2022-%E6%A0%A1%E8%B5%9B-A%E9%A2%98/task3.pdf">task3.pdf</a></p></li><li><p><code>.html</code> 格式（效果较好，推荐）<a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-2022-%E6%A0%A1%E8%B5%9B-A%E9%A2%98/pre_work.html">https://hhhhmdzz.github.io//HTML/数学建模-2022-校赛-A题/pre_work.html</a>)<br>  问题1：<a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-2022-%E6%A0%A1%E8%B5%9B-A%E9%A2%98/task1.html">task1.html</a><br>  问题2：<a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-2022-%E6%A0%A1%E8%B5%9B-A%E9%A2%98/task2.html">task2.html</a><br>  问题3：<a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1-2022-%E6%A0%A1%E8%B5%9B-A%E9%A2%98/task3.html">task3.html</a></p></li><li><p><code>.ipynb</code> 格式（效果很好，强烈推荐）</p></li></ul><p><font color="yellow">付费内容</font>，私信发，联系方式见博客首页<span class="github-emoji"><span>😏</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f60f.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
       
       <categories>
           
-          <category> to be categoried </category>
+          <category> 数学建模 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> to be tagged </tag>
+            <tag> 数学建模 </tag>
+            
+            <tag> 2022年重庆邮电大学数学建模竞赛 </tag>
             
         </tags>
       
