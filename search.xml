@@ -4,6 +4,195 @@
   
     
     <entry>
+      <title>数字信号处理-实验7</title>
+      <link href="/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-7-yong-matlab-she-ji-fir-shu-zi-lu-bo-qi/"/>
+      <url>/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-7-yong-matlab-she-ji-fir-shu-zi-lu-bo-qi/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>说明</p><ul><li>用到的函数、音频文件老师会发</li><li>因为 MATLAB 函数需要用一个 <code>.m</code> 文件写，但是本人是在 MATLAB 实施编辑器，即 <code>.mlx</code> 文件中编写的，所以只能把自定义的函数放在 <code>.mlx</code> 文件的末尾。</li></ul></li><li><p>代码</p><ul><li><a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C-MATLAB%E4%BB%BF%E7%9C%9F/exp7.html">实验7 用 MATLAB 设计 FIR 数字滤波器</a></li></ul></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字信号处理实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MATLAB仿真 </tag>
+            
+            <tag> 数字信号处理实验 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数字信号处理-实验6</title>
+      <link href="/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-6-yong-matlab-she-ji-iir-shu-zi-lu-bo-qi/"/>
+      <url>/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-6-yong-matlab-she-ji-iir-shu-zi-lu-bo-qi/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>说明</p><ul><li>用到的函数、音频文件老师会发</li><li>因为 MATLAB 函数需要用一个 <code>.m</code> 文件写，但是本人是在 MATLAB 实施编辑器，即 <code>.mlx</code> 文件中编写的，所以只能把自定义的函数放在 <code>.mlx</code> 文件的末尾。</li></ul></li><li><p>代码</p><ul><li><a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C-MATLAB%E4%BB%BF%E7%9C%9F/exp6.html">实验6 用 MATLAB 设计 IIR 数字滤波器</a></li></ul></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字信号处理实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MATLAB仿真 </tag>
+            
+            <tag> 数字信号处理实验 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数字信号处理-实验5</title>
+      <link href="/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-5-shi-yu-cai-yang-yu-pin-yu-cai-yang/"/>
+      <url>/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-5-shi-yu-cai-yang-yu-pin-yu-cai-yang/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>说明</p><ul><li>用到的函数、音频文件老师会发</li><li>因为 MATLAB 函数需要用一个 <code>.m</code> 文件写，但是本人是在 MATLAB 实施编辑器，即 <code>.mlx</code> 文件中编写的，所以只能把自定义的函数放在 <code>.mlx</code> 文件的末尾。</li></ul></li><li><p>代码</p><ul><li><a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C-MATLAB%E4%BB%BF%E7%9C%9F/exp5.html">实验5 时域采样与频域采样</a></li></ul></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字信号处理实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MATLAB仿真 </tag>
+            
+            <tag> 数字信号处理实验 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数字信号处理-实验4</title>
+      <link href="/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-4-yong-fft-jin-xing-pu-fen-xi/"/>
+      <url>/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-4-yong-fft-jin-xing-pu-fen-xi/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>说明</p><ul><li>用到的函数、音频文件老师会发</li><li>因为 MATLAB 函数需要用一个 <code>.m</code> 文件写，但是本人是在 MATLAB 实施编辑器，即 <code>.mlx</code> 文件中编写的，所以只能把自定义的函数放在 <code>.mlx</code> 文件的末尾。</li></ul></li><li><p>代码</p><ul><li><a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C-MATLAB%E4%BB%BF%E7%9C%9F/exp4.html">实验4 用 FFT 进行谱分析</a></li></ul></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字信号处理实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MATLAB仿真 </tag>
+            
+            <tag> 数字信号处理实验 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数字信号处理-实验3</title>
+      <link href="/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-3-z-bian-huan-ji-chi-san-lti-xi-tong-de-z-yu-fen-xi/"/>
+      <url>/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-3-z-bian-huan-ji-chi-san-lti-xi-tong-de-z-yu-fen-xi/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>说明</p><ul><li>用到的函数、音频文件老师会发</li><li>因为 MATLAB 函数需要用一个 <code>.m</code> 文件写，但是本人是在 MATLAB 实施编辑器，即 <code>.mlx</code> 文件中编写的，所以只能把自定义的函数放在 <code>.mlx</code> 文件的末尾。</li></ul></li><li><p>代码</p><ul><li><a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C-MATLAB%E4%BB%BF%E7%9C%9F/exp3.html">实验3 z 变换及离散 LTI 系统的 z 域分析</a></li></ul></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字信号处理实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MATLAB仿真 </tag>
+            
+            <tag> 数字信号处理实验 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数字信号处理-实验2</title>
+      <link href="/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-2-xi-tong-xiang-ying-ji-xi-tong-wen-ding-xing/"/>
+      <url>/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-2-xi-tong-xiang-ying-ji-xi-tong-wen-ding-xing/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>说明</p><ul><li>用到的函数、音频文件老师会发</li><li>因为 MATLAB 函数需要用一个 <code>.m</code> 文件写，但是本人是在 MATLAB 实施编辑器，即 <code>.mlx</code> 文件中编写的，所以只能把自定义的函数放在 <code>.mlx</code> 文件的末尾。</li></ul></li><li><p>代码</p><ul><li><a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C-MATLAB%E4%BB%BF%E7%9C%9F/exp2.html">实验2 系统响应及系统稳定性</a></li></ul></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字信号处理实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MATLAB仿真 </tag>
+            
+            <tag> 数字信号处理实验 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数字信号处理-实验1</title>
+      <link href="/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-1-matlab-ying-yong-ru-men-he-ji-ben-xin-hao-de-chan-sheng/"/>
+      <url>/2022/12/02/shu-zi-xin-hao-chu-li-shi-yan-1-matlab-ying-yong-ru-men-he-ji-ben-xin-hao-de-chan-sheng/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>说明</p><ul><li>用到的函数、音频文件老师会发</li><li>因为 MATLAB 函数需要用一个 <code>.m</code> 文件写，但是本人是在 MATLAB 实施编辑器，即 <code>.mlx</code> 文件中编写的，所以只能把自定义的函数放在 <code>.mlx</code> 文件的末尾。</li></ul></li><li><p>代码</p><ul><li><a href="https://hhhhmdzz.github.io//HTML/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C-MATLAB%E4%BB%BF%E7%9C%9F/exp1.html">实验1 MATLAB 应用入门和基本信号的产生</a></li></ul></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 数字信号处理实验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MATLAB仿真 </tag>
+            
+            <tag> 数字信号处理实验 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PM信号调制与解调</title>
       <link href="/2022/11/29/pm-xin-hao-diao-zhi-yu-jie-diao/"/>
       <url>/2022/11/29/pm-xin-hao-diao-zhi-yu-jie-diao/</url>
@@ -62,7 +251,7 @@
       <link href="/2022/11/29/ssb-xin-hao-diao-zhi-yu-jie-diao/"/>
       <url>/2022/11/29/ssb-xin-hao-diao-zhi-yu-jie-diao/</url>
       
-        <content type="html"><![CDATA[<h1 id="SSB"><a href="#SSB" class="headerlink" title="SSB"></a>SSB</h1><p>[toc]</p><h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><h3 id="SSB-信号调制-theory"><a href="#SSB-信号调制-theory" class="headerlink" title="SSB 信号调制 theory"></a>SSB 信号调制 theory</h3><p>SSB 信号调制属于幅度调制，SSB 信号的产生有两种方法：滤波法、相移法</p><ul><li>产生 SSB 信号方法1：<strong>滤波法</strong></li></ul><p><img src="/2022/11/29/ssb-xin-hao-diao-zhi-yu-jie-diao/SSB%E7%9A%84%E4%BA%A7%E7%94%9F%EF%BC%9A%E6%BB%A4%E6%B3%A2%E6%B3%95.png" alt="SSB的产生：滤波法"></p><p>SSB 上边带滤波器：$H_{USB}(f)$<br>SSB 下边带滤波器：$H_{LSB}(f)$</p><p>SSB 上边带已调信号频谱：$S_{SSB-USB}(\omega) = S_{DSB}(\omega)H_{USB}(\omega)$<br>SSB 下边带已调信号频谱：$S_{SSB-LSB}(\omega) = S_{DSB}(\omega)H_{LSB}(\omega)$</p><p>SSB 上边带已调信号：$s_{SSB-USB}(t) = \frac{1}{2}[s_{DSB}(t) - \hat{s}<em>{DSB}(t)] = \frac{1}{2}[m(t) c(t) - \hat{m}(t) \hat{c}(t)] = \frac{1}{2}[cos(2 \pi f_m t) cos(2 \pi f_c t) - sin(2 \pi f_m t) sin(2 \pi f_c t)]$<br>SSB 下边带已调信号：$s</em>{SSB-DSB}(t) = \frac{1}{2}[s_{DSB}(t) + \hat{s}_{DSB}(t)] = \frac{1}{2}[m(t) c(t) + \hat{m}(t) \hat{c}(t)] = \frac{1}{2}[cos(2 \pi f_m t) cos(2 \pi f_c t) + sin(2 \pi f_m t) sin(2 \pi f_c t)]$</p><p>SSB 已调信号 $s_{SSB}(t)$ 带宽等于基带信号 $m(t)$ 带宽：$B_{SSB} = f_H$</p><ul><li>产生 SSB 信号方法2：<strong>相移法</strong></li></ul><p><img src="/2022/11/29/ssb-xin-hao-diao-zhi-yu-jie-diao/SSB%E7%9A%84%E4%BA%A7%E7%94%9F%EF%BC%9A%E7%9B%B8%E7%A7%BB%E6%B3%95.png" alt="SSB的产生：相移法"></p><p>略</p><h3 id="SSB-信号解调-theory"><a href="#SSB-信号解调-theory" class="headerlink" title="SSB 信号解调 theory"></a>SSB 信号解调 theory</h3><p>SSB 已调信号只有相干解调</p><p>step1. 乘法器输出：$y(t) = s_{SSB}(t) \cdot 2cos(2 \pi f_c t) = m(t) [1 + cos(2 \pi 2 f_c t)]$<br>step2. 低通滤波器输出：$m_0(t) = m(t)$（使用低通滤波器，滤掉 $2f_c$ 频率分量即可）</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="SSB-信号调制-code"><a href="#SSB-信号调制-code" class="headerlink" title="SSB 信号调制 code"></a>SSB 信号调制 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">clc, clear, clf;dt = 0.00001;  % 设定步长T = 0.01;      % 设定时长t = 0: dt: T - dt;  % 设定时间%（注：这里范围一定要是 T-dt，而不是 T，否则后面会报错！）figure(1);fm = 1000;    % 基带mt = cos(2 * pi * fm * t);  % 调制信号subplot(411);plot(t, mt);title('调制信号');fc = 10000;   % 载波中心频率ct = cos(2 * pi * fc * t);  % 载波信号subplot(412);plot(t, ct);title('载波信号');sDSB = mt .* ct;             % DSB 已调信号sUSB = 0.5 * sDSB - 0.5 * imag(hilbert(sDSB));  % SSB 上边带subplot(413);plot(t, sUSB);title('SSB 已调信号');sLSB = 0.5 * sDSB + 0.5 * imag(hilbert(sDSB));  % SSB 下边带subplot(413);plot(t, sLSB);title('SSB 已调信号');</code></pre><h3 id="SSB-信号解调-code"><a href="#SSB-信号解调-code" class="headerlink" title="SSB 信号解调 code"></a>SSB 信号解调 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">figure(2);%% 相干解调：SSB 上边带yt = sUSB .* 2 .* ct;  % 乘法器输出[f, sf] = T2F(t, yt);  % 傅里叶变换[t_cor_dem, cor_dem] = lpf(f, sf, fm);  % 低通滤波，得到相关解调信号% （注：SSB 信号带宽等于基带带宽！）subplot(211);plot(t_cor_dem, cor_dem);title('SSB 上边带相干解调信号波形');  % 注：不是原基带信号！%% 相干解调：SSB 下边带yt = sLSB .* 2 .* ct;  % 乘法器输出[f, sf] = T2F(t, yt);  % 傅里叶变换[t_cor_dem, cor_dem] = lpf(f, sf, fm);  % 低通滤波，得到相关解调信号% （注：SSB 信号带宽等于基带带宽！）subplot(212);plot(t_cor_dem, cor_dem);title('SSB 下边带相干解调信号波形');  % 注：不是原基带信号！</code></pre><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+        <content type="html"><![CDATA[<h1 id="SSB"><a href="#SSB" class="headerlink" title="SSB"></a>SSB</h1><p>[toc]</p><h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><h3 id="SSB-信号调制-theory"><a href="#SSB-信号调制-theory" class="headerlink" title="SSB 信号调制 theory"></a>SSB 信号调制 theory</h3><p>SSB 信号调制属于幅度调制，SSB 信号的产生有两种方法：滤波法、相移法</p><ul><li>产生 SSB 信号方法1：<strong>滤波法</strong></li></ul><p><img src="/2022/11/29/ssb-xin-hao-diao-zhi-yu-jie-diao/SSB%E7%9A%84%E4%BA%A7%E7%94%9F%EF%BC%9A%E6%BB%A4%E6%B3%A2%E6%B3%95.png" alt="SSB的产生：滤波法"></p><p>SSB 上边带滤波器：$H_{USB}(f)$<br>SSB 下边带滤波器：$H_{LSB}(f)$</p><p>SSB 上边带已调信号频谱：$S_{SSB-USB}(\omega) = S_{DSB}(\omega)H_{USB}(\omega)$<br>SSB 下边带已调信号频谱：$S_{SSB-LSB}(\omega) = S_{DSB}(\omega)H_{LSB}(\omega)$</p><p>SSB 上边带已调信号：$s_{SSB-USB}(t) = \frac{1}{2}[s_{DSB}(t) - \hat{s}<em>{DSB}(t)] = \frac{1}{2}[m(t) c(t) - \hat{m}(t) \hat{c}(t)] = \frac{1}{2}[cos(2 \pi f_m t) cos(2 \pi f_c t) - sin(2 \pi f_m t) sin(2 \pi f_c t)]$<br>SSB 下边带已调信号：$s</em>{SSB-DSB}(t) = \frac{1}{2}[s_{DSB}(t) + \hat{s}_{DSB}(t)] = \frac{1}{2}[m(t) c(t) + \hat{m}(t) \hat{c}(t)] = \frac{1}{2}[cos(2 \pi f_m t) cos(2 \pi f_c t) + sin(2 \pi f_m t) sin(2 \pi f_c t)]$</p><p>SSB 已调信号 $s_{SSB}(t)$ 带宽等于基带信号 $m(t)$ 带宽：$B_{SSB} = f_H$</p><ul><li>产生 SSB 信号方法2：<strong>相移法</strong></li></ul><p><img src="/2022/11/29/ssb-xin-hao-diao-zhi-yu-jie-diao/SSB%E7%9A%84%E4%BA%A7%E7%94%9F%EF%BC%9A%E7%9B%B8%E7%A7%BB%E6%B3%95.png" alt="SSB的产生：相移法"></p><p>略</p><h3 id="SSB-信号解调-theory"><a href="#SSB-信号解调-theory" class="headerlink" title="SSB 信号解调 theory"></a>SSB 信号解调 theory</h3><p>SSB 已调信号只有相干解调</p><p>step1. 乘法器输出：$y(t) = s_{SSB}(t) \cdot 2cos(2 \pi f_c t) = m(t) [1 + cos(2 \pi 2 f_c t)]$<br>step2. 低通滤波器输出：$m_0(t) = m(t)$（使用低通滤波器，滤掉 $2f_c$ 频率分量即可）</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="SSB-信号调制-code"><a href="#SSB-信号调制-code" class="headerlink" title="SSB 信号调制 code"></a>SSB 信号调制 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">clc, clear, clf;dt = 0.00001;  % 设定步长T = 0.01;      % 设定时长t = 0: dt: T - dt;  % 设定时间%（注：这里范围一定要是 T-dt，而不是 T，否则后面会报错！）figure(1);fm = 1000;    % 基带mt = cos(2 * pi * fm * t);  % 调制信号subplot(411);plot(t, mt);title('调制信号');fc = 10000;   % 载波中心频率ct = cos(2 * pi * fc * t);  % 载波信号subplot(412);plot(t, ct);title('载波信号');sDSB = mt .* ct;             % DSB 已调信号sUSB = 0.5 * sDSB - 0.5 * imag(hilbert(sDSB));  % SSB 上边带subplot(413);plot(t, sUSB);title('SSB 已调信号');sLSB = 0.5 * sDSB + 0.5 * imag(hilbert(sDSB));  % SSB 下边带subplot(413);plot(t, sLSB);title('SSB 已调信号');</code></pre><h3 id="SSB-信号解调-code"><a href="#SSB-信号解调-code" class="headerlink" title="SSB 信号解调 code"></a>SSB 信号解调 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">figure(2);%% 相干解调：SSB 上边带yt = sUSB .* 2 .* ct;  % 乘法器输出[f, sf] = T2F(t, yt);  % 傅里叶变换[t_cor_dem, cor_dem] = lpf(f, sf, fm);  % 低通滤波，得到相关解调信号% （注：SSB 信号带宽等于基带带宽！所以低通滤波器输入的截止频率是 fm）subplot(211);plot(t_cor_dem, cor_dem);title('SSB 上边带相干解调信号波形');  % 注：不是原基带信号！%% 相干解调：SSB 下边带yt = sLSB .* 2 .* ct;  % 乘法器输出[f, sf] = T2F(t, yt);  % 傅里叶变换[t_cor_dem, cor_dem] = lpf(f, sf, fm);  % 低通滤波，得到相关解调信号% （注：SSB 信号带宽等于基带带宽！所以低通滤波器输入的截止频率是 fm）subplot(212);plot(t_cor_dem, cor_dem);title('SSB 下边带相干解调信号波形');  % 注：不是原基带信号！</code></pre><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
       
       <categories>
@@ -89,7 +278,7 @@
       <link href="/2022/11/29/dsb-xin-hao-diao-zhi-yu-jie-diao/"/>
       <url>/2022/11/29/dsb-xin-hao-diao-zhi-yu-jie-diao/</url>
       
-        <content type="html"><![CDATA[<h1 id="DSB"><a href="#DSB" class="headerlink" title="DSB"></a>DSB</h1><p>[toc]</p><h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><h3 id="DSB-信号调制-theory"><a href="#DSB-信号调制-theory" class="headerlink" title="DSB 信号调制 theory"></a>DSB 信号调制 theory</h3><p>DSB 信号（也叫 DSB-SC 信号），DSB 信号调制属于幅度调制</p><p><img src="/2022/11/29/dsb-xin-hao-diao-zhi-yu-jie-diao/DSB%E4%BF%A1%E5%8F%B7%E8%B0%83%E5%88%B6.png" alt="DSB信号调制"></p><p>DSB 已调信号：$s_{DSB}(t) = m(t) c(t) = m(t) cos(2 \pi f_c t)$</p><p>DSB 已调信号频谱：$S_{DSB}(\omega) = \frac{1}{2}[M(\omega + \omega_c) + M(\omega - \omega_c)]$</p><p>DSB 已调信号 $s_{DSB}(t)$ 带宽为基带信号 $m(t)$ 带宽的两倍：$B_{DSB} = 2 f_H$</p><h3 id="DSB-信号解调-theory"><a href="#DSB-信号解调-theory" class="headerlink" title="DSB 信号解调 theory"></a>DSB 信号解调 theory</h3><p><img src="/2022/11/29/dsb-xin-hao-diao-zhi-yu-jie-diao/DSB%E4%BF%A1%E5%8F%B7%E8%A7%A3%E8%B0%83.png" alt="DSB信号解调"></p><p>DSB 已调信号只有相干解调</p><p>乘法器输出：$y(t) = s_{DSB}(t) \cdot 2cos(2 \pi f_c t) = m(t) [1 + cos(2 \pi 2 f_c t)]$</p><p>低通滤波器输出：$m_0(t) = m(t)$（使用低通滤波器，滤掉 $2f_c$ 频率分量即可）</p><ul><li>DSB 信号功率</li></ul><p>$P_{DSB} = P_m$</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="DSB-信号调制-code"><a href="#DSB-信号调制-code" class="headerlink" title="DSB 信号调制 code"></a>DSB 信号调制 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">clc, clear, clf;dt = 0.00001;  % 设定步长T = 0.01;      % 设定时长t = 0: dt: T - dt;  % 设定时间%（注：这里范围一定要是 T-dt，而不是 T，否则后面会报错！）figure(1);fm = 1000;    % 基带mt = cos(2 * pi * fm * t);  % 调制信号subplot(321);plot(t, mt);title('调制信号');[f, sfm] = T2F(t, mt);  % 傅里叶变换：FFT + fftshift% （注：DSB 信号带宽是基带带宽的两倍！）subplot(322);plot(f, abs(sfm));title('调制信号频谱');fc = 10000;   % 载波中心频率ct = cos(2 * pi * fc * t);  % 载波信号subplot(323);plot(t, ct);title('载波信号');[f, sfc] = T2F(t, ct);  % 傅里叶变换：FFT + fftshift% （注：DSB 信号带宽是基带带宽的两倍！）subplot(324);plot(f, abs(sfc));title('载波信号频谱');sDSB = mt .* ct;             % DSB 已调信号subplot(325);plot(t, sDSB);title('DSB 已调信号');subplot(326);[f, sfdsb] = T2F(t, sDSB);  % 傅里叶变换：FFT + fftshiftplot(f, abs(sfdsb));title('DSB 已调信号频谱');</code></pre><h3 id="DSB-信号解调-code"><a href="#DSB-信号解调-code" class="headerlink" title="DSB 信号解调 code"></a>DSB 信号解调 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">figure(2);%% 相干解调yt = sDSB .* 2 .* ct;  % 乘法器输出[f, sf] = T2F(t, yt);  % 傅里叶变换[t_cor_dem_, cor_dem] = lpf(f, sf, 2 * fm);  % 低通滤波，得到相关解调信号% （注：DSB 信号带宽是基带带宽的两倍！）subplot(211);plot(cor_dem);title('相干解调信号波形，即原基带信号波形');subplot(212);[f, cor_dem_f] = T2F(t_cor_dem_, cor_dem);   % 傅里叶变换：FFT + fftshiftplot(f, abs(cor_dem_f));title('相干解调信号频谱，即原基带信号频谱');</code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>低通滤波器的其他实现：（以 DSB 信号解调为例）</p><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">figure(3);%% 相干解调fs = 2^16;NFFT = 2^16;f = linspace(-fs/2, fs/2, NFFT);wc = 2 * pi * 2 * fm / fs;   % 解调器低通滤波器截止频率，2fmlbf_hn = fir1(32, wc / pi);  % 低通滤波器系统函数，FIR滤波器yt = sDSB .* 2 .* ct;Yf = t2f(yt, NFFT);               % 频谱 FFT + fftshiftcor_dem = filter(lbf_hn, 1, yt);  % 相干解调cor_dem_f = t2f(cor_dem, NFFT);   % 频谱 FFT + fftshiftsubplot(211);plot(t, cor_dem);title('相干解调信号波形，即原基带信号波形');subplot(212);plot(f, abs(cor_dem_f));title('相干解调信号频谱，即原基带信号频谱');</code></pre><ul><li>计算功率和能量</li></ul><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">% 功率就是对复信号模的平方的平均值P1 = mean(abs(mt) .^ 2);P1% 能量就是P对于时间的积分E1 = sum(abs(mt ).^ 2 * dt);E1</code></pre><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+        <content type="html"><![CDATA[<h1 id="DSB"><a href="#DSB" class="headerlink" title="DSB"></a>DSB</h1><p>[toc]</p><h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><h3 id="DSB-信号调制-theory"><a href="#DSB-信号调制-theory" class="headerlink" title="DSB 信号调制 theory"></a>DSB 信号调制 theory</h3><p>DSB 信号（也叫 DSB-SC 信号），DSB 信号调制属于幅度调制</p><p><img src="/2022/11/29/dsb-xin-hao-diao-zhi-yu-jie-diao/DSB%E4%BF%A1%E5%8F%B7%E8%B0%83%E5%88%B6.png" alt="DSB信号调制"></p><p>DSB 已调信号：$s_{DSB}(t) = m(t) c(t) = m(t) cos(2 \pi f_c t)$</p><p>DSB 已调信号频谱：$S_{DSB}(\omega) = \frac{1}{2}[M(\omega + \omega_c) + M(\omega - \omega_c)]$</p><p>DSB 已调信号 $s_{DSB}(t)$ 带宽为基带信号 $m(t)$ 带宽的两倍：$B_{DSB} = 2 f_H$</p><h3 id="DSB-信号解调-theory"><a href="#DSB-信号解调-theory" class="headerlink" title="DSB 信号解调 theory"></a>DSB 信号解调 theory</h3><p><img src="/2022/11/29/dsb-xin-hao-diao-zhi-yu-jie-diao/DSB%E4%BF%A1%E5%8F%B7%E8%A7%A3%E8%B0%83.png" alt="DSB信号解调"></p><p>DSB 已调信号只有相干解调</p><p>乘法器输出：$y(t) = s_{DSB}(t) \cdot 2cos(2 \pi f_c t) = m(t) [1 + cos(2 \pi 2 f_c t)]$</p><p>低通滤波器输出：$m_0(t) = m(t)$（使用低通滤波器，滤掉 $2f_c$ 频率分量即可）</p><ul><li>DSB 信号功率</li></ul><p>$P_{DSB} = P_m$</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="DSB-信号调制-code"><a href="#DSB-信号调制-code" class="headerlink" title="DSB 信号调制 code"></a>DSB 信号调制 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">clc, clear, clf;dt = 0.00001;  % 设定步长T = 0.01;      % 设定时长t = 0: dt: T - dt;  % 设定时间%（注：这里范围一定要是 T-dt，而不是 T，否则后面会报错！）figure(1);fm = 1000;    % 基带mt = cos(2 * pi * fm * t);  % 调制信号subplot(321);plot(t, mt);title('调制信号');[f, sfm] = T2F(t, mt);  % 傅里叶变换：FFT + fftshiftsubplot(322);plot(f, abs(sfm));title('调制信号频谱');fc = 10000;   % 载波中心频率ct = cos(2 * pi * fc * t);  % 载波信号subplot(323);plot(t, ct);title('载波信号');[f, sfc] = T2F(t, ct);  % 傅里叶变换：FFT + fftshiftsubplot(324);plot(f, abs(sfc));title('载波信号频谱');sDSB = mt .* ct;             % DSB 已调信号subplot(325);plot(t, sDSB);title('DSB 已调信号');subplot(326);[f, sfdsb] = T2F(t, sDSB);  % 傅里叶变换：FFT + fftshiftplot(f, abs(sfdsb));title('DSB 已调信号频谱');</code></pre><h3 id="DSB-信号解调-code"><a href="#DSB-信号解调-code" class="headerlink" title="DSB 信号解调 code"></a>DSB 信号解调 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">figure(2);%% 相干解调yt = sDSB .* 2 .* ct;  % 乘法器输出[f, sf] = T2F(t, yt);  % 傅里叶变换[t_cor_dem_, cor_dem] = lpf(f, sf, 2 * fm);  % 低通滤波，得到相关解调信号% （注：DSB 信号带宽是基带带宽的两倍！所以低通滤波器输入的截止频率是 2 * fm）subplot(211);plot(cor_dem);title('相干解调信号波形，即原基带信号波形');subplot(212);[f, cor_dem_f] = T2F(t_cor_dem_, cor_dem);   % 傅里叶变换：FFT + fftshiftplot(f, abs(cor_dem_f));title('相干解调信号频谱，即原基带信号频谱');</code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>低通滤波器的其他实现：（以 DSB 信号解调为例）</p><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">figure(3);%% 相干解调fs = 2^16;NFFT = 2^16;f = linspace(-fs/2, fs/2, NFFT);wc = 2 * pi * 2 * fm / fs;   % 解调器低通滤波器截止频率，2fmlbf_hn = fir1(32, wc / pi);  % 低通滤波器系统函数，FIR滤波器yt = sDSB .* 2 .* ct;Yf = t2f(yt, NFFT);               % 频谱 FFT + fftshiftcor_dem = filter(lbf_hn, 1, yt);  % 相干解调cor_dem_f = t2f(cor_dem, NFFT);   % 频谱 FFT + fftshiftsubplot(211);plot(t, cor_dem);title('相干解调信号波形，即原基带信号波形');subplot(212);plot(f, abs(cor_dem_f));title('相干解调信号频谱，即原基带信号频谱');</code></pre><ul><li>计算功率和能量</li></ul><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">% 功率就是对复信号模的平方的平均值P1 = mean(abs(mt) .^ 2);P1% 能量就是P对于时间的积分E1 = sum(abs(mt ).^ 2 * dt);E1</code></pre><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
       
       <categories>
@@ -116,7 +305,7 @@
       <link href="/2022/11/29/am-xin-hao-diao-zhi-yu-jie-diao/"/>
       <url>/2022/11/29/am-xin-hao-diao-zhi-yu-jie-diao/</url>
       
-        <content type="html"><![CDATA[<h1 id="AM"><a href="#AM" class="headerlink" title="AM"></a>AM</h1><p>[toc]</p><p>通信原理仿真：AM 信号调制和解调。</p><hr><h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><p>模拟调制模型：</p><p><img src="/2022/11/29/am-xin-hao-diao-zhi-yu-jie-diao/%E6%A8%A1%E6%8B%9F%E8%B0%83%E5%88%B6%E6%A8%A1%E5%9E%8B.png" alt="模拟调制模型"></p><p>其中，模拟基带信号 $m(t) = cos(2 \pi f_m t)$，载波信号 $c(t) = cos(2 \pi f_c t)$</p><h3 id="AM-信号调制-theory"><a href="#AM-信号调制-theory" class="headerlink" title="AM 信号调制 theory"></a>AM 信号调制 theory</h3><p>AM 信号调制属于幅度调制</p><p><img src="/2022/11/29/am-xin-hao-diao-zhi-yu-jie-diao/AM%E4%BF%A1%E5%8F%B7%E8%B0%83%E5%88%B6.png" alt="AM信号调制"></p><p>AM 已调信号：$s_{AM}(t) = [A + m(t)]c(t)$</p><p>AM 已调信号频谱：$S_{AM}(\omega) = \pi A [\delta(\omega + \omega_c) + \delta(\omega - \omega_c)] + \frac{1}{2}[M(\omega + \omega_c) + M(\omega - \omega_c)]$</p><p>AM 已调信号 $s_{AM}(t)$ 带宽为基带信号 $m(t)$ 带宽的两倍：$B_{AM} = 2 f_H$</p><h3 id="AM-信号解调-theory"><a href="#AM-信号解调-theory" class="headerlink" title="AM 信号解调 theory"></a>AM 信号解调 theory</h3><p>AM 已调信号解调有两个方法：相干解调、非相干解调（包络检波法）</p><ul><li>AM 已调信号解调方法1：<strong>相干解调</strong></li></ul><p><img src="/2022/11/29/am-xin-hao-diao-zhi-yu-jie-diao/AM%E5%B7%B2%E8%B0%83%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%B9%B2%E8%A7%A3%E8%B0%83.png" alt="AM已调信号相干解调"></p><p>其中，一般 $\theta_0 = 0$</p><p>step0. 乘法器输出：$y(t) = s_{AM}(t) \cdot 2c(t) = [A + m(t)] c(t)  \cdot 2c(t) = (A + m(t)) [1 + cos(2 \pi 2 f_c t)]$<br>step1. 低通滤波器输出：$m_0(t) = A + m(t)$（使用低通滤波器，滤掉 $2f_c$ 频率分量即可）</p><ul><li>AM 已调信号解调方法2：<strong>包络检波法</strong></li></ul><p>包络检波器原理：（<strong>希尔伯特变换</strong>）</p><p>对于一般信号 $x(t) = A(t) cos(\omega_0 t + \theta(t))$<br>step1. 求出一般信号的希尔伯特变换：$\hat{x}(t) = H[x(t)] = A(t) sin(\omega_0 t + \theta(t))$<br>step2. 构造解析信号：$\tilde{x}(t) = x(t) + j \hat{x}(t) = A(t) e^{j \theta(t)} e^{j \omega_0 t}$<br>step3. 取解析信号的绝对值即可得到原来的一般信号的包络信号：$|A(t)| = |\tilde{x}(t)|$</p><p>同理，对于 AM 已调信号 $s_{AM}(t) = [A + m(t)] ct = [A + m(t)] cos(2 \pi f_c t)$<br>step1. 求出 AM 已调信号的希尔伯特变换：$\hat{m}(t) = H[m(t)] = [A + m(t)] sin(2 \pi f_c t)$<br>step2. 构造解析信号：$\tilde{m}(t) = m(t) + j \hat{m}(t) = [A + m(t)] e^{j 2 \pi f_c t}$<br>step3. 取解析信号的绝对值即可得到原来的一般信号的包络信号：$|A + m(t)| = |\tilde{m}(t)|$<br>step4. 去掉包络信号的直流分量，取包络信号的交流分量，即基带信号：$m(t) = |A + m(t)| - A = A + m(t) - A$</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="AM-信号的调制-code"><a href="#AM-信号的调制-code" class="headerlink" title="AM 信号的调制 code"></a>AM 信号的调制 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">clc, clear, clf;dt = 0.00001;  % 设定步长T = 0.01;      % 设定时长t = 0: dt: T - dt;  % 设定时间%（注：这里范围一定要是 T-dt，而不是 T，否则后面会报错！）figure(1);fm = 1000;    % 基带mt = cos(2 * pi * fm * t);      % 调制信号subplot(311);plot(t, mt);title('调制信号');fc = 10000;   % 载波中心频率ct = cos(2 * pi * fc * t);      % 载波信号subplot(312);plot(t, ct);title('载波信号');A = 1;sAM = (A + mt) .* ct;           % AM 已调信号subplot(313);plot(t, sAM);title('AM 已调信号');</code></pre><h3 id="AM-信号的解调-code"><a href="#AM-信号的解调-code" class="headerlink" title="AM 信号的解调 code"></a>AM 信号的解调 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">figure(2);%% 解调方法1：相干解调yt = sAM .* 2 .* ct;  % 乘法器输出[f, sf] = T2F(t, yt);  % 傅里叶变换[t_cor_dem_, cor_dem] = lpf(f, sf, 2 * fm);  % 低通滤波，得到相关解调信号% （注：AM 信号带宽是基带带宽的两倍！）subplot(221);plot(cor_dem);title('相干解调信号波形');m = cor_dem - A;subplot(223);plot(m);title('相干解调信号恢复的原基带信号');%% 解调方法2：非相干解调（包络检波器）m_hilbert = hilbert(sAM);  % hilbert 直接得到解析信号，而不是希尔伯特变换！uncor_dem = abs(m_hilbert);  % 非相干解调信号subplot(222);plot(uncor_dem);title('非相干解调信号波形');m = uncor_dem - A;subplot(224);plot(m);title('非相干解调信号恢复的原基带信号');</code></pre><p>其中，用到 <code>T2F()</code> 和 <code>lpf()</code> 两个自定义的函数，以及 <code>hilbert()</code> 一个 MATLAB 内置函数，函数说明如下：</p><ul><li><p><code>T2F()</code> 离散傅里叶变换</p></li><li><p><code>lpf()</code> 低通滤波器</p></li><li><p><code>hilbert()</code> 求输入信号的解析信号<br>（虽然函数名叫希尔伯特，但是实际求的是解析信号，若想要获得解析信号，使用 <code>imag()</code> 函数取返回结果的虚部即可）</p></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+        <content type="html"><![CDATA[<h1 id="AM"><a href="#AM" class="headerlink" title="AM"></a>AM</h1><p>[toc]</p><p>通信原理仿真：AM 信号调制和解调。</p><hr><h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><p>模拟调制模型：</p><p><img src="/2022/11/29/am-xin-hao-diao-zhi-yu-jie-diao/%E6%A8%A1%E6%8B%9F%E8%B0%83%E5%88%B6%E6%A8%A1%E5%9E%8B.png" alt="模拟调制模型"></p><p>其中，模拟基带信号 $m(t) = cos(2 \pi f_m t)$，载波信号 $c(t) = cos(2 \pi f_c t)$</p><h3 id="AM-信号调制-theory"><a href="#AM-信号调制-theory" class="headerlink" title="AM 信号调制 theory"></a>AM 信号调制 theory</h3><p>AM 信号调制属于幅度调制</p><p><img src="/2022/11/29/am-xin-hao-diao-zhi-yu-jie-diao/AM%E4%BF%A1%E5%8F%B7%E8%B0%83%E5%88%B6.png" alt="AM信号调制"></p><p>AM 已调信号：$s_{AM}(t) = [A + m(t)]c(t)$</p><p>AM 已调信号频谱：$S_{AM}(\omega) = \pi A [\delta(\omega + \omega_c) + \delta(\omega - \omega_c)] + \frac{1}{2}[M(\omega + \omega_c) + M(\omega - \omega_c)]$</p><p>AM 已调信号 $s_{AM}(t)$ 带宽为基带信号 $m(t)$ 带宽的两倍：$B_{AM} = 2 f_H$</p><h3 id="AM-信号解调-theory"><a href="#AM-信号解调-theory" class="headerlink" title="AM 信号解调 theory"></a>AM 信号解调 theory</h3><p>AM 已调信号解调有两个方法：相干解调、非相干解调（包络检波法）</p><ul><li>AM 已调信号解调方法1：<strong>相干解调</strong></li></ul><p><img src="/2022/11/29/am-xin-hao-diao-zhi-yu-jie-diao/AM%E5%B7%B2%E8%B0%83%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%B9%B2%E8%A7%A3%E8%B0%83.png" alt="AM已调信号相干解调"></p><p>其中，一般 $\theta_0 = 0$</p><p>step0. 乘法器输出：$y(t) = s_{AM}(t) \cdot 2c(t) = [A + m(t)] c(t)  \cdot 2c(t) = (A + m(t)) [1 + cos(2 \pi 2 f_c t)]$<br>step1. 低通滤波器输出：$m_0(t) = A + m(t)$（使用低通滤波器，滤掉 $2f_c$ 频率分量即可）</p><ul><li>AM 已调信号解调方法2：<strong>包络检波法</strong></li></ul><p>包络检波器原理：（<strong>希尔伯特变换</strong>）</p><p>对于一般信号 $x(t) = A(t) cos(\omega_0 t + \theta(t))$<br>step1. 求出一般信号的希尔伯特变换：$\hat{x}(t) = H[x(t)] = A(t) sin(\omega_0 t + \theta(t))$<br>step2. 构造解析信号：$\tilde{x}(t) = x(t) + j \hat{x}(t) = A(t) e^{j \theta(t)} e^{j \omega_0 t}$<br>step3. 取解析信号的绝对值即可得到原来的一般信号的包络信号：$|A(t)| = |\tilde{x}(t)|$</p><p>同理，对于 AM 已调信号 $s_{AM}(t) = [A + m(t)] ct = [A + m(t)] cos(2 \pi f_c t)$<br>step1. 求出 AM 已调信号的希尔伯特变换：$\hat{m}(t) = H[m(t)] = [A + m(t)] sin(2 \pi f_c t)$<br>step2. 构造解析信号：$\tilde{m}(t) = m(t) + j \hat{m}(t) = [A + m(t)] e^{j 2 \pi f_c t}$<br>step3. 取解析信号的绝对值即可得到原来的一般信号的包络信号：$|A + m(t)| = |\tilde{m}(t)|$<br>step4. 去掉包络信号的直流分量，取包络信号的交流分量，即基带信号：$m(t) = |A + m(t)| - A = A + m(t) - A$</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="AM-信号的调制-code"><a href="#AM-信号的调制-code" class="headerlink" title="AM 信号的调制 code"></a>AM 信号的调制 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">clc, clear, clf;dt = 0.00001;  % 设定步长T = 0.01;      % 设定时长t = 0: dt: T - dt;  % 设定时间%（注：这里范围一定要是 T-dt，而不是 T，否则后面会报错！）figure(1);fm = 1000;    % 基带mt = cos(2 * pi * fm * t);      % 调制信号subplot(311);plot(t, mt);title('调制信号');fc = 10000;   % 载波中心频率ct = cos(2 * pi * fc * t);      % 载波信号subplot(312);plot(t, ct);title('载波信号');A = 1;sAM = (A + mt) .* ct;           % AM 已调信号subplot(313);plot(t, sAM);title('AM 已调信号');</code></pre><h3 id="AM-信号的解调-code"><a href="#AM-信号的解调-code" class="headerlink" title="AM 信号的解调 code"></a>AM 信号的解调 code</h3><pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">figure(2);%% 解调方法1：相干解调yt = sAM .* 2 .* ct;  % 乘法器输出[f, sf] = T2F(t, yt);  % 傅里叶变换[t_cor_dem_, cor_dem] = lpf(f, sf, 2 * fm);  % 低通滤波，得到相关解调信号% （注：AM 信号带宽是基带带宽的两倍！所以低通滤波器输入的截止频率是 2 * fm）subplot(221);plot(cor_dem);title('相干解调信号波形');m = cor_dem - A;subplot(223);plot(m);title('相干解调信号恢复的原基带信号');%% 解调方法2：非相干解调（包络检波器）m_hilbert = hilbert(sAM);  % hilbert 直接得到解析信号，而不是希尔伯特变换！uncor_dem = abs(m_hilbert);  % 非相干解调信号subplot(222);plot(uncor_dem);title('非相干解调信号波形');m = uncor_dem - A;subplot(224);plot(m);title('非相干解调信号恢复的原基带信号');</code></pre><p>其中，用到 <code>T2F()</code> 和 <code>lpf()</code> 两个自定义的函数，以及 <code>hilbert()</code> 一个 MATLAB 内置函数，函数说明如下：</p><ul><li><p><code>T2F()</code> 离散傅里叶变换</p></li><li><p><code>lpf()</code> 低通滤波器</p></li><li><p><code>hilbert()</code> 求输入信号的解析信号<br>（虽然函数名叫希尔伯特，但是实际求的是解析信号，若想要获得解析信号，使用 <code>imag()</code> 函数取返回结果的虚部即可）</p></li></ul><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
       
       
       <categories>
@@ -848,6 +1037,33 @@
     
     
     <entry>
+      <title>python协程</title>
+      <link href="/2022/03/09/python-xie-cheng/"/>
+      <url>/2022/03/09/python-xie-cheng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="python协程"><a href="#python协程" class="headerlink" title="python协程"></a>python协程</h1><p>[toc]</p><h2 id="协程的概念"><a href="#协程的概念" class="headerlink" title="协程的概念"></a>协程的概念</h2><p>协程 (Coroutine)，又称为微线程，是一种用户态的<strong>轻量级线程</strong>。</p><p>协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复之前保存的寄存器上下文和栈。因此，协程能够保留上次一调用时的状态，能够进入上一次离开时所处的逻辑流的位置。</p><ul><li>协程的好处<ol><li>无需线程上下文切换的开销</li><li>无需原子操作(不会被线程调度机制打断的操作)锁定以及同步的开销</li><li>方便切换控制流，简化编程模型</li><li>高并发 + 高扩展性 + 低成文：一个 CPU 支持上完的协程都不是问题，所以很适合高并发处理</li></ol></li><li>协程的缺点<ol><li>无法利用多核资源：协程的本质是单线程，需要和进程配合才能运行在多 CPU 上</li><li>进行阻塞 (Blocking) 操 作(如 IO 时) 会阻塞掉整个程序</li></ol></li><li>协程的条件<ol><li>必须在<strong>只有一个单线程</strong>里实现并发</li><li>修改<strong>共享数据不需加锁</strong></li><li>用户程序里自己保存多个控制流的上下文栈</li><li>一个协程遇到 IO 操作自动切换到其它协程</li></ol></li></ul><p>python 中的 <code>yield</code> 支持基本的协程，但是不完全，以下<strong>使用 <code>yield</code> 实现协程：</strong></p><pre class="language-python" data-language="python"><div class="caption"><span>{.line-numbers}</span></div><code class="language-python"><span class="token keyword">def</span> <span class="token function">consumer</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string"> is consuming."</span></span><span class="token punctuation">)</span>    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>        money <span class="token operator">=</span> <span class="token keyword">yield</span>        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[%s] consumed %d ￥."</span> <span class="token operator">%</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> money<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">def</span> <span class="token function">producer</span><span class="token punctuation">(</span>times<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token builtin">next</span><span class="token punctuation">(</span>con1<span class="token punctuation">)</span>    <span class="token builtin">next</span><span class="token punctuation">(</span>con2<span class="token punctuation">)</span>    <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> times<span class="token punctuation">)</span><span class="token punctuation">:</span>        con1<span class="token punctuation">.</span>send<span class="token punctuation">(</span>n<span class="token punctuation">)</span>        con2<span class="token punctuation">.</span>send<span class="token punctuation">(</span>n<span class="token punctuation">)</span>        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\033[32;1m[producer]\033[0m is producing %s ￥."</span> <span class="token operator">%</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>    con1 <span class="token operator">=</span> consumer<span class="token punctuation">(</span><span class="token string">"customer1"</span><span class="token punctuation">)</span>    con2 <span class="token operator">=</span> consumer<span class="token punctuation">(</span><span class="token string">"customer2"</span><span class="token punctuation">)</span>    p <span class="token operator">=</span> producer<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span></code></pre><h2 id="Greenlet模块"><a href="#Greenlet模块" class="headerlink" title="Greenlet模块"></a>Greenlet模块</h2><h2 id="Asyncio模块"><a href="#Asyncio模块" class="headerlink" title="Asyncio模块"></a>Asyncio模块</h2><h2 id="Gevent模块"><a href="#Gevent模块" class="headerlink" title="Gevent模块"></a>Gevent模块</h2><h2 id="协程的实例"><a href="#协程的实例" class="headerlink" title="协程的实例"></a>协程的实例</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> 协程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python线程</title>
       <link href="/2022/03/09/python-xian-cheng/"/>
       <url>/2022/03/09/python-xian-cheng/</url>
@@ -894,33 +1110,6 @@
             <tag> python </tag>
             
             <tag> 进程 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>python协程</title>
-      <link href="/2022/03/09/python-xie-cheng/"/>
-      <url>/2022/03/09/python-xie-cheng/</url>
-      
-        <content type="html"><![CDATA[<h1 id="python协程"><a href="#python协程" class="headerlink" title="python协程"></a>python协程</h1><p>[toc]</p><h2 id="协程的概念"><a href="#协程的概念" class="headerlink" title="协程的概念"></a>协程的概念</h2><p>协程 (Coroutine)，又称为微线程，是一种用户态的<strong>轻量级线程</strong>。</p><p>协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复之前保存的寄存器上下文和栈。因此，协程能够保留上次一调用时的状态，能够进入上一次离开时所处的逻辑流的位置。</p><ul><li>协程的好处<ol><li>无需线程上下文切换的开销</li><li>无需原子操作(不会被线程调度机制打断的操作)锁定以及同步的开销</li><li>方便切换控制流，简化编程模型</li><li>高并发 + 高扩展性 + 低成文：一个 CPU 支持上完的协程都不是问题，所以很适合高并发处理</li></ol></li><li>协程的缺点<ol><li>无法利用多核资源：协程的本质是单线程，需要和进程配合才能运行在多 CPU 上</li><li>进行阻塞 (Blocking) 操 作(如 IO 时) 会阻塞掉整个程序</li></ol></li><li>协程的条件<ol><li>必须在<strong>只有一个单线程</strong>里实现并发</li><li>修改<strong>共享数据不需加锁</strong></li><li>用户程序里自己保存多个控制流的上下文栈</li><li>一个协程遇到 IO 操作自动切换到其它协程</li></ol></li></ul><p>python 中的 <code>yield</code> 支持基本的协程，但是不完全，以下<strong>使用 <code>yield</code> 实现协程：</strong></p><pre class="language-python" data-language="python"><div class="caption"><span>{.line-numbers}</span></div><code class="language-python"><span class="token keyword">def</span> <span class="token function">consumer</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>name<span class="token punctuation">}</span></span><span class="token string"> is consuming."</span></span><span class="token punctuation">)</span>    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>        money <span class="token operator">=</span> <span class="token keyword">yield</span>        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[%s] consumed %d ￥."</span> <span class="token operator">%</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> money<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token keyword">def</span> <span class="token function">producer</span><span class="token punctuation">(</span>times<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token builtin">next</span><span class="token punctuation">(</span>con1<span class="token punctuation">)</span>    <span class="token builtin">next</span><span class="token punctuation">(</span>con2<span class="token punctuation">)</span>    <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> times<span class="token punctuation">)</span><span class="token punctuation">:</span>        con1<span class="token punctuation">.</span>send<span class="token punctuation">(</span>n<span class="token punctuation">)</span>        con2<span class="token punctuation">.</span>send<span class="token punctuation">(</span>n<span class="token punctuation">)</span>        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\033[32;1m[producer]\033[0m is producing %s ￥."</span> <span class="token operator">%</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>    con1 <span class="token operator">=</span> consumer<span class="token punctuation">(</span><span class="token string">"customer1"</span><span class="token punctuation">)</span>    con2 <span class="token operator">=</span> consumer<span class="token punctuation">(</span><span class="token string">"customer2"</span><span class="token punctuation">)</span>    p <span class="token operator">=</span> producer<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span></code></pre><h2 id="Greenlet模块"><a href="#Greenlet模块" class="headerlink" title="Greenlet模块"></a>Greenlet模块</h2><h2 id="Asyncio模块"><a href="#Asyncio模块" class="headerlink" title="Asyncio模块"></a>Asyncio模块</h2><h2 id="Gevent模块"><a href="#Gevent模块" class="headerlink" title="Gevent模块"></a>Gevent模块</h2><h2 id="协程的实例"><a href="#协程的实例" class="headerlink" title="协程的实例"></a>协程的实例</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">]]></content>
-      
-      
-      <categories>
-          
-          <category> python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> 协程 </tag>
             
         </tags>
       

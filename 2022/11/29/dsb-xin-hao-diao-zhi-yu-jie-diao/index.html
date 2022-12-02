@@ -423,14 +423,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-12-01
+                    2022-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    719
+                    708
                 </div>
                 
 
@@ -489,7 +489,6 @@ plot(t, mt);
 title('调制信号');
 
 [f, sfm] = T2F(t, mt);  % 傅里叶变换：FFT + fftshift
-% （注：DSB 信号带宽是基带带宽的两倍！）
 subplot(322);
 plot(f, abs(sfm));
 title('调制信号频谱');
@@ -501,7 +500,6 @@ plot(t, ct);
 title('载波信号');
 
 [f, sfc] = T2F(t, ct);  % 傅里叶变换：FFT + fftshift
-% （注：DSB 信号带宽是基带带宽的两倍！）
 subplot(324);
 plot(f, abs(sfc));
 title('载波信号频谱');
@@ -522,7 +520,7 @@ title('DSB 已调信号频谱');</code></pre>
 yt = sDSB .* 2 .* ct;  % 乘法器输出
 [f, sf] = T2F(t, yt);  % 傅里叶变换
 [t_cor_dem_, cor_dem] = lpf(f, sf, 2 * fm);  % 低通滤波，得到相关解调信号
-% （注：DSB 信号带宽是基带带宽的两倍！）
+% （注：DSB 信号带宽是基带带宽的两倍！所以低通滤波器输入的截止频率是 2 * fm）
 subplot(211);
 plot(cor_dem);
 title('相干解调信号波形，即原基带信号波形');
@@ -1360,7 +1358,7 @@ E1</code></pre>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">92.5k</span>
+                        class="white-color">93.2k</span>
             
             
             
