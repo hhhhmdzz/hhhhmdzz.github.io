@@ -423,14 +423,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-12-02
+                    2022-12-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    700
+                    708
                 </div>
                 
 
@@ -499,12 +499,12 @@ title('载波信号');
 
 sDSB = mt .* ct;             % DSB 已调信号
 
-sUSB = 0.5 * sDSB - 0.5 * imag(hilbert(sDSB));  % SSB 上边带
+sUSB = 0.5 * (mt .* cos(wc * t) - imag(hilbert(mt)) .* sin(wc * t));  %  SSB 上边带
 subplot(413);
 plot(t, sUSB);
 title('SSB 已调信号');
 
-sLSB = 0.5 * sDSB + 0.5 * imag(hilbert(sDSB));  % SSB 下边带
+sLSB = 0.5 * (mt .* cos(wc * t) + imag(hilbert(mt)) .* sin(wc * t));  % SSB 下边带
 subplot(413);
 plot(t, sLSB);
 title('SSB 已调信号');</code></pre>
@@ -1323,7 +1323,7 @@ title('SSB 下边带相干解调信号波形');  % 注：不是原基带信号�
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">93.7k</span>
+                        class="white-color">94.2k</span>
             
             
             

@@ -423,21 +423,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-12-04
+                    2022-12-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    5 分
                 </div>
                 
 
@@ -468,8 +468,8 @@
 <p>$$\cfrac{1}{2 \pi} \cfrac{d\varphi(t)}{dt} = K_F m(t)$$</p>
 <p>所以</p>
 <p>$$\varphi(t) = 2 \pi K_F \int_{-\infty}^{t}m(\tau)d\tau= 2 \pi K_F \int_{0}^{t}m(\tau)d\tau + \varphi_0$$</p>
-<p>其中，$K_F (Hz/V)$ 频率偏移常数，调频灵敏度一般 $\varphi_0 = 0$</p>
-<p>所以，调频信号的表达式：</p>
+<p>其中，$K_F (单位 Hz/V)$ 频率偏移常数，调频灵敏度一般 $\varphi_0 = 0$</p>
+<p>所以，<strong>调频信号的表达式</strong>：</p>
 <p>$$s_{FM}(t) = A_ccos[2 \pi f_c t + 2 \pi K_F \int_{0}^{t}m(\tau)d\tau]$$</p>
 <ul>
 <li><p>角度调制信号的频带宽度（卡森公式）：$B \approx 2 (D + 1) f_H =2 (\Delta f_{max} + f_H ) $</p>
@@ -490,32 +490,41 @@
 </ul>
 </li>
 </ul>
-<h3 id="FM-频率解调-theory"><a href="#FM-频率解调-theory" class="headerlink" title="FM 频率解调 theory"></a>FM 频率解调 theory</h3><p>鉴频器（略）</p>
-<details><summary>展开说说</summary>
-
-<p>这部分没要求，害没开始写……日后有时间完善更新(doge)</p>
-</details>
-
+<h3 id="FM-频率解调-theory"><a href="#FM-频率解调-theory" class="headerlink" title="FM 频率解调 theory"></a>FM 频率解调 theory</h3><ul>
+<li>非相干解调（包络检波）</li>
+</ul>
+<p>首先，对 FM 已调信号求微分：</p>
+<p>$$s_d(t) = \cfrac{s_{FM}(t)}{dt} = -A_c ( 2 \pi f_c + K_F m(t)) sin[2\pi f_c t + \int_0^t K_f m(\tau) d\tau]$$</p>
+<p>（在 AM 信号调制与解调中，如果出现以上类似的表达式 $A(t) cos(\omega_0 t + \theta(t))$，那么就可以使用包络检波解调。）</p>
+<p>然后，对 $s_d(t)$ 求解析信号（希尔伯特变换）并取绝对值（获得包络）即可得到解调信号。</p>
+<ul>
+<li>相干解调（同步检波）</li>
+</ul>
+<p>（略，见本文最后的参考）</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="FM-频率调制-code"><a href="#FM-频率调制-code" class="headerlink" title="FM 频率调制 code"></a>FM 频率调制 code</h3><ul>
 <li>无噪声理想条件下，FM 频率调制：</li>
 </ul>
+<p>这里需要注意的是：我们可以直接手动计算出 $\int_{0}^{t}m(\tau)d\tau = \int_{0}^{t}cos(2 \pi f_m \tau)d\tau = \frac{1}{2 \pi f_m} sin(2 \pi f_m t)$，然后直接带入 $t$ 即可。</p>
+<p>但是实际上，因为我们需要解调出基带信号 $m(t)$，也就是说我们不知道基带信号 $m(t)$ 的波形，所以上面这个方法在实际中是行不通的。正解应该是：我们需要自己写一个定积分的函数，其思想就是微元法逼近 $\int_{0}^{t}m(\tau)d\tau$ 的结果。</p>
+<p>以下，给出两种方法：①手动计算②微元法计算</p>
 <pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">clc, clear, clf;
 T = 1;
-dt = 0.01;
-t = 0: dt: T;
+dt = 0.0005;
+t = 0: dt: T - dt;
 
-A = 5;
-fm = 5;
+A = 1;
+fm = 4;
 wm = 2 * pi * fm;
 mt = A * cos(wm * t);  % 调制信号
 
-fc = 25;
+fc = 40;
 wc = 2 * pi * fc;
 ct = cos(wc * t);  % 载波信号
 
-A_c = 5;
-K_F = 10;
-sFM = A_c * cos(wc * t + K_F / wm * A * sin(wm * t));  % 已调信号
+A_c = 1;
+K_F = 20;
+sFM = A_c * cos(wc * t + 2 * pi * K_F * A / wm * sin(wm * t));  % 方法①：已调信号
+% sFM = A_c * cos(wc * t + 2 * pi * K_F * cumsum(mt) * dt);  % 方法②：已调信号
 
 figure(1);
 
@@ -540,7 +549,7 @@ subplot(324);
 [f, sfc] = T2F(t, ct);
 plot(f, abs(sfc));
 xlabel('f/Hz');
-xlim([-50, 50]);
+xlim([-100, 100]);
 title('载波信号频谱');
 
 subplot(325);
@@ -552,24 +561,39 @@ subplot(326);
 [f, sfFM] = T2F(t, sFM);
 plot(f, abs(sfFM));
 xlabel('f/Hz');
-xlim([-50, 50]);
+xlim([-100, 100]);
 title('FM 已调信号频谱');</code></pre>
 
-<h3 id="FM-频率解调-code"><a href="#FM-频率解调-code" class="headerlink" title="FM 频率解调 code"></a>FM 频率解调 code</h3><p>鉴频器（略）</p>
-<details><summary>展开说说</summary>
+<h3 id="FM-频率解调-code"><a href="#FM-频率解调-code" class="headerlink" title="FM 频率解调 code"></a>FM 频率解调 code</h3><ul>
+<li>非相干解调（包络检波）</li>
+</ul>
+<pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">figure;
 
-<p>都说了害没开始写，日后会更新的(doge)</p>
-</details>
+subplot(221);
+plot(mt);
+title('调制信号');
 
-<h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><ul>
-<li>信噪比分别为小信噪比 10dB 和 大信噪比 40dB条件下，FM 已调信号波形：</li>
+subplot(222);
+plot(ct);
+title('载波信号');
+
+subplot(223);
+plot(sFM);
+title('已调信号');
+
+sdt = [0 diff(sFM)];     % 对已调信号做微分
+rt = abs(hilbert(sdt));  % 构造解析信号求包络,得到非相干解调信号
+subplot(224);
+plot(rt);
+title('解调信号');</code></pre>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>不同信噪比下的 FM 已调信号</li>
 </ul>
 <blockquote>
-<p>分析：<br>根据上面信号和噪声的功率以及信噪比，得：噪声功率 $\sigma^2 = N_0 B_{FM} = \cfrac{S}{10^{\frac{SNR_i}{10}}} = \cfrac{A^2}{2 \cdot 10^{\frac{SNR_i}{10}}}$<br>所以 <code>rand(1, n)</code> 产生 n 个服从高斯分布得随机数，均值为 $m=0$，方差 $\sigma^2=1$，要产生符合一定信噪比得噪声，只需要 $\sigma ~ \cdot$ <code>rand(1, n)</code>，其中标准差 $\sigma$ 根据上式中的方差（也即噪声功率）$\sigma^2$计算即可。</p>
+<p>分析：</p>
+<p>根据上面信号和噪声的功率以及信噪比，得：噪声功率 $\sigma^2 = N_0 B_{FM} = \cfrac{S}{10^{\frac{SNR_i}{10}}} = \cfrac{A^2}{2 \cdot 10^{\frac{SNR_i}{10}}}$<br>所以 <code>rand(1, n)</code> 产生 n 个服从高斯分布得随机数，均值为 $m=0$，方差 $\sigma^2=1$，要产生符合一定信噪比得噪声，只需要 $\sigma ~ \cdot$ <code>rand(1, n)</code>，其中标准差 $\sigma$ 根据上式中的方差（也即噪声功率）$\sigma^2$计算即可。</p>
 </blockquote>
-<p>这里需要注意的是：我们可以直接手动计算出 $\int_{0}^{t}m(\tau)d\tau = \int_{0}^{t}cos(2 \pi f_m \tau)d\tau = \frac{1}{2 \pi f_m} sin(2 \pi f_m t)$，然后直接带入 $t$ 即可。</p>
-<p>但是实际上，因为我们需要解调出基带信号 $m(t)$，也就是说我们不知道基带信号 $m(t)$ 的波形，所以上面这个方法在实际中是行不通的。正解应该是：我们需要自己写一个定积分的函数，其思想就是微元法逼近 $\int_{0}^{t}m(\tau)d\tau$ 的结果。</p>
-<p>以下，使用两种方法：①手动计算②微元法计算。</p>
 <pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">clc, clear, clf;
 dt = 0.00001;
 T = 0.004
@@ -590,171 +614,18 @@ wc = 2 * pi * fc;
 ct = cos(wc * t);      % 载波信号
 
 K_F = 10;
-% % 方法①
-% sFM = cos(wc * t + K_F / wm * A * sin(wm * t));  % 已调信号
-% 方法②
-inter_mt = zeros(1, length(mt));
-for i = 1: length(mt)
-    inter_mt(i) = jifen(mt(1:i), T, 1);
-end
-sFM = A_c * cos(wc * t + K_F * inter_mt);  % 已调信号
+sFM = A_c * cos(wc * t + K_F * cumsum(mt) * dt);  % FM 已调信号
 
-SNR1 = 10;
-sigma1 = sqrt(A^2 / (2 * 10^(SNR1 / 10)));
-noise1 = sigma1 * rand(1, length(mt));
+SNR = 40;
+sigma = sqrt(A^2 / (2 * 10^(SNR / 10)));
+noise = sigma * rand(1, length(mt));
 
-rt1 = sFM + noise1;
+rt1 = sFM + noise;
 subplot(312);
 plot(t, rt1);
-title('10dB 小信噪比下，FM 已调信号时域波形图');
+title('含信噪比下，FM 已调信号时域波形图');</code></pre>
 
-SNR2 = 40;
-sigma2 = sqrt(A^2 / (2 * 10^(SNR2 / 10)));
-noise2 = sigma2 * rand(1, length(mt));
-
-rt2 = sFM + noise2;
-subplot(313);
-plot(t, rt2);
-title('40dB 小信噪比下，FM 已调信号时域波形图');
-
-
-function s = jifen(y, delta)
-    % 梯形法 Trapezoid Rule
-    h = (y(1: end-1) + y(2: end)) / 2;
-    s = delta * sum(h);
-end</code></pre>
-
-<ul>
-<li>不同频偏对已调信号影响</li>
-</ul>
-<p>频偏：$K_F$</p>
-<p>卡森公式：$B \approx 2 (D + 1) f_H =2 (\Delta f_{max} + f_H ) $</p>
-<p>调整上面代码得频偏值，重复运行即可看到结果：</p>
-<pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">K_F = 1;  % 1 10 100</code></pre>
-
-<p>频偏直接影响频谱的形状与带宽，频偏比越小，带宽越小，频偏比越大，带宽越大。</p>
-<ul>
-<li>基带信号承载真实语音信号，分析其时域、频域特性</li>
-</ul>
-<blockquote>
-<p>基带信号承载真实语音信号：<br>这句话的意思就是用随便一段音频作为基带信号，因为一般音频信号频率低，属于低频的基带信号，所以只需要把上面代码的 <code>mt</code> 换成读取的音频信号序列即可。</p>
-</blockquote>
-<p>这里需要注意的是，因为基带信号是真实语音信号，所以不能计算出 $\int_{0}^{t}m(\tau)d\tau$，只能使用微元法逼近其定积分值。</p>
-<pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">clc, clear, clf;
-[xn, fs] = audioread('motherland.wav');
-T = 1 / fs;
-t = (0:10000-1) * T;
-
-A = 5;
-fm = 5;
-wm = 2 * pi * fm;
-% mt = A * cos(wm * t);  % 调制信号
-mt = xn(1:10000);       % 调制信号
-
-fc = 25;
-wc = 2 * pi * fc;
-ct = cos(wc * t);      % 载波信号
-
-A_c = 5;
-K_F = 10;
-inter_mt = zeros(1, length(mt));
-for i = 1: length(mt)
-    inter_mt(i) = jifen(mt(1:i), T, 1);  % 定积分
-end
-sFM = A_c * cos(wc * t + K_F * inter_mt);  % 已调信号
-
-figure(1);
-
-subplot(321);
-plot(t, mt);
-xlabel('t(s)');
-title('调制信号时域图');
-
-subplot(322);
-[f, sfm] = T2F(t, mt);
-plot(f, abs(sfm));
-xlabel('f/Hz');
-xlim([-50, 50]);
-title('调制信号频谱');
-
-subplot(323);
-plot(t, ct);
-xlabel('t(s)');
-title('载波信号时域图');
-
-subplot(324);
-[f, sfc] = T2F(t, ct);
-plot(f, abs(sfc));
-xlabel('f/Hz');
-xlim([-50, 50]);
-title('载波信号频谱');
-
-subplot(325);
-plot(t, sFM);
-xlabel('t(s)');
-title('已调信号时域图');
-
-subplot(326);
-[f, sfFM] = T2F(t, sFM);
-plot(f, abs(sfFM));
-xlabel('f/Hz');
-xlim([-100, 100]);
-title('FM 已调信号频谱');
-
-
-function s = jifen(y, delta)
-    % 梯形法 Trapezoid Rule
-    h = (y(1: end-1) + y(2: end)) / 2;
-    s = delta * sum(h);
-end</code></pre>
-
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>定积分代码：（运行结果来看，方法 1、方法 2 最好，方法 3 次之，故上文中使用方法 1）</p>
-<pre class="language-MATLAB" data-language="MATLAB"><code class="language-MATLAB">% 测试积分函数是否能用
-figure;
-dx = pi/100;
-x = 0:dx:2*pi;
-y = sin(x);
-jifen(y(1: round(length(y)/2)), dx, 1)
-jifen(y(1: round(length(y)/2)), dx, 2)
-jifen(y(1: round(length(y)/2)), dx, 3)
-
-subplot(221);
-plot(x, y);
-
-subplot(222);
-inter_y = zeros(1, length(x));
-for i = 1: length(x)
-    inter_y(i) = jifen(y(1:i), dx, 1);
-end
-plot(x, inter_y);
-
-subplot(223);
-inter_y = zeros(1, length(x));
-for i = 1: length(x)
-    inter_y(i) = jifen(y(1:i), dx, 2);
-end
-plot(x, inter_y);
-
-subplot(224);
-inter_y = zeros(1, length(x));
-for i = 1: length(x)
-    inter_y(i) = jifen(y(1:i), dx, 3);
-end
-plot(x, inter_y);
-
-function s = jifen(y, delta, method)
-    if method == 1
-        % 方法1：梯形法 Trapezoid Rule
-        h = (y(1:end-1) + y(2:end)) / 2;
-        s = delta * sum(h);
-    elseif method == 2
-        % 方法1：梯形法 Trapezoid Rule
-        s = delta * trapz(y);
-    elseif method == 3
-        % 方法2：1/3 辛普森 1/3 Simpson’s
-        s = delta / 6 * sum(y(1: end-2) + 4 * y(2: end-1) + y(3: end));
-    end
-end</code></pre>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gjblog/p/13494103.html">两种频率调制(FM)方法的MATLAB实现 - 羽扇纶巾o0 - 博客园 (cnblogs.com)</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>
@@ -1550,7 +1421,7 @@ end</code></pre>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">93.7k</span>
+                        class="white-color">94.2k</span>
             
             
             
